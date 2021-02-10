@@ -320,7 +320,7 @@
 <p>However when you type <code>a = 3</code>, it&rsquo;s an assignment expression and its completion type is <code>(normal, GetValue(), empty)</code>. So you will just see <code>3</code> in the console.</p>
 <p>For the difference between <code>statement</code> and <code>expression</code>, see <a href="ttps://medium.com/launch-school/javascript-expressions-and-statements-4d32ac9c0e74">difference statement/expression</a>.</p>
 <p>For different values of completion type, see <a href="https://interglacial.com/javascript_spec/a-12.html">completion type documentation</a>.</p>
-<p>If you check the completion type documentation, you can see that empty statement <code>;</code> has also a completion type <code>(normal, empty, empty)</code> (so <code>undefined</code> according to <code>Section 2</code>), and indeed it&rsquo;s the case. For the same reason, <code>if (x&gt;3) {console.log(x)}</code> also returns <code>undefined</code> and <code>do {console.log(3);} while (false)</code> too.</p>
+<p>If you check the completion type documentation, you can see that empty statement <code>;</code> has also a completion type <code>(normal, empty, empty)</code> (so <code>undefined</code> according to <a href="#foo">Section 2</a>, and indeed it&rsquo;s the case. For the same reason, <code>if (x&gt;3) {console.log(x)}</code> also returns <code>undefined</code> and <code>do {console.log(3);} while (false)</code> too.</p>
 <p>However, <code>(function f(){})</code> doesn&rsquo;t return <code>undefined</code> because it&rsquo;s an expression statement.</p>
 <p>Test by yourself. Here are some more examples:</p>
 <pre><code class="language-javascript">eval('function f(){}'); // Return (normal, empty, empty), undefined
@@ -348,7 +348,6 @@ do {
   console.log(3);
 } while (false); // undefined since (normal, empty, empty)
 </code></pre>
-<p><a href="#anchor" title="About Us">About</a></p>
 
   </main>
   <div id="disqus-container">
