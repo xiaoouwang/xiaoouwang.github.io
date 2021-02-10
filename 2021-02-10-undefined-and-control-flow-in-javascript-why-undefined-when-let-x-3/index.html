@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="canonical" href="/tags/test/">
+  <link rel="canonical" href="/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>test | xow</title>
+  <title>Undefined and control flow in Javascript (why undefined when let x = 3) ? | xow</title>
 </head>
 
   <body>
@@ -186,7 +186,7 @@
       
       
       
-      <a href="/post/" >
+      <a href="/post/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -199,7 +199,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -216,52 +216,164 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>test</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Undefined and control flow in Javascript (why undefined when let x = 3) ?
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Feb 10, 2021
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="/tags/test/">test</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#1-completion-type-and-control-flow">
+            1 Completion type and control flow
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#2-what-happens-when-you-evaluation-a-line-of-code">
+            2 What happens when you evaluation a line of code
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#3-declaration-statement-and-assignment-expression">
+            3 declaration statement and assignment expression
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    <h1 id="question">Question</h1>
+<p>When you type <code>let x = 3</code> (declaire a variable) in a console of Chrome/Firefox/ often you get a mysterious <code>undefined</code>. It&rsquo;s the same case when you type <code>function f(){}</code> (function declaration). The response can be quite intimidating as <a href="https://stackoverflow.com/questions/22844840/why-does-javascript-variable-declaration-at-console-results-in-undefined-being">this answer here</a>.</p>
+<p>Here is a simple explanation.</p>
+<h2 id="1-completion-type-and-control-flow">1 Completion type and control flow</h2>
+<p>In Javascript, the Completion type is a Record used to explain the runtime propagation of values and control flow such as the behaviour of statements (break, continue, return and throw, normal) that perform nonlocal transfers of control.</p>
+<p>In a nutshell it allows you to continue the work flow when the completion type is <code>normal</code> and break the flow when the type is <code>break</code>. You can have some more details <a href="https://262.ecma-international.org/6.0/#sec-completion-record-specification-type">here</a></p>
+<p><img src="images/javascript.png" alt=""></p>
+<h2 id="2-what-happens-when-you-evaluation-a-line-of-code">2 What happens when you evaluation a line of code</h2>
+<p>So each time you evaluate a line of code, you get a completion type/record <code>result</code> which has 3 values: type, value and target. According to the <a href="https://262.ecma-international.org/5.1/#sec-15.1.2.1##">Ecma specification</a>,</p>
+<p>If <code>result.type</code> is normal and its completion value is a value <code>V</code>, then return the value <code>V</code>.</p>
+<p>If <code>result.type</code> is normal and its completion value is <code>empty</code>, then return the value <code>undefined</code>.</p>
+<h2 id="3-declaration-statement-and-assignment-expression">3 declaration statement and assignment expression</h2>
+<p>It turns out that when you declare a variable or a function, the completion type is <code>(normal,empty,empty)</code>. Since the <code>result.type</code> is <code>normal</code> and value is <code>empty</code>, it returns the value <code>undefined</code>.</p>
+<p>However when you type <code>a = 3</code>, it&rsquo;s an assignment expression and its completion type is <code>(normal, GetValue(), empty)</code>. So you will just see <code>3</code> in the console.</p>
+<p>For the difference between <code>statement</code> and <code>expression</code>, see <a href="ttps://medium.com/launch-school/javascript-expressions-and-statements-4d32ac9c0e74">difference statement/expression</a>.</p>
+<p>For different values of completion type, see <a href="https://interglacial.com/javascript_spec/a-12.html">completion type documentation</a>.</p>
+<p>If you check the completion type documentation, you can see that empty statement <code>;</code>&rsquo;s completion type is also <code>(normal, empty, empty)</code>(so <code>undefined</code> according to <code>point 2</code>), and indeed it&rsquo;s the case. For the same reason, <code>if (x&gt;3) {console.log(x)}</code> also returns <code>undefined</code> and <code>do {console.log(3);} while (false)</code> too.</p>
+<p>However, <code>(function f(){})</code> doesn&rsquo;t return <code>undefined</code> because it&rsquo;s an expression statement.</p>
+<p>Test by yourself. Here are some more examples :</p>
+<pre><code class="language-javascript">eval('function f(){}'); // Return (normal, empty, empty)
+eval(';'); // Return (normal, empty, empty)
+eval('(function f(){})'); // (normal, GetValue(exprRef), empty), PrimaryExpression &lt; ExpresionStatement
+function foo() {
+  return 5;
+} // undefined
+foo(); // (return, 4, empty)
+eval('function foo() {return 5;}'); // Return (normal, empty, empty)
+eval('foo();'); //(return, 4, empty)
+let x = 4;
+if (x &gt; 3) {
+  console.log(x);
+} //  (normal, empty, empty)
+console.log(6); // (normal, empty, empty)
+eval('let x = 4; if (x&gt;3) {console.log(x)}'); // undefined
+let y = 5;
+do {
+  console.log(3);
+  y++;
+} while (y &lt; 8); // this returns y, can you explain why?
+
+do {
+  console.log(3);
+} while (false); // undefined since (normal, empty, empty)
+</code></pre>
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <div id="disqus_thread">
+        </div>
+        <script type="application/javascript">
+          function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Undefined and control flow in Javascript (why undefined when let x = 3) ?
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-10-this-is-a-test-on-using-vsc-to-write-blogs/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          This is a test on using VSC to write blogs
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
 
           
             <footer role="contentinfo">

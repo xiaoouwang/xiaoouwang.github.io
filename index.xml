@@ -17,6 +17,17 @@
     </item>
     
     <item>
+      <title>Undefined and control flow in Javascript (why undefined when let x = 3) ?</title>
+      <link>/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/</guid>
+      <description>Question When you type let x = 3 (declaire a variable) in a console of Chrome/Firefox/ often you get a mysterious undefined. It&amp;rsquo;s the same case when you type function f(){} (function declaration). The response can be quite intimidating as this answer here.
+Here is a simple explanation.
+1 Completion type and control flow In Javascript, the Completion type is a Record used to explain the runtime propagation of values and control flow such as the behaviour of statements (break, continue, return and throw, normal) that perform nonlocal transfers of control.</description>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
