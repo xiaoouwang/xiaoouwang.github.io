@@ -343,7 +343,7 @@
 <h2 id="declaration-statement-and-assignment-expression">Declaration statement and assignment expression</h2>
 <p>It turns out that when you declare a variable or a function, the <code>completion type</code> is <code>(normal,empty,empty)</code>. Since the <code>result.type</code> is <code>normal</code> and value is <code>empty</code>, it returns the value <code>undefined</code>.</p>
 <p>However when you type <code>a = 3</code>, it&rsquo;s an assignment expression and its completion type is <code>(normal, GetValue(), empty)</code>. So you will just see <code>3</code> in the console.</p>
-<p>For the difference between <code>statement</code> and <code>expression</code>, see <a href="ttps://medium.com/launch-school/javascript-expressions-and-statements-4d32ac9c0e74">difference statement/expression</a>.</p>
+<p>For the difference between <code>statement</code> and <code>expression</code>, see <a href="https://medium.com/launch-school/javascript-expressions-and-statements-4d32ac9c0e74">difference statement/expression</a>.</p>
 <p>For different values of completion type, see <a href="https://interglacial.com/javascript_spec/a-12.html">completion type documentation</a>.</p>
 <p>If you check the completion type documentation, you can see that empty statement <code>;</code> has also a completion type <code>(normal, empty, empty)</code> (so <code>undefined</code> according to <a href="#foo">Section 2</a>), and indeed it&rsquo;s the case. For the same reason, <code>if (x&gt;3) {console.log(x)}</code> also returns <code>undefined</code> and <code>do {console.log(3);} while (false)</code> too.</p>
 <p>However, <code>(function f(){})</code> doesn&rsquo;t return <code>undefined</code> because it&rsquo;s an expression statement.</p>
