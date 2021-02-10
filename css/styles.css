@@ -445,7 +445,7 @@ caption {
   padding: 0.25em 0.75em;
 }
 #disqus-comments {
-  display: none; 
+  display: none;
 }
 
 /* Pattern lists */
@@ -556,7 +556,7 @@ figcaption::before {
 }
 
 /* Code blocks */
-pre[class*=language-] {
+re[class*=language-] {
     background: none;
     margin-top: 2.25rem;
     margin-bottom: 0;
@@ -1029,7 +1029,7 @@ h1 svg {
     background: rgba(0,0,0,.8);
     color: #fefefe;
 }
-  
+
 ::selection {
   background: rgba(0,0,0,.8);
   color: #fefefe;
