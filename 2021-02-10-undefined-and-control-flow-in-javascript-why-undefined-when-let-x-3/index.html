@@ -306,7 +306,28 @@
   </p>
 </blockquote>
 <p>In a nutshell, it allows you to continue the work flow when the completion type is <code>normal</code> and break the flow when the type is <code>break</code>. You can get more details <a href="https://262.ecma-international.org/6.0/#sec-completion-record-specification-type">here</a>.</p>
-<p><img src="images/javascript.png" alt=""></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+<figure role="group" aria-describedby="caption-918a5957d687343f286acd1620c2448e">
+  <a href="/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/images/javascript.png" class="img-link">
+    <img src="/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/images/javascript_hu2bc823207995916d585886af91ee195d_138139_700x0_resize_box_2.png">
+  </a>
+  <figcaption id="caption-918a5957d687343f286acd1620c2448e">
+    Completion Record Fields
+  </figcaption>
+</figure>
+
+<!-- ![](images/javascript.png) -->
 <h2 id="foo">What happens when you evaluate a line of code</h2>
 <p>Each time you evaluate a line of code, you get a completion type/record <code>result</code> which has 3 attributes: <code>type</code>, <code>value</code> and <code>target</code>. According to the <a href="https://262.ecma-international.org/5.1/#sec-15.1.2.1##">Ecma specification</a>:</p>
 
@@ -352,6 +373,69 @@ do {
   console.log(3);
 } while (false); // undefined since (normal, empty, empty)
 </code></pre>
+
+
+
+<table class="tested">
+  <tr>
+    <th scope="row">
+      <svg viewBox="0 0 177.16535 177.16535" focusable="false" aria-hidden="true">
+        <use xlink:href="#tick"></use>
+      </svg>
+      Tested using
+    </th>
+    
+      <td>
+        
+        
+        
+        
+        <img src="/images/browser-firefox.svg" alt="">
+        <span><strong>Firefox </strong></span>
+        
+          
+          
+          <span class="additional">with <strong>JAWS</strong></span>
+        
+      </td>
+    
+      <td>
+        
+        
+        
+        
+        <img src="/images/browser-chrome.svg" alt="">
+        <span><strong>Chrome </strong></span>
+        
+      </td>
+    
+      <td>
+        
+        
+        
+        
+        <img src="/images/browser-safari-ios.svg" alt="">
+        <span><strong>Safari iOS </strong></span>
+        
+          
+          
+          <span class="additional">with <strong>Voiceover</strong></span>
+        
+      </td>
+    
+      <td>
+        
+        
+        
+        
+        <img src="/images/browser-edge.svg" alt="">
+        <span><strong>Edge </strong></span>
+        
+      </td>
+    
+  </tr>
+</table>
+
 
   </main>
   <div id="disqus-container">
