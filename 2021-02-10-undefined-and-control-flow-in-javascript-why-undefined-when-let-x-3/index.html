@@ -298,10 +298,10 @@
 <p>Here is a simple explanation.</p>
 <h2 id="completion-type-and-control-flow">Completion type and control flow</h2>
 <p>In Javascript, the Completion type is a Record used to explain the runtime propagation of values and control flow such as the behaviour of statements (break, continue, return and throw, normal) that perform nonlocal transfers of control.</p>
-<p>In a nutshell it allows you to continue the work flow when the completion type is <code>normal</code> and break the flow when the type is <code>break</code>. You can have some more details <a href="https://262.ecma-international.org/6.0/#sec-completion-record-specification-type">here</a></p>
+<p>In a nutshell it allows you to continue the work flow when the completion type is <code>normal</code> and break the flow when the type is <code>break</code>. You can have some more details <a href="https://262.ecma-international.org/6.0/#sec-completion-record-specification-type">here</a>.</p>
 <p><img src="images/javascript.png" alt=""></p>
 <h2 id="what-happens-when-you-evaluation-a-line-of-code">What happens when you evaluation a line of code</h2>
-<p>So each time you evaluate a line of code, you get a completion type/record <code>result</code> which has 3 values: type, value and target. According to the <a href="https://262.ecma-international.org/5.1/#sec-15.1.2.1##">Ecma specification</a>,</p>
+<p>So each time you evaluate a line of code, you get a completion type/record <code>result</code> which has 3 values: type, value and target. According to the <a href="https://262.ecma-international.org/5.1/#sec-15.1.2.1##">Ecma specification</a>:</p>
 <p>If <code>result.type</code> is normal and its completion value is a value <code>V</code>, then return the value <code>V</code>.</p>
 <p>If <code>result.type</code> is normal and its completion value is <code>empty</code>, then return the value <code>undefined</code>.</p>
 <h2 id="declaration-statement-and-assignment-expression">Declaration statement and assignment expression</h2>
@@ -311,7 +311,7 @@
 <p>For different values of completion type, see <a href="https://interglacial.com/javascript_spec/a-12.html">completion type documentation</a>.</p>
 <p>If you check the completion type documentation, you can see that empty statement <code>;</code>&rsquo;s completion type is also <code>(normal, empty, empty)</code> (so <code>undefined</code> according to <code>Section 2</code>), and indeed it&rsquo;s the case. For the same reason, <code>if (x&gt;3) {console.log(x)}</code> also returns <code>undefined</code> and <code>do {console.log(3);} while (false)</code> too.</p>
 <p>However, <code>(function f(){})</code> doesn&rsquo;t return <code>undefined</code> because it&rsquo;s an expression statement.</p>
-<p>Test by yourself. Here are some more examples :</p>
+<p>Test by yourself. Here are some more examples:</p>
 <pre><code class="language-javascript">eval('function f(){}'); // Return (normal, empty, empty)
 eval(';'); // Return (normal, empty, empty)
 eval('(function f(){})'); // (normal, GetValue(exprRef), empty), PrimaryExpression &lt; ExpresionStatement
