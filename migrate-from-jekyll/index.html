@@ -507,9 +507,20 @@ Liquid::Template.register_tag('image', Jekyll::ImageTag)
       
       
       
-        <p><em>Disqus comments are disabled.</em></p>
+        <div id="disqus_thread">
+        </div>
         <script type="application/javascript">
           function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
             // Remove button
 var disqusButton = document.getElementById('disqus-button');
 disqusButton.parentNode.removeChild(disqusButton); 
@@ -573,7 +584,7 @@ disqusComments.style.display = 'block';
   
   <script>
   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-  ga('create', 'UA-123456789-1', 'auto');
+  ga('create', 'UA-176800370-1', 'auto');
   ga('send', 'pageview');
   </script>
   <script async src='https://www.google-analytics.com/analytics.js'></script>
