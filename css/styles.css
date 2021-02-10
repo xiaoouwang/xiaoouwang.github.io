@@ -149,7 +149,7 @@ pre,
 .file-tree {
     overflow-x: auto;
     /* padding: 1.5rem; */
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 code {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -568,7 +568,7 @@ code[class*="language-"], pre[class*="language-"] {
   /* filter: grayscale(100%); */
 }
 pre[class*=language-][data-line] {
-    padding: 1em 0 0 2.25rem;
+    /* padding: 1em 0 0 2.25rem; */
 }
 pre[class*=language-] code * {
     margin-top: 0 !important;
@@ -1034,3 +1034,11 @@ h1 svg {
   background: rgba(0,0,0,.8);
   color: #fefefe;
 }
+
+.badge {
+    background-color: rgb(114, 104, 104);
+    color: #fff;
+    padding: 0.25em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 85%;
+  }
