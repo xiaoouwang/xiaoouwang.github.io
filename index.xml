@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 26 Jun 2017 18:27:58 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>This is a test on using VSC to write blogs</title>
+      <link>/2021-02-10-this-is-a-test-on-using-vsc-to-write-blogs/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-10-this-is-a-test-on-using-vsc-to-write-blogs/</guid>
+      <description>Funny that it works. Funny that it works.</description>
+    </item>
+    
+    <item>
       <title>Hello R Markdown</title>
       <link>/2020-12-01-r-rmarkdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
