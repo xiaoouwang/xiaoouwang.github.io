@@ -1,162 +1,189 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Cupper</title>
-    <link>https://example.com/tags/</link>
-    <description>Recent content in Tags on Cupper</description>
+    <title>Tags on xow</title>
+    <link>xiaoouwang.github.io/tags/</link>
+    <description>Recent content in Tags on xow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Aug 2020 21:05:05 -0500</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate><atom:link href="xiaoouwang.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>plot</title>
+      <link>xiaoouwang.github.io/tags/plot/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>xiaoouwang.github.io/tags/plot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>xiaoouwang.github.io/tags/r-markdown/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>xiaoouwang.github.io/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regression</title>
+      <link>xiaoouwang.github.io/tags/regression/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>xiaoouwang.github.io/tags/regression/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>issue</title>
-      <link>https://example.com/tags/issue/</link>
+      <link>xiaoouwang.github.io/tags/issue/</link>
       <pubDate>Tue, 04 Aug 2020 21:05:05 -0500</pubDate>
       
-      <guid>https://example.com/tags/issue/</guid>
+      <guid>xiaoouwang.github.io/tags/issue/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>https://example.com/tags/hugo/</link>
+      <link>xiaoouwang.github.io/tags/hugo/</link>
       <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/hugo/</guid>
+      <guid>xiaoouwang.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>katex</title>
-      <link>https://example.com/tags/katex/</link>
+      <link>xiaoouwang.github.io/tags/katex/</link>
       <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/katex/</guid>
+      <guid>xiaoouwang.github.io/tags/katex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math</title>
-      <link>https://example.com/tags/math/</link>
+      <link>xiaoouwang.github.io/tags/math/</link>
       <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/math/</guid>
+      <guid>xiaoouwang.github.io/tags/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>typesetting</title>
-      <link>https://example.com/tags/typesetting/</link>
+      <link>xiaoouwang.github.io/tags/typesetting/</link>
       <pubDate>Thu, 28 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/typesetting/</guid>
+      <guid>xiaoouwang.github.io/tags/typesetting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>https://example.com/tags/markdown/</link>
+      <link>xiaoouwang.github.io/tags/markdown/</link>
       <pubDate>Thu, 14 Feb 2019 15:36:09 -0600</pubDate>
       
-      <guid>https://example.com/tags/markdown/</guid>
+      <guid>xiaoouwang.github.io/tags/markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shortcodes</title>
-      <link>https://example.com/tags/shortcodes/</link>
+      <link>xiaoouwang.github.io/tags/shortcodes/</link>
       <pubDate>Tue, 12 Feb 2019 23:39:06 -0600</pubDate>
       
-      <guid>https://example.com/tags/shortcodes/</guid>
+      <guid>xiaoouwang.github.io/tags/shortcodes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nasa</title>
-      <link>https://example.com/tags/nasa/</link>
+      <link>xiaoouwang.github.io/tags/nasa/</link>
       <pubDate>Thu, 27 Dec 2018 20:46:49 -0600</pubDate>
       
-      <guid>https://example.com/tags/nasa/</guid>
+      <guid>xiaoouwang.github.io/tags/nasa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>quotes</title>
-      <link>https://example.com/tags/quotes/</link>
+      <link>xiaoouwang.github.io/tags/quotes/</link>
       <pubDate>Wed, 26 Dec 2018 00:29:41 -0600</pubDate>
       
-      <guid>https://example.com/tags/quotes/</guid>
+      <guid>xiaoouwang.github.io/tags/quotes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>command-line</title>
-      <link>https://example.com/tags/command-line/</link>
+      <link>xiaoouwang.github.io/tags/command-line/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/command-line/</guid>
+      <guid>xiaoouwang.github.io/tags/command-line/</guid>
       <description></description>
     </item>
     
     <item>
       <title>theme</title>
-      <link>https://example.com/tags/theme/</link>
+      <link>xiaoouwang.github.io/tags/theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/theme/</guid>
+      <guid>xiaoouwang.github.io/tags/theme/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fun</title>
-      <link>https://example.com/tags/fun/</link>
+      <link>xiaoouwang.github.io/tags/fun/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/fun/</guid>
+      <guid>xiaoouwang.github.io/tags/fun/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>https://example.com/tags/git/</link>
+      <link>xiaoouwang.github.io/tags/git/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/git/</guid>
+      <guid>xiaoouwang.github.io/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>https://example.com/tags/go/</link>
+      <link>xiaoouwang.github.io/tags/go/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/go/</guid>
+      <guid>xiaoouwang.github.io/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>templates</title>
-      <link>https://example.com/tags/templates/</link>
+      <link>xiaoouwang.github.io/tags/templates/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/templates/</guid>
+      <guid>xiaoouwang.github.io/tags/templates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jekyll</title>
-      <link>https://example.com/tags/jekyll/</link>
+      <link>xiaoouwang.github.io/tags/jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/jekyll/</guid>
+      <guid>xiaoouwang.github.io/tags/jekyll/</guid>
       <description></description>
     </item>
     
     <item>
       <title>migration</title>
-      <link>https://example.com/tags/migration/</link>
+      <link>xiaoouwang.github.io/tags/migration/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/tags/migration/</guid>
+      <guid>xiaoouwang.github.io/tags/migration/</guid>
       <description></description>
     </item>
     
