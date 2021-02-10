@@ -272,7 +272,7 @@
           
           
           
-          <a href="#what-happens-when-you-evaluate-a-line-of-code">
+          <a href="#foo">
             What happens when you evaluate a line of code
           </a>
         </li>
@@ -307,7 +307,7 @@
 </blockquote>
 <p>In a nutshell, it allows you to continue the work flow when the completion type is <code>normal</code> and break the flow when the type is <code>break</code>. You can get more details <a href="https://262.ecma-international.org/6.0/#sec-completion-record-specification-type">here</a>.</p>
 <p><img src="images/javascript.png" alt=""></p>
-<h2 id="what-happens-when-you-evaluate-a-line-of-code">What happens when you evaluate a line of code</h2>
+<h2 id="foo">What happens when you evaluate a line of code</h2>
 <p>Each time you evaluate a line of code, you get a completion type/record <code>result</code> which has 3 attributes: <code>type</code>, <code>value</code> and <code>target</code>. According to the <a href="https://262.ecma-international.org/5.1/#sec-15.1.2.1##">Ecma specification</a>:</p>
 <blockquote>
 <p>If <code>result.type</code> is normal and its completion value is a value <code>V</code>, then return the value <code>V</code>.</p>
@@ -348,6 +348,7 @@ do {
   console.log(3);
 } while (false); // undefined since (normal, empty, empty)
 </code></pre>
+
 
   </main>
   <div id="disqus-container">
