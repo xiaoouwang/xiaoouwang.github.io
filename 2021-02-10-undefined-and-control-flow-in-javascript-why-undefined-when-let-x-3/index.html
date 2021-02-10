@@ -272,8 +272,8 @@
           
           
           
-          <a href="#what-happens-when-you-evaluation-a-line-of-code">
-            What happens when you evaluation a line of code
+          <a href="#what-happens-when-you-evaluate-a-line-of-code">
+            What happens when you evaluate a line of code
           </a>
         </li>
       
@@ -294,14 +294,21 @@
     
 
     <h1 id="question">Question</h1>
-<p>When you type <code>let x = 3</code> (declare a variable) in a console of Chrome/Firefox/ often you get a mysterious <code>undefined</code>. It&rsquo;s the same case when you type <code>function f(){}</code> (function declaration). The response can be quite intimidating as <a href="https://stackoverflow.com/questions/22844840/why-does-javascript-variable-declaration-at-console-results-in-undefined-being">this answer here</a>.</p>
-<p>Here is a simple explanation.</p>
+<p>When you type <code>let x = 3</code> (declare a variable) in a console of Chrome/Firefox/&hellip; often you get a mysterious <code>undefined</code>. It&rsquo;s the same story when you type <code>function f(){}</code> (function declaration). The explanation can be quite intimidating as <a href="https://stackoverflow.com/questions/22844840/why-does-javascript-variable-declaration-at-console-results-in-undefined-being">this answer here</a>.</p>
+<p>Here is a simple (well not so simple) answer.</p>
 <h2 id="completion-type-and-control-flow">Completion type and control flow</h2>
-<p>In Javascript, the Completion type is a Record used to explain the runtime propagation of values and control flow such as the behaviour of statements (break, continue, return and throw, normal) that perform nonlocal transfers of control.</p>
-<p>In a nutshell it allows you to continue the work flow when the completion type is <code>normal</code> and break the flow when the type is <code>break</code>. You can have some more details <a href="https://262.ecma-international.org/6.0/#sec-completion-record-specification-type">here</a>.</p>
+
+
+<blockquote class="blockquote">
+  <p>
+    In Javascript, the <code>Completion type</code> is a Record used to explain the runtime propagation of values and control flow such as the behaviour of statements (break, continue, return and throw, normal) that perform nonlocal transfers of control.
+    
+  </p>
+</blockquote>
+<p>In a nutshell, it allows you to continue the work flow when the completion type is <code>normal</code> and break the flow when the type is <code>break</code>. You can get more details <a href="https://262.ecma-international.org/6.0/#sec-completion-record-specification-type">here</a>.</p>
 <p><img src="images/javascript.png" alt=""></p>
-<h2 id="what-happens-when-you-evaluation-a-line-of-code">What happens when you evaluation a line of code</h2>
-<p>So each time you evaluate a line of code, you get a completion type/record <code>result</code> which has 3 values: type, value and target. According to the <a href="https://262.ecma-international.org/5.1/#sec-15.1.2.1##">Ecma specification</a>:</p>
+<h2 id="what-happens-when-you-evaluate-a-line-of-code">What happens when you evaluate a line of code</h2>
+<p>Each time you evaluate a line of code, you get a completion type/record <code>result</code> which has 3 attributes: <code>type</code>, <code>value</code> and <code>target</code>. According to the <a href="https://262.ecma-international.org/5.1/#sec-15.1.2.1##">Ecma specification</a>:</p>
 <p>If <code>result.type</code> is normal and its completion value is a value <code>V</code>, then return the value <code>V</code>.</p>
 <p>If <code>result.type</code> is normal and its completion value is <code>empty</code>, then return the value <code>undefined</code>.</p>
 <h2 id="declaration-statement-and-assignment-expression">Declaration statement and assignment expression</h2>
@@ -309,25 +316,25 @@
 <p>However when you type <code>a = 3</code>, it&rsquo;s an assignment expression and its completion type is <code>(normal, GetValue(), empty)</code>. So you will just see <code>3</code> in the console.</p>
 <p>For the difference between <code>statement</code> and <code>expression</code>, see <a href="ttps://medium.com/launch-school/javascript-expressions-and-statements-4d32ac9c0e74">difference statement/expression</a>.</p>
 <p>For different values of completion type, see <a href="https://interglacial.com/javascript_spec/a-12.html">completion type documentation</a>.</p>
-<p>If you check the completion type documentation, you can see that empty statement <code>;</code>&rsquo;s completion type is also <code>(normal, empty, empty)</code> (so <code>undefined</code> according to <code>Section 2</code>), and indeed it&rsquo;s the case. For the same reason, <code>if (x&gt;3) {console.log(x)}</code> also returns <code>undefined</code> and <code>do {console.log(3);} while (false)</code> too.</p>
+<p>If you check the completion type documentation, you can see that empty statement <code>;</code> has also a completion type <code>(normal, empty, empty)</code> (so <code>undefined</code> according to <code>Section 2</code>), and indeed it&rsquo;s the case. For the same reason, <code>if (x&gt;3) {console.log(x)}</code> also returns <code>undefined</code> and <code>do {console.log(3);} while (false)</code> too.</p>
 <p>However, <code>(function f(){})</code> doesn&rsquo;t return <code>undefined</code> because it&rsquo;s an expression statement.</p>
 <p>Test by yourself. Here are some more examples:</p>
-<pre><code class="language-javascript">eval('function f(){}'); // Return (normal, empty, empty)
-eval(';'); // Return (normal, empty, empty)
-eval('(function f(){})'); // (normal, GetValue(exprRef), empty), PrimaryExpression &lt; ExpresionStatement
+<pre><code class="language-javascript">eval('function f(){}'); // Return (normal, empty, empty), undefined
+eval(';'); // Return (normal, empty, empty), undefined
+eval('(function f(){})'); // (normal, GetValue(exprRef), empty), ExpresionStatement
 function foo() {
-  return 5;
-} // undefined
-foo(); // (return, 4, empty)
-eval('function foo() {return 5;}'); // Return (normal, empty, empty)
-eval('foo();'); //(return, 4, empty)
-let x = 4; //  (normal, empty, empty)
+  return 4;
+} // Return (normal, empty, empty), undefined
+foo(); // (return, 4, empty), 4
+eval('function foo() {return 5;}'); // Return (normal, empty, empty), undefined
+eval('foo();'); // (return, 4, empty), 4
+let x = 4; //  (normal, empty, empty), undefined
 if (x &gt; 3) {
   console.log(x);
-} //  (normal, empty, empty)
-console.log(6); // (normal, empty, empty)
+} //  (normal, empty, empty), undefined
+console.log(6); // (normal, empty, empty), undefined
 eval('let x = 4; if (x&gt;3) {console.log(x)}'); // undefined
-let y = 5; //  (normal, empty, empty)
+let y = 5; //  (normal, empty, empty), undefined
 do {
   console.log(3);
   y++;
