@@ -309,11 +309,15 @@
 <p><img src="images/javascript.png" alt=""></p>
 <h2 id="foo">What happens when you evaluate a line of code</h2>
 <p>Each time you evaluate a line of code, you get a completion type/record <code>result</code> which has 3 attributes: <code>type</code>, <code>value</code> and <code>target</code>. According to the <a href="https://262.ecma-international.org/5.1/#sec-15.1.2.1##">Ecma specification</a>:</p>
-<blockquote>
-<p>If <code>result.type</code> is normal and its completion value is a value <code>V</code>, then return the value <code>V</code>.</p>
-</blockquote>
-<blockquote>
+
+
+<blockquote class="blockquote">
+  <p>
+    <p>If <code>result.type</code> is normal and its completion value is a value <code>V</code>, then return the value <code>V</code>.</p>
 <p>If <code>result.type</code> is normal and its completion value is <code>empty</code>, then return the value <code>undefined</code>.</p>
+
+    
+  </p>
 </blockquote>
 <h2 id="declaration-statement-and-assignment-expression">Declaration statement and assignment expression</h2>
 <p>It turns out that when you declare a variable or a function, the <code>completion type</code> is <code>(normal,empty,empty)</code>. Since the <code>result.type</code> is <code>normal</code> and value is <code>empty</code>, it returns the value <code>undefined</code>.</p>
