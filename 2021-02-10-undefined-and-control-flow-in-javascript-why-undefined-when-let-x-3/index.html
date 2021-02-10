@@ -312,7 +312,7 @@
 <p>If <code>result.type</code> is normal and its completion value is a value <code>V</code>, then return the value <code>V</code>.</p>
 <p>If <code>result.type</code> is normal and its completion value is <code>empty</code>, then return the value <code>undefined</code>.</p>
 <h2 id="declaration-statement-and-assignment-expression">Declaration statement and assignment expression</h2>
-<p>It turns out that when you declare a variable or a function, the completion type is <code>(normal,empty,empty)</code>. Since the <code>result.type</code> is <code>normal</code> and value is <code>empty</code>, it returns the value <code>undefined</code>.</p>
+<p>It turns out that when you declare a variable or a function, the <code>completion type</code> is <code>(normal,empty,empty)</code>. Since the <code>result.type</code> is <code>normal</code> and value is <code>empty</code>, it returns the value <code>undefined</code>.</p>
 <p>However when you type <code>a = 3</code>, it&rsquo;s an assignment expression and its completion type is <code>(normal, GetValue(), empty)</code>. So you will just see <code>3</code> in the console.</p>
 <p>For the difference between <code>statement</code> and <code>expression</code>, see <a href="ttps://medium.com/launch-school/javascript-expressions-and-statements-4d32ac9c0e74">difference statement/expression</a>.</p>
 <p>For different values of completion type, see <a href="https://interglacial.com/javascript_spec/a-12.html">completion type documentation</a>.</p>
