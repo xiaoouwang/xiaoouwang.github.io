@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on xow</title>
+    <link>/tags/tools/</link>
+    <description>Recent content in Tools on xow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Two AlfredWorkflow plugins to open folders/files in Pycharm/Rstudio</title>
+      <link>/2021-02-16-two-alfredworkflow-plugins-to-open-folders-files-in-pycharm-rstudio/</link>
+      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-16-two-alfredworkflow-plugins-to-open-folders-files-in-pycharm-rstudio/</guid>
+      <description>Two Alfred Plugins pycharmAlfredWorkflow and rstudioAlfredWorkflow are two alfred workflow plugins that I make to quickly open files/folders in Pycharm/Rstudio.
+  py, pyf, open a folder with Pycharm.
+  rs, rsf, open a folder with Rstudio.
+  Instructions   Using the keyword &amp;ldquo;py&amp;rdquo;, search for only folders within your home folder.
+  Using the keyword &amp;ldquo;pyf&amp;rdquo;, search for only files within your home folder.
+  Using the keyword &amp;ldquo;rs&amp;rdquo;, search for only folders within your home folder.</description>
+    </item>
+    
+  </channel>
+</rss>
