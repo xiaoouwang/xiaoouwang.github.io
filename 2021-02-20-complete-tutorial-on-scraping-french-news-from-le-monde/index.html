@@ -399,7 +399,7 @@ for year,links in archive_links.items():
 <p>This would produce something like this:</p>
 <p><img src="img/index.en/2021-02-20-19-42-03.png" alt=""></p>
 <h2 id="lets-scrape">Let&rsquo;s scrape</h2>
-<p>Now you can scrape article contents, it’s surprisingly straightforward. In fact you just need to get all the <code>h1,h2 and p</code> elements. The <code>recursive=False</code> is important here because you don’t want to dig any deeper once you find the text at some first level.</p>
+<p>Now you can scrape article contents, it’s surprisingly straightforward. In fact you just need to get all the <code>h1,h2 and p</code> elements. The <code>recursive=False</code> is important here because you don’t want to dig any deeper into children elements once you find the text.</p>
 <p>For concerns of modularity you should first write a function to scrape a single page.</p>
 <pre><code class="language-js">def get_single_page(url):
     try:
