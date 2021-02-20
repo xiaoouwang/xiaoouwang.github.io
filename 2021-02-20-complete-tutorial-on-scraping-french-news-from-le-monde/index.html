@@ -336,8 +336,8 @@
 <p>Author: Xiaoou Wang, Master’s student (currently in Paris) in NLP looking for a phd position/contrat cifre. <a href="xiaoouwang.github.io">Blog</a>/<a href="https://www.linkedin.com/in/xiaoou-wang">Linkedin</a>/<a href="mailto:xiaoouwangfrance@gmail.com">Email</a></p>
 </blockquote>
 <h2 id="why-you-need-web-scraping-and-why-i-wrote-this-tutorial">Why you need web scraping and why I wrote this tutorial</h2>
-<p>Sooner or later in your career you will find youself in a situation where you need to build your own corpus for common nlp tests.</p>
-<p>Some days ago I wrote a tutorial on scraping news on the French journal <code>le monde</code>. I didn’t finish the whole tutorial and today while refreshing some web scraping skills I find the best way to keep a personal knowledge base is writing complete, well documented tutorials. It creates a more robuste and contextualised documentation (like <code>Bert</code> :D) than simply commenting code.</p>
+<p>Sooner or later in your career you will find yourself in a situation where you need to build your own corpus for common nlp tests.</p>
+<p>Some days ago I wrote a tutorial on scraping news on the French journal <code>le monde</code>. I didn’t finish the whole tutorial and today while refreshing some web scraping skills I find the best way to keep a personal knowledge base is writing complete, well documented tutorials. It creates a more robust and contextualized documentation (like <code>Bert</code> :D) than simply commenting code.</p>
 <h2 id="legal-issues">Legal issues</h2>
 <p>Note that web scraping can cause some legal issues. I just provide a coding tutorial here, please use it at your own risk and read some articles like <a href="https://soshace.com/responsible-web-scraping-gathering-data-ethically-and-legally/">this one</a>.</p>
 <h2 id="get-article-links">Get article links</h2>
@@ -354,7 +354,7 @@
 </code></pre>
 <p>Example output of <code>create_archive_links(2006,2020,1, 12, 1, 31)</code>:</p>
 <p><img src="img/index.en/2021-02-20-19-38-41.png" alt=""></p>
-<p>The next step is to getting all the article links on the archive page. For this you need 3 modules: <code>HTTPError</code> to handle exceptions, <code>urlopen</code> to open webpages and <code>BeautifulSoup</code> to parse webpages.</p>
+<p>The next step is to get all the article links on the archive page. For this you need 3 modules: <code>HTTPError</code> to handle exceptions, <code>urlopen</code> to open webpages and <code>BeautifulSoup</code> to parse webpages.</p>
 <h3 id="the-magic-power-of-exception-handling">The magic power of exception handling</h3>
 <p>The exception handling is necessary because we have archive pages for dates like 02–31, it’s much easier to handle exceptions than generating links corresponding only to legitimate dates. Each article is in a <code>&lt;section&gt;</code> having a <code>class</code> named <code>teaser</code>.</p>
 <p>I also filter out all the non free articles having a span with class <code>icon__premium</code>. All the links containing the word <code>en-direct</code> are also filtered because they are videos. This is to say that web scraping requires not only programming skills but also some elementary web analysis.</p>
