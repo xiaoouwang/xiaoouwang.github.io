@@ -24,12 +24,11 @@ Some days ago I wrote a tutorial on scraping news on the French journal le monde
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>/2021-02-16-two-alfredworkflow-plugins-to-open-folders-files-in-pycharm-rstudio/</guid>
-      <description>Two Alfred Plugins pycharmAlfredWorkflow and rstudioAlfredWorkflow are two alfred workflow plugins that I make to quickly open files/folders in Pycharm/Rstudio.
+      <description>Author: Xiaoou Wang, Master’s student (currently in Paris) in NLP looking for a phd position/contrat cifre. Blog/Linkedin/Email
+ Two Alfred Plugins pycharmAlfredWorkflow and rstudioAlfredWorkflow are two alfred workflow plugins that I make to quickly open files/folders in Pycharm/Rstudio.
   py, pyf, open a folder with Pycharm.
   rs, rsf, open a folder with Rstudio.
-  Instructions   Using the keyword py, search for only folders within your home folder.
-  Using the keyword pyf, search for only files within your home folder.
-  Using the keyword rs, search for only folders within your home folder.</description>
+  Instructions   Using the keyword py, search for only folders within your home folder.</description>
     </item>
     
     <item>
@@ -48,9 +47,9 @@ Funny that it works.</description>
       <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/</guid>
-      <description>Question When you type let x = 3 (declare a variable) in a console of Chrome/Firefox/&amp;hellip; often you get a mysterious undefined. It&amp;rsquo;s the same story when you type function f(){} (function declaration). The explanation can be quite intimidating as this answer here.
-Here is a simple (well not sooo simple) answer.
-Completion type and control flow  In Javascript, the Completion type is a Record used to explain the runtime propagation of values and control flow such as the behaviour of statements (break, continue, return and throw, normal) that perform nonlocal transfers of control.</description>
+      <description>Author: Xiaoou Wang, Master’s student (currently in Paris) in NLP looking for a phd position/contrat cifre. Blog/Linkedin/Email
+ Question When you type let x = 3 (declare a variable) in a console of Chrome/Firefox/&amp;hellip; often you get a mysterious undefined. It&amp;rsquo;s the same story when you type function f(){} (function declaration). The explanation can be quite intimidating as this answer here.
+Here is a simple (well not sooo simple) answer.</description>
     </item>
     
   </channel>
