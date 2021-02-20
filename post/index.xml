@@ -19,7 +19,7 @@ Some days ago I wrote a tutorial on scraping news on the French journal le monde
     </item>
     
     <item>
-      <title>I create/share two AlfredWorkflow plugins to open folders/files in Pycharm/Rstudio</title>
+      <title>I created/share two AlfredWorkflow plugins to open folders/files in Pycharm/Rstudio</title>
       <link>/2021-02-16-two-alfredworkflow-plugins-to-open-folders-files-in-pycharm-rstudio/</link>
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
       
@@ -29,16 +29,6 @@ Some days ago I wrote a tutorial on scraping news on the French journal le monde
   py, pyf, open a folder with Pycharm.
   rs, rsf, open a folder with Rstudio.
   Instructions   Using the keyword py, search for only folders within your home folder.</description>
-    </item>
-    
-    <item>
-      <title>This is a test on using VSC to write blogs</title>
-      <link>/2021-02-10-this-is-a-test-on-using-vsc-to-write-blogs/</link>
-      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/2021-02-10-this-is-a-test-on-using-vsc-to-write-blogs/</guid>
-      <description>Funny that it works.
-Funny that it works.</description>
     </item>
     
     <item>
