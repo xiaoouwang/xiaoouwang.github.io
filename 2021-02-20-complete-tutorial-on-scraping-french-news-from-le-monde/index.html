@@ -384,7 +384,7 @@ def get_articles_links(archive_links):
 <h2 id="you-dont-want-to-scrape-more-than-once">You don&rsquo;t want to scrape more than once</h2>
 <p>Since no body wants to scrape the same links again and again (they are not very likely to change), a handy function can be created to save links into files. Here the publication year is used to name files.</p>
 <pre><code class="language-js">def write_links(path, links, year_fn):
-    with open(os.path.join(path + &quot;/lemonde*&quot; + str(year_fn) + &quot;\_links.txt&quot;), 'w') as f:
+    with open(os.path.join(path + &quot;/lemonde*&quot; + str(year_fn) + &quot;_links.txt&quot;), 'w') as f:
         for link in links:
             f.write(link + &quot;\n&quot;)
 
