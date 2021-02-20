@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on xow</title>
+    <link>/tags/python/</link>
+    <description>Recent content in Python on xow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complete tutorial on scraping French news from Le Monde</title>
+      <link>/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/</link>
+      <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/</guid>
+      <description>Author: Xiaoou Wang, Master’s student (currently in Paris) in NLP looking for a phd position/contrat cifre. Blog/Linkedin/Email
+ Sooner or later in your career you will find youself in a situation where you need to build your own corpus for common nlp tests.
+Some days ago I wrote a tutorial on scraping news on the French journal le monde. I didn’t finish the whole tutorial and today while refreshing some web scraping skills I find the best way to keep a personal knowledge base is writing complete, well documented tutorials.</description>
+    </item>
+    
+  </channel>
+</rss>

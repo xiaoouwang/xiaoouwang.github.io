@@ -6,7 +6,18 @@
     <description>Recent content in Posts on xow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complete tutorial on scraping French news from Le Monde</title>
+      <link>/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/</link>
+      <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/</guid>
+      <description>Author: Xiaoou Wang, Master’s student (currently in Paris) in NLP looking for a phd position/contrat cifre. Blog/Linkedin/Email
+ Sooner or later in your career you will find youself in a situation where you need to build your own corpus for common nlp tests.
+Some days ago I wrote a tutorial on scraping news on the French journal le monde. I didn’t finish the whole tutorial and today while refreshing some web scraping skills I find the best way to keep a personal knowledge base is writing complete, well documented tutorials.</description>
+    </item>
+    
     <item>
       <title>Two AlfredWorkflow plugins to open folders/files in Pycharm/Rstudio</title>
       <link>/2021-02-16-two-alfredworkflow-plugins-to-open-folders-files-in-pycharm-rstudio/</link>
