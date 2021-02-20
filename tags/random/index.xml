@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Random on xow</title>
+    <link>/tags/random/</link>
+    <description>Recent content in Random on xow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/random/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>This is a test on using VSC to write blogs</title>
+      <link>/2021-02-10-this-is-a-test-on-using-vsc-to-write-blogs/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-10-this-is-a-test-on-using-vsc-to-write-blogs/</guid>
+      <description>Funny that it works.
+Funny that it works.</description>
+    </item>
+    
+  </channel>
+</rss>
