@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General Programming Theory on xow</title>
+    <link>/tags/general-programming-theory/</link>
+    <description>Recent content in General Programming Theory on xow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/general-programming-theory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Undefined and control flow in Javascript (why do you see undefined when typing let x = 3 at console)</title>
+      <link>/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/</guid>
+      <description>Question When you type let x = 3 (declare a variable) in a console of Chrome/Firefox/&amp;hellip; often you get a mysterious undefined. It&amp;rsquo;s the same story when you type function f(){} (function declaration). The explanation can be quite intimidating as this answer here.
+Here is a simple (well not sooo simple) answer.
+Completion type and control flow  In Javascript, the Completion type is a Record used to explain the runtime propagation of values and control flow such as the behaviour of statements (break, continue, return and throw, normal) that perform nonlocal transfers of control.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Scraping on xow</title>
+    <link>/tags/web-scraping/</link>
+    <description>Recent content in Web Scraping on xow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/web-scraping/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complete tutorial on scraping French news from Le Monde</title>
+      <link>/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/</link>
+      <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/</guid>
+      <description>Author: Xiaoou Wang, Master’s student (currently in Paris) in NLP looking for a phd position/contrat cifre. Blog/Linkedin/Email
+ Why you need web scraping and why I wrote this tutorial Sooner or later in your career you will find youself in a situation where you need to build your own corpus for common nlp tests.
+Some days ago I wrote a tutorial on scraping news on the French journal le monde.</description>
+    </item>
+    
+  </channel>
+</rss>

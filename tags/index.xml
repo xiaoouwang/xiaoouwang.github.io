@@ -17,11 +17,29 @@
     </item>
     
     <item>
+      <title>Web Scraping</title>
+      <link>/tags/web-scraping/</link>
+      <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/web-scraping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Bash</title>
       <link>/tags/bash/</link>
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>General Programming Theory</title>
+      <link>/tags/general-programming-theory/</link>
+      <pubDate>Wed, 10 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/general-programming-theory/</guid>
       <description></description>
     </item>
     

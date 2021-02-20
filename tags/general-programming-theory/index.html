@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="canonical" href="/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/">
+  <link rel="canonical" href="/tags/general-programming-theory/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>Complete tutorial on scraping French news from Le Monde | xow</title>
+  <title>General Programming Theory | xow</title>
 
 
 </head>
@@ -201,7 +201,7 @@
       
       
       
-      <a href="/tags/" >
+      <a href="/tags/" aria-current="page">
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -217,321 +217,36 @@
       <div class="main-and-footer">
         <div>
           
-  <main id="main">
-    <h1>
-      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use xlink:href="#bookmark"></use>
-      </svg>
-      Complete tutorial on scraping French news from Le Monde
-    </h1>
-
-    <div class="date">
-      
-      
-      <strong>Publish date: </strong>Feb 20, 2021
-      
-        
-      
-    </div>
-
-    
-      <div class="tags">
-        <strong>Tags: </strong>
-        <ul aria-label="tags">
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              
-              <a href="/tags/python/">Python</a>
-            </li>
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              
-              <a href="/tags/web-scraping/">Web Scraping</a>
-            </li>
-          
-        </ul>
-      </div>
-    
-    
-    
-      
-
-  <nav class="toc" aria-labelledby="toc-heading">
-    <h2 id="toc-heading">Table of contents</h2>
-    <ol>
-      
-        <li>
-          
-          
-          
-          
-          <a href="#why-you-need-web-scraping-and-why-i-wrote-this-tutorial">
-            Why you need web scraping and why I wrote this tutorial
-          </a>
-        </li>
-      
-        <li>
-          
-          
-          
-          
-          <a href="#legal-issues">
-            Legal issues
-          </a>
-        </li>
-      
-        <li>
-          
-          
-          
-          
-          <a href="#get-article-links">
-            Get article links
-          </a>
-        </li>
-      
-        <li>
-          
-          
-          
-          
-          <a href="#you-dont-want-to-scrape-more-than-once">
-            You don’t want to scrape more than once
-          </a>
-        </li>
-      
-        <li>
-          
-          
-          
-          
-          <a href="#lets-scrape">
-            Let’s scrape
-          </a>
-        </li>
-      
-        <li>
-          
-          
-          
-          
-          <a href="#resources">
-            Resources
-          </a>
-        </li>
-      
-    </ol>
-  </nav>
-
-
-    
-
-    <blockquote>
-<p>Author: Xiaoou Wang, Master’s student (currently in Paris) in NLP looking for a phd position/contrat cifre. <a href="xiaoouwang.github.io">Blog</a>/<a href="https://www.linkedin.com/in/xiaoou-wang">Linkedin</a>/<a href="mailto:xiaoouwangfrance@gmail.com">Email</a></p>
-</blockquote>
-<h2 id="why-you-need-web-scraping-and-why-i-wrote-this-tutorial">Why you need web scraping and why I wrote this tutorial</h2>
-<p>Sooner or later in your career you will find youself in a situation where you need to build your own corpus for common nlp tests.</p>
-<p>Some days ago I wrote a tutorial on scraping news on the French journal <code>le monde</code>. I didn’t finish the whole tutorial and today while refreshing some web scraping skills I find the best way to keep a personal knowledge base is writing complete, well documented tutorials. It creates a more robuste and contexualized documentation (like <code>Bert</code> :D) than simply commenting code.</p>
-<h2 id="legal-issues">Legal issues</h2>
-<p>Note that web scraping can cause some legal issues. I just provide a coding tutorial here, please use it at your own risk and read some articles like <a href="https://soshace.com/responsible-web-scraping-gathering-data-ethically-and-legally/">this one</a>.</p>
-<h2 id="get-article-links">Get article links</h2>
-<p>So the first thing to do is to generate archive links, basically an archive link is a page on which we can scrape article links. For instance, the link <code>https://www.lemonde.fr/archives-du-monde/01-01-2020/</code> contains all the articles published for <code>2020–01–01</code>. Here I create the function <code>create_archive_link</code> which requires starting year/month/day and ending year/month/day as input. The output is a dictionary in the form of <code>year:links</code>.</p>
-<pre><code class="language-py">def create_archive_links(year_start, year_end, month_start, month_end, day_start, day_end):
-    archive_links = {}
-    for y in range(year_start, year_end + 1):
-        dates = [str(d).zfill(2) + &quot;-&quot; + str(m).zfill(2) + &quot;-&quot; +
-                 str(y) for m in range(month_start, month_end + 1) for d in
-                 range(day_start, day_end + 1)]
-        archive_links[y] = [
-            &quot;https://www.lemonde.fr/archives-du-monde/&quot; + date + &quot;/&quot; for date in dates]
-    return archive_links
-</code></pre>
-<p>Example output of <code>create_archive_links(2006,2020,1, 12, 1, 31)</code>:</p>
-<p><img src="img/index.en/2021-02-20-19-38-41.png" alt=""></p>
-<p>The next step is to getting all the article links on the archive page. For this you need 3 modules: <code>HTTPError</code> to handle exceptions, <code>urlopen</code> to open webpages and <code>BeautifulSoup</code> to parse webpages.</p>
-<h3 id="the-magic-power-of-exception-handling">The magic power of exception handling</h3>
-<p>The exception handling is necessary because we have archive pages for dates like 02–31, it’s much easier to handle exceptions than generating links corresponding only to existent dates. Each article is in a <code>&lt;section&gt;</code> having a <code>class</code> named <code>teaser</code>.</p>
-<p>I also filter out all the non free articles having a span with class <code>icon__premium</code>. All the links containing the word <code>en-direct</code> are also filtered because they are videos. This is to say that web scraping requires not only programming skills but also some elementary web analysis.</p>
-<p><img src="img/index.en/2021-02-20-19-39-25.png" alt=""></p>
-<pre><code class="language-py">from urllib.error import HTTPError
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
-def get_articles_links(archive_links):
-    links_non_abonne = []
-    for link in archive_links:
-        try:
-            html = urlopen(link)
-        except HTTPError as e:
-            print(&quot;url not valid&quot;, link)
-        else:
-            soup = BeautifulSoup(html, &quot;html.parser&quot;)
-            news = soup.find_all(class_=&quot;teaser&quot;)
-            # condition here : if no span icon__premium (abonnes)
-            for item in news:
-                if not item.find('span', {'class': 'icon__premium'}):
-                    l_article = item.find('a')['href']
-                    # en-direct = video
-                    if 'en-direct' not in l_article:
-                        links_non_abonne.append(l_article)
-    return links_non_abonne
-</code></pre>
-<h2 id="you-dont-want-to-scrape-more-than-once">You don&rsquo;t want to scrape more than once</h2>
-<p>Since no body wants to scrape the same links again and again (they are not very likely to change), a handy function can be created to save links into files. Here the publication year is used to name files.</p>
-<pre><code class="language-py">def write_links(path, links, year_fn):
-    with open(os.path.join(path + &quot;/lemonde*&quot; + str(year_fn) + &quot;\_links.txt&quot;), 'w') as f:
-        for link in links:
-            f.write(link + &quot;\n&quot;)
-
-article_links = {}
-
-for year,links in archive_links.items():
-    print(&quot;processing: &quot;,year)
-    article_links_list = get_articles_links(links)
-    article_links[year] = article_links_list
-    write_links(corpus_path,article_links_list,year)
-</code></pre>
-<p>This would produce something like this:</p>
-<p><img src="img/index.en/2021-02-20-19-42-03.png" alt=""></p>
-<h2 id="lets-scrape">Let&rsquo;s scrape</h2>
-<p>Now you can scrape article contents, it’s surprisingly straightforward. In fact you just need to get all the <code>h1,h2 and p</code> elements. The <code>recursive=False</code> is important here because you don’t want to dig any deeper once you find the text at some first level.</p>
-<p>For concerns of modularity you should first write a function to scrape a single page.</p>
-<pre><code class="language-py">def get_single_page(url):
-    try:
-        html = urlopen(url)
-    except HTTPError as e:
-        print(&quot;url not valid&quot;, url)
-    else:
-        soup = BeautifulSoup(html, &quot;html.parser&quot;)
-        text_title = soup.find('h1')
-        text_body = soup.article.find_all([&quot;p&quot;, &quot;h2&quot;], recursive=False)
-        return (text_title, text_body)
-</code></pre>
-<p>Let’s say you need to classify news by theme (which is very common in text classification tasks), you can use the following function to extract themes from links. For example the link <code>https://www.lemonde.fr/politique/article/2020/01/01/reforme-des-retraites-macron-reste-inflexible-aucune-issue-ne-se-profile_6024550_823448.html</code> contains the keyword politique meaning politics in French.</p>
-<pre><code class="language-python">def extract_theme(link):
-    try:
-        theme_text = re.findall(r'.fr/.*?/', link)[0]
-    except:
-        pass
-    else:
-        return theme_text[4:-1]
-</code></pre>
-<p>You can also get the top n themes.</p>
-<pre><code class="language-python">themes = []
-def list_themes(links):
-    themes = []
-    for link in links:
-        theme = extract_theme(link)
-        if theme is not None:
-            themes.append(theme)
-    return themes
-from collections import Counter
-theme_stat = Counter(themes)
-theme_top = []
-for k,v in sorted(theme_stat.items(), key = lambda x:x[1], reverse=True):
-    if v &gt; 700:
-        theme_top.append((k, v))
-themes_top_five = [x[0] for x in theme_top[:5]]
-</code></pre>
-<p>Now you need to have the links corresponding to the top 5 themes, so:</p>
-<pre><code class="language-python">from collections import defaultdict
-def classify_links(theme_list, link_list):
-    dict_links = defaultdict(list)
-    for theme in theme_list:
-        theme_link = 'https://www.lemonde.fr/' + theme + '/article/'
-        for link in link_list:
-            if theme_link in link:
-                dict_links[theme].append(link)
-    return dict_links
-all_links = []
-for link_list in article_links.values():
-    all_links.extend(link_list)
-themes_top_five_links = classify_links(themes_top_five,all_links)
-</code></pre>
-<p>It’s time to scrape all the articles that you need. Typically you would want to save all the scraped text in a folder. Note that this function takes a dictionary object with theme as key and corresponding links as value. For example here is a <code>dict</code> example for the top 5 themes.</p>
-<pre><code class="language-py">links_dict = {key: value for key, value in themes_top_five_links.items()
-}
-</code></pre>
-<p>Finally, you can scrape ! Note the <code>tqdm</code> around <code>range</code>, since the whole scraping process could be quite long, you need to keep track of the progress so that you know it’s always running. See how to use <code>tqdm</code> here <a href="https://tqdm.github.io/">https://tqdm.github.io/</a>. Below is a progress bar example copied from the official documentation.</p>
-<p><img src="img/index.en/2021-02-20-19-45-58.png" alt=""></p>
-<pre><code class="language-py">def scrape_articles(dict_links):
-    themes = dict_links.keys()
-    for theme in themes:
-        create_folder(os.path.join('corpus', theme))
-        print(&quot;processing:&quot;, theme)
-        #### note the use tqdm
-        for i in tqdm(range(len(dict_links[theme]))):
-            link = dict_links[theme][i]
-            fn = extract_fn(link)
-            single_page = get_single_page(link)
-            if single_page is not None:
-                with open((os.path.join('corpus', theme, fn + '.txt')), 'w') as f:
-                    # f.write(dict_links[theme][i] + &quot;\n&quot; * 2)
-                    f.write(single_page[0].get_text() + &quot;\n&quot; * 2)
-                    for line in single_page[1]:
-                        f.write(line.get_text() + &quot;\n&quot; * 2)
-</code></pre>
-<p>Now that you get all the articles as txt, here is a function allowing you to extract any number of texts from each folder. The default number is set to 1000 here.</p>
-<pre><code class="language-py">def cr_corpus_dict(path_corpus, n_files=1000):
-    dict_corpus = defaultdict(list)
-    themes = os.listdir(path_corpus)
-    for theme in themes:
-        counter = 0
-        if not theme.startswith('.'):
-            theme_directory = os.path.join(path_corpus, theme)
-            for file in os.listdir(theme_directory):
-                if counter &lt; n_files:
-                    path_file = os.path.join(theme_directory, file)
-                    text = read_file(path_file)
-                    dict_corpus[&quot;label&quot;].append(theme)
-                    dict_corpus[&quot;text&quot;].append(text)
-                counter += 1
-    return dict_corpus
-</code></pre>
-<h2 id="resources">Resources</h2>
-<p>Here you are. Happy scraping! And mind the potential legal issues! You can find source code <a href="https://gist.github.com/xiaoouwang/0f054840af560488f2162c110b6045b5#file-lemondescraper-py">here</a>.</p>
-
-  </main>
-  <div id="disqus-container">
+<main id="main">
+  <h1>General Programming Theory</h1>
   
-    <button id="disqus-button" onclick="showComments()">Show comments</button>
-    <div id="disqus-comments">
-      
-      
-      
-        <div id="disqus_thread">
-        </div>
-        <script type="application/javascript">
-          function showComments() {
-            // Config
-var disqus_config = function () {
-};
-// Build and append comments 
-var d = document;
-var s = d.createElement('script');
-s.async = true;
-s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
-s.setAttribute('data-timestamp', + new Date());
-(d.head || d.body).appendChild(s);
-            // Remove button
-var disqusButton = document.getElementById('disqus-button');
-disqusButton.parentNode.removeChild(disqusButton); 
-// Un-hide comments
-var disqusComments = document.getElementById('disqus-comments');
-disqusComments.style.display = 'block'; 
-          }
-        </script>
-      
-      <noscript>Enable JavaScript to view Disqus comments.</noscript>
-    </div>
+  <input
+    id="search"
+    type="text"
+    placeholder="Search by title..."
+    aria-label="Search by title"
+  />
   
-</div>
-
+  <ul class="patterns-list" id="list">
+    
+    <li>
+      <h2>
+        <a href="/2021-02-10-undefined-and-control-flow-in-javascript-why-undefined-when-let-x-3/">
+          <svg
+            class="bookmark"
+            aria-hidden="true"
+            viewBox="0 0 40 50"
+            focusable="false"
+          >
+            <use xlink:href="#bookmark"></use>
+          </svg>
+          Undefined and control flow in Javascript (why do you see undefined when typing let x = 3 at console)
+        </a>
+      </h2>
+    </li>
+    
+  </ul>
+</main>
 
           
             <footer role="contentinfo">
