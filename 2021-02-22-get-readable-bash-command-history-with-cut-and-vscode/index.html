@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="canonical" href="/tags/python/">
+  <link rel="canonical" href="/2021-02-22-get-readable-bash-command-history-with-cut-and-vscode/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>Python | xow</title>
+  <title>Get readable bash command history with cut and vscode | xow</title>
 
 
 </head>
@@ -201,7 +201,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -217,164 +217,101 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Python</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Get readable bash command history with cut and vscode
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Feb 22, 2021
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="/tags/bash/">Bash</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
+    
+      
+
+
+    
+
+    <p>Bash has a default command named history. The first thing you need to know is the tail option so that your screen doesn&rsquo;t get spammed with all the history</p>
+<pre><code class="language-C">history | tail -n 15 # show the last 15 commands
+</code></pre>
+<p>However the raw history gives too many info, so the next thing is to use the cut command, two quick exemples:</p>
+<pre><code class="language-C">echo &quot;abcdefghi&quot; | cut -c2-6 # extract the 2nd to the 6th character
+# output = bcdef
+echo &quot;a-b-c&quot; | cut -d'-' -f2
+# split the string into 3 parts and get the 2nd part, output = c
+</code></pre>
+<p>Combine these two commands</p>
+<pre><code class="language-C">history | cut -d ' ' -f4- | tail -n 15 # separate using space, get the 4th column, get the last 15 commands
+</code></pre>
+<p>Stream the output to <code>vscode</code></p>
+<pre><code class="language-C">history | cut -d ' ' -f4- | tail -n 15 | code -
+</code></pre>
+<p>Search a history containing specific string</p>
+<pre><code class="language-C">history | grep &quot;python&quot; | cut -d' ' -f4- | tail -n 15 | code -
+</code></pre>
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <div id="disqus_thread">
+        </div>
+        <script type="application/javascript">
+          function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-understand-the-difference-between-repr-and-str-in-python/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Understand the difference between  __repr__ and  __str__ in Python
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-type-check-in-python-using-mypy/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Type check in Python using mypy
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-run-shell-command-in-python-code-using-os-system/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Run shell command in Python code using os.system
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-major-word-vector-parameters-in-gensim/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Major word vector parameters in Gensim
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-independent-t-test-by-hand-in-python-with-equal-sample-sizes-and-variance/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Independent t-test by hand in Python: with equal sample sizes and variance
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-docstrings-in-python/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Docstrings in Python
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-2021-complete-tutorial-on-deploying-django-app-on-ubuntu-at-digitalocean-ssl-certificate-https/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Complete tutorial on deploying Django app on Ubuntu at digitalocean &#43; SSL certificate https
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-add-markdown-and-mathjax-to-django-app/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Add Markdown and Mathjax to Django app
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Complete tutorial on scraping French news from Le Monde
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
 
           
             <footer role="contentinfo">

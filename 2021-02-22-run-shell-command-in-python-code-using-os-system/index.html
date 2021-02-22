@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="canonical" href="/tags/python/">
+  <link rel="canonical" href="/2021-02-22-run-shell-command-in-python-code-using-os-system/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>Python | xow</title>
+  <title>Run shell command in Python code using os.system | xow</title>
 
 
 </head>
@@ -201,7 +201,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -217,164 +217,169 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Python</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Run shell command in Python code using os.system
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Feb 22, 2021
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="/tags/python/">Python</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="/tags/bash/">Bash</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#a-basic-example">
+            A basic example
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#how-to-suppress-output">
+            How to suppress output?
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#how-to-handle-exceptions">
+            How to handle exceptions?
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#how-to-escape-certain-strings">
+            How to escape certain strings
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#reference">
+            Reference
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    <p>I&rsquo;m not going to present <code>subprocess</code> here because it&rsquo;s unnecessary in a lot of cases.</p>
+<h2 id="a-basic-example">A basic example</h2>
+<pre><code class="language-python">import os
+bash_command = &quot;echo 3&quot;
+os.system(bash_command)
+</code></pre>
+<h2 id="how-to-suppress-output">How to suppress output?</h2>
+<p>Use <code>bash_command = &quot;echo 3 &gt;/dev/null 2&gt;&amp;1&quot;</code></p>
+<p><code>/dev/null</code> is a special file in Linux system. Whatever you write to /dev/null will be discarded, forgotten into the void. It’s known as the null device in a UNIX system. <code> 2&gt;&amp;1</code> means the combination of standard and error flux.</p>
+<h2 id="how-to-handle-exceptions">How to handle exceptions?</h2>
+<p>If everything goes well <code>os.system</code> return <code>0</code>, so you can just write:</p>
+<pre><code class="language-python">if not os.command(bash_command):
+    print(&quot;something wrong&quot;)
+</code></pre>
+<p>Of course this kind of code is not optimal for team work, I&rsquo;ll introduce <code>subprocess</code> later</p>
+<h2 id="how-to-escape-certain-strings">How to escape certain strings</h2>
+<p>Use <code>shlex.quote</code>, see <a href="https://docs.python.org/3/library/shlex.html#shlex.quote">here</a></p>
+<h2 id="reference">Reference</h2>
+<p><a href="https://stackoverflow.com/questions/35817/how-to-escape-os-system-calls">escape</a></p>
+<p><a href="https://stackoverflow.com/questions/33985863/hiding-console-output-produced-by-os-system">os command</a></p>
+<p><a href="https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-laide-de-linux/40444-les-flux-de-redirection">redirection flux in bash</a></p>
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <div id="disqus_thread">
+        </div>
+        <script type="application/javascript">
+          function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-understand-the-difference-between-repr-and-str-in-python/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Understand the difference between  __repr__ and  __str__ in Python
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-type-check-in-python-using-mypy/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Type check in Python using mypy
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-run-shell-command-in-python-code-using-os-system/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Run shell command in Python code using os.system
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-major-word-vector-parameters-in-gensim/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Major word vector parameters in Gensim
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-independent-t-test-by-hand-in-python-with-equal-sample-sizes-and-variance/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Independent t-test by hand in Python: with equal sample sizes and variance
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-docstrings-in-python/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Docstrings in Python
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-2021-complete-tutorial-on-deploying-django-app-on-ubuntu-at-digitalocean-ssl-certificate-https/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Complete tutorial on deploying Django app on Ubuntu at digitalocean &#43; SSL certificate https
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-add-markdown-and-mathjax-to-django-app/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Add Markdown and Mathjax to Django app
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Complete tutorial on scraping French news from Le Monde
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
 
           
             <footer role="contentinfo">

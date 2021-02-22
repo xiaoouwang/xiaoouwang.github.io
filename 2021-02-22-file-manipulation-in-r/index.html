@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="canonical" href="/tags/python/">
+  <link rel="canonical" href="/2021-02-22-file-manipulation-in-r/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>Python | xow</title>
+  <title>File Manipulation in R | xow</title>
 
 
 </head>
@@ -201,7 +201,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -217,164 +217,220 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Python</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      File Manipulation in R
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Feb 22, 2021
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="/tags/r/">R</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#motivation">
+            Motivation
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#directory">
+            Directory
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#files">
+            Files
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#batch-processing">
+            Batch processing
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#references">
+            References
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    <h2 id="motivation">Motivation</h2>
+<p>Sometimes it can be impractical to switch to <code>terminal</code> to do occasional operations. R has some built-in functions that come quite handy.</p>
+<h2 id="directory">Directory</h2>
+<pre><code class="language-r"># get current working directory
+getwd()
+
+# set working directory
+setwd(&quot;&quot;)
+
+# new directory
+dir.create(&quot;new_folder&quot;)
+
+# delete a directory -- must add recursive = TRUE
+unlink(&quot;some_directory&quot;, recursive = TRUE)
+sapply(paste0(&quot;file&quot;, 1:100, &quot;.txt&quot;), unlink)
+
+# get dir info
+dirname(&quot;C:/path/to/file.txt&quot;)
+</code></pre>
+<h2 id="files">Files</h2>
+<pre><code class="language-r"># run R code
+sys.source(&quot;&quot;)
+# create file
+file.create(&quot;&quot;)
+# create and open in the edit window
+file.edit(&quot;&quot;)
+# create 100 files on a fly
+sapply(paste0(&quot;file&quot;, 1:100, &quot;.txt&quot;), file.create)
+# copy or move a file
+file.copy(&quot;source_file.txt&quot;, &quot;destination_folder&quot;)
+library(filesstrings)
+file.move(&quot;C:/path/to/file/some_file.txt&quot;, &quot;C:/some/other/path&quot;)
+# delete a file
+unlink(&quot;some_file.csv&quot;)
+# delete file
+file.remove(&quot;some_other_file.csv&quot;)
+# list files
+list.files()
+list.files(&quot;another directory&quot;)
+# all files
+list.files(&quot;&quot;, recursive = TRUE)
+list.files(pattern = &quot;.csv&quot;)
+# get file info
+basename(&quot;C:/path/to/file.txt&quot;)
+library(tools)
+file_ext(&quot;C:/path/to/file.txt&quot;) # returns &quot;txt&quot;
+file_ext(&quot;C:/path/to/file.csv&quot;) # returns &quot;csv&quot;
+
+# use shell.exec to open file in extern window...
+shell.exec(&quot;C:/path/to/file/some_file.txt&quot;)
+# or file.show to launch a file
+file.show(&quot;C:/path/to/file/some_file.txt&quot;)
+
+# check if a file exists
+file.exists(&quot;C:/path/to/file/some_file.txt&quot;)
+
+# check if a folder exists
+file.exists(&quot;C:/path/to/file/some_folder&quot;)
+
+# alternatively, check if a folder exists with dir.exists
+dir.exists(&quot;C:/path/to/file/some_folder&quot;)
+# open a window to chosse file
+file.choose()
+</code></pre>
+<h2 id="batch-processing">Batch processing</h2>
+<pre><code class="language-r"># read in all the CSV files
+all_data_frames &lt;- lapply(list.files(pattern = &quot;.csv&quot;), read.csv)
+# stack all data frames together
+single_data_frame &lt;- Reduce(rbind, all_data_frames)
+</code></pre>
+<h2 id="references">References</h2>
+<blockquote>
+<p><a href="http://theautomatic.net/2018/07/11/manipulate-files-r/">http://theautomatic.net/2018/07/11/manipulate-files-r/</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.datanovia.com/en/blog/how-to-easily-manipulate-files-and-directories-in-r/">https://www.datanovia.com/en/blog/how-to-easily-manipulate-files-and-directories-in-r/</a> for some advanced manipulations</p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/files">https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/files</a> for symbolic link etc</p>
+</blockquote>
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <div id="disqus_thread">
+        </div>
+        <script type="application/javascript">
+          function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-understand-the-difference-between-repr-and-str-in-python/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Understand the difference between  __repr__ and  __str__ in Python
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-type-check-in-python-using-mypy/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Type check in Python using mypy
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-run-shell-command-in-python-code-using-os-system/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Run shell command in Python code using os.system
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-major-word-vector-parameters-in-gensim/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Major word vector parameters in Gensim
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-independent-t-test-by-hand-in-python-with-equal-sample-sizes-and-variance/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Independent t-test by hand in Python: with equal sample sizes and variance
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-docstrings-in-python/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Docstrings in Python
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-2021-complete-tutorial-on-deploying-django-app-on-ubuntu-at-digitalocean-ssl-certificate-https/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Complete tutorial on deploying Django app on Ubuntu at digitalocean &#43; SSL certificate https
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-22-add-markdown-and-mathjax-to-django-app/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Add Markdown and Mathjax to Django app
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Complete tutorial on scraping French news from Le Monde
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
 
           
             <footer role="contentinfo">
