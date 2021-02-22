@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="canonical" href="/tags/">
+  <link rel="canonical" href="/2021-02-22-type-check-in-python-using-mypy/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>Tags | xow</title>
+  <title>Type check in Python using mypy | xow</title>
 
 
 </head>
@@ -201,7 +201,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -218,88 +218,135 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Type check in Python using mypy
+    </h1>
+
+    <div class="date">
       
-        <li>
-          <h2>
-            <a href="/tags/bash/">
+      
+      <strong>Publish date: </strong>Feb 22, 2021
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
               <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
                 <use xlink:href="#tag"></use>
               </svg>
-              (1) Bash
-            </a>
-          </h2>
+              
+              <a href="/tags/python/">Python</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#problem">
+            Problem
+          </a>
         </li>
       
         <li>
-          <h2>
-            <a href="/tags/django/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Django
-            </a>
-          </h2>
+          
+          
+          
+          
+          <a href="#solution">
+            Solution
+          </a>
         </li>
       
-        <li>
-          <h2>
-            <a href="/tags/general-programming-theory/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) General Programming Theory
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/gensim/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Gensim
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/javascript/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Javascript
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/python/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (6) Python
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/web-scraping/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Web Scraping
-            </a>
-          </h2>
-        </li>
-      
-    </ul>
+    </ol>
+  </nav>
+
+
+    
+
+    <h2 id="problem">Problem</h2>
+<p>Create a python script named <code>test.py</code>.</p>
+<pre><code class="language-js">def hello_name(name: str) -&gt; int:
+    return &quot;hehe&quot;
+
+hello_name(3)
+</code></pre>
+<p>Two things are wrong in the above code.</p>
+<ol>
+<li>a <code>str</code> is expected as parameter</li>
+<li>a <code>int</code> is expected as output</li>
+</ol>
+<p>However the function will still work without any error report. This kind of bug is the most difficult to resolve.</p>
+<h2 id="solution">Solution</h2>
+<pre><code class="language-bash">pip install mypy
+</code></pre>
+<p>then in the terminal, run</p>
+<pre><code class="language-bash">mypy test.py
+</code></pre>
+<p>Here is the output which debugs the code for you.</p>
+<pre>
+test.py:12: error: Incompatible return value type (got "str", expected "int")
+test.py:14: error: Argument 1 to "hello_name" has incompatible type "int"; expected "str"
+Found 2 errors in 1 file (checked 1 source file)
+</pre><blockquote>
+</blockquote>
+
   </main>
+  <div id="disqus-container">
+  
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <div id="disqus_thread">
+        </div>
+        <script type="application/javascript">
+          function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
+  
+</div>
+
 
           
             <footer role="contentinfo">

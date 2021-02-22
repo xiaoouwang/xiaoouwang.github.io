@@ -6,7 +6,65 @@
     <description>Recent content in Python on xow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complete tutorial on deploying Django app on Ubuntu at digitalocean &#43; SSL certificate https</title>
+      <link>/2021-02-22-2021-complete-tutorial-on-deploying-django-app-on-ubuntu-at-digitalocean-ssl-certificate-https/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-22-2021-complete-tutorial-on-deploying-django-app-on-ubuntu-at-digitalocean-ssl-certificate-https/</guid>
+      <description>[TOC]
+It can be quite frustrating/challenging for Django newbies to deploy their app because a bunch of new concepts should be known in order to play the game with confidence. This tutorial gives you all the basics and further reference. The structure of the project can be seen in the following screenshot: the project my_blog is itself located in the blog folder.
+Deployment in a nutshell You need
+ a web server often Nginx or apache to handle http requests an application server called gunicorn to serve your django app a django app a database management system often mysql or postgresql to store information.</description>
+    </item>
+    
+    <item>
+      <title>Independent t-test by hand in Python: with equal sample sizes and variance</title>
+      <link>/2021-02-22-independent-t-test-by-hand-in-python-with-equal-sample-sizes-and-variance/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-22-independent-t-test-by-hand-in-python-with-equal-sample-sizes-and-variance/</guid>
+      <description>Import necessary packages import numpy as np from scipy import stats from numpy.random import seed  Generate data # set the seed seed(1) N = 10 # Gaussian distributed data with mean = 4 and var = 1 # see https://docs.scipy.org/doc/numpy-1.15.1/reference/generated/numpy.random.randn.html a = np.random.randn(N) + 4 # Gaussian distributed data with with mean = 0 and var = 1 b = np.random.randn(N) print(&amp;quot;The mean of a is around 4 -&amp;gt;&amp;quot;,np.mean(a),&amp;quot;\nThe mean of b is around 0 -&amp;gt;&amp;quot;,np.</description>
+    </item>
+    
+    <item>
+      <title>Major word vector parameters in Gensim</title>
+      <link>/2021-02-22-major-word-vector-parameters-in-gensim/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-22-major-word-vector-parameters-in-gensim/</guid>
+      <description>The skip-gram model. From Lilian Weng
+ import logging import multiprocessing from gensim.models import Word2Vec cores = multiprocessing.cpu_count() w2v_model = Word2Vec(min_count=5, # window=5, size=100, # sample=6e-5, # alpha=0.03, # min_alpha=0.0007, # negative=20, sg=1, workers=cores-1)  See here and here for more explanations
+ vector_size: number of dimensions of the embeddings, default 100. For comparaison you can set it to 200 and 300. Some set it even to 1000. window: maximum distance between a target word and words around the target word.</description>
+    </item>
+    
+    <item>
+      <title>Type check in Python using mypy</title>
+      <link>/2021-02-22-type-check-in-python-using-mypy/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-22-type-check-in-python-using-mypy/</guid>
+      <description>Problem Create a python script named test.py.
+def hello_name(name: str) -&amp;gt; int: return &amp;quot;hehe&amp;quot; hello_name(3)  Two things are wrong in the above code.
+ a str is expected as parameter a int is expected as output  However the function will still work without any error report. This kind of bug is the most difficult to resolve.
+Solution pip install mypy  then in the terminal, run
+mypy test.py  Here is the output which debugs the code for you.</description>
+    </item>
+    
+    <item>
+      <title>Understand the difference between  __repr__ and  __str__ in Python</title>
+      <link>/2021-02-22-understand-the-difference-between-repr-and-str-in-python/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-22-understand-the-difference-between-repr-and-str-in-python/</guid>
+      <description>(1) Suppose that you have created a class
+class Person: def __init__(self, name, age): self.name = name self.age = age  (2) And initialized an instance
+p1 = Person(&amp;quot;John&amp;quot;, 36) print(p1)   An uninstructive output: &amp;lt;main.Animal object at 0x7f9060250410&amp;gt;
+ (3) __str__ changes the behavior of print, __repr__ makes print unnecessary
+class Animal: def __init__(self, color, age, breed): self.color = color self.age = age self.breed = breed def __str__(self): return f&amp;quot;{self.</description>
+    </item>
+    
     <item>
       <title>Complete tutorial on scraping French news from Le Monde</title>
       <link>/2021-02-20-complete-tutorial-on-scraping-french-news-from-le-monde/</link>

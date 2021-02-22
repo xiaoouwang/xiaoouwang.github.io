@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gensim on xow</title>
+    <link>/tags/gensim/</link>
+    <description>Recent content in Gensim on xow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/gensim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Major word vector parameters in Gensim</title>
+      <link>/2021-02-22-major-word-vector-parameters-in-gensim/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-22-major-word-vector-parameters-in-gensim/</guid>
+      <description>The skip-gram model. From Lilian Weng
+ import logging import multiprocessing from gensim.models import Word2Vec cores = multiprocessing.cpu_count() w2v_model = Word2Vec(min_count=5, # window=5, size=100, # sample=6e-5, # alpha=0.03, # min_alpha=0.0007, # negative=20, sg=1, workers=cores-1)  See here and here for more explanations
+ vector_size: number of dimensions of the embeddings, default 100. For comparaison you can set it to 200 and 300. Some set it even to 1000. window: maximum distance between a target word and words around the target word.</description>
+    </item>
+    
+  </channel>
+</rss>

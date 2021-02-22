@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="canonical" href="/tags/">
+  <link rel="canonical" href="/2021-02-22-2021-complete-tutorial-on-deploying-django-app-on-ubuntu-at-digitalocean-ssl-certificate-https/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>Tags | xow</title>
+  <title>Complete tutorial on deploying Django app on Ubuntu at digitalocean &#43; SSL certificate https | xow</title>
 
 
 </head>
@@ -201,7 +201,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -218,88 +218,323 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Complete tutorial on deploying Django app on Ubuntu at digitalocean &#43; SSL certificate https
+    </h1>
+
+    <div class="date">
       
-        <li>
-          <h2>
-            <a href="/tags/bash/">
+      
+      <strong>Publish date: </strong>Feb 22, 2021
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
               <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
                 <use xlink:href="#tag"></use>
               </svg>
-              (1) Bash
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/django/">
+              
+              <a href="/tags/python/">Python</a>
+            </li>
+          
+            <li>
               <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
                 <use xlink:href="#tag"></use>
               </svg>
-              (1) Django
-            </a>
-          </h2>
+              
+              <a href="/tags/django/">Django</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#deployment-in-a-nutshell">
+            Deployment in a nutshell
+          </a>
         </li>
       
         <li>
-          <h2>
-            <a href="/tags/general-programming-theory/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) General Programming Theory
-            </a>
-          </h2>
+          
+          
+          
+          
+          <a href="#step-by-step">
+            Step by step
+          </a>
         </li>
       
-        <li>
-          <h2>
-            <a href="/tags/gensim/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Gensim
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/javascript/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Javascript
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/python/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (6) Python
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/web-scraping/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Web Scraping
-            </a>
-          </h2>
-        </li>
-      
-    </ul>
+    </ol>
+  </nav>
+
+
+    
+
+    <p>[TOC]</p>
+<p>It can be quite frustrating/challenging for Django newbies to deploy their app because a bunch of new concepts should be known in order to play the game with confidence. This tutorial gives you all the basics and further reference. The structure of the project can be seen in the following screenshot: the project <code>my_blog</code> is itself located in the <code>blog</code> folder.</p>
+<p><img src="https://i.imgur.com/FglTVf6.png"  alt="drawing" /></p>
+<h2 id="deployment-in-a-nutshell">Deployment in a nutshell</h2>
+<p>You need</p>
+<ul>
+<li>a web server often <code>Nginx</code> or <code>apache</code> to handle http requests</li>
+<li>an application server called <code>gunicorn</code> to serve your django app</li>
+<li>a django app</li>
+<li>a database management system often <code>mysql</code> or <code>postgresql</code> to store information.</li>
+<li>sometimes a firewall system to block some requests</li>
+</ul>
+<h2 id="step-by-step">Step by step</h2>
+<h3 id="1-create-a-serverdroplet-on-digitalocean-with-often-a-linux-system-as-ubuntu">(1) Create a server/droplet on <em>digitalocean</em> with often a Linux system as Ubuntu</h3>
+<p><img src="https://i.imgur.com/a0Lf3Xp.png"  alt="drawing" /></p>
+<p>Note, some tutorials said that a password would be sent to your email. Remember to choose the password method and set your password as follows. The 5$ plan is largely sufficient for personal use.</p>
+<p><img src="https://i.imgur.com/6AYEhq2.png"  alt="drawing" /></p>
+<h3 id="2-create-a-regular-user-with-some-root-privileges">(2) Create a regular user with some root privileges</h3>
+<p>For our purpose you just need to do the following steps:</p>
+<p>First connect to the server using <code>ssh</code>, on Mac you are good to go already on Windows you can use <code>PuTTy</code>, see the reference <a href="https://www.digitalocean.com/docs/droplets/how-to/connect-with-ssh/">here</a></p>
+<pre><code class="language-bash">ssh root@your_server_ip
+</code></pre>
+<p>The server ip can be seen here</p>
+<img src="https://i.imgur.com/UiJgLGx.png"  alt="drawing"/>
+<p>Then add a regular user with root privileges</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04">ref</a></p>
+<pre><code class="language-C">adduser sammy # add a user
+usermod -aG sudo sammy # give sammy root privileges
+</code></pre>
+<p>Now log out and log in this regular user</p>
+<pre><code class="language-C">ssh sammy@your_server_ip
+</code></pre>
+<h3 id="3-update-apt-get-to-install-the-most-recent-packages">(3) Update apt-get to install the most recent packages</h3>
+<p>Here we install pip, postgresql, and nginx. In simple terms, <code>nginx</code> is the server which takes http requests, another common server is <code>apache</code>.</p>
+<pre><code class="language-C">sudo apt-get update
+sudo apt-get install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx
+</code></pre>
+<h3 id="4-set-up-the-database">(4) Set up the database</h3>
+<p>First log into postgresql</p>
+<pre><code class="language-C">sudo -u postgres psql
+</code></pre>
+<p>Then create a database, user and password.</p>
+<pre><code class="language-C">CREATE DATABASE yourproject; # replace yourproject with your database name
+
+CREATE USER myprojectuser WITH PASSWORD 'password'; # set username and password
+
+ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
+
+ALTER ROLE myprojectuser SET default_transaction_isolation TO 'read committed';
+
+ALTER ROLE myprojectuser SET timezone TO 'UTC';
+
+GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
+\q # quit
+</code></pre>
+<h3 id="5-add-the-database-setting-set-up-in-step-4-into-your-settingspy-on-your-local-computer">(5) Add the database setting set up in step 4 into your <code>Settings.py</code> on your local computer</h3>
+<pre><code class="language-python">if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'yourdatabasename',
+            'USER': 'yourdatabaseuser',
+            'PASSWORD': 'yourdatabasepassword',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
+</code></pre>
+<h3 id="6-set-up-a-virtual-environment-for-python">(6) Set up a virtual environment for Python</h3>
+<pre><code class="language-C">sudo -H pip3 install --upgrade pip
+sudo -H pip3 install virtualenv
+</code></pre>
+<p>Since my website&rsquo;s source code is hosted on github I will use git to clone the project into the folder <code>blog</code>.</p>
+<p>Run <code>pip install psycopg2-binary gunicorn</code> and then <code>pip freeze &gt; requirements.txt</code> on your local computer.</p>
+<p>Also add your service ip in <code>ALLOWED_HOSTS</code> of your global <code>settings.py</code></p>
+<p><img src="https://i.imgur.com/fipeWqq.png"  alt="drawing" /></p>
+<p>Update/push your git repository, be sure to have uploaded the most recent <code>requirements.txt</code>. Then get the repository on the server by running:</p>
+<pre><code class="language-C">git clone yourrepository blog
+cd blog
+git config credential.helper store # remember your username and password
+</code></pre>
+<p>And then create a virtualenv named <code>env</code> and activate it</p>
+<pre><code class="language-C">virtualenv env
+source env/bin/activate
+pip install -r requirements.txt
+</code></pre>
+<h3 id="7-run-migrate">(7) Run migrate</h3>
+<pre><code class="language-python">python manage.py makemigrations
+python manage.py migrate
+</code></pre>
+<ul>
+<li>Test on 8000 port with and without gunicorn</li>
+</ul>
+<pre><code class="language-C">sudo ufw allow 8000 # allow 8000 in the firewall
+python manage.py runserver 0.0.0.0:8000
+</code></pre>
+<p>Go to <a href="http://server_domain_or_IP:8000">http://server_domain_or_IP:8000</a>, it&rsquo;s very important to use http since you haven&rsquo;t set ssl certificate (no https support).</p>
+<p>Now test the gunicorn. Gunicorn is an <code>application server</code> which serves your django app.</p>
+<pre><code class="language-C">gunicorn --bind 0.0.0.0:8000 my_blog.wsgi
+</code></pre>
+<h3 id="8-set-up-gunicorn-service-file">(8) Set up Gunicorn service file</h3>
+<p>I use vim here, but you are free to use some more beginner-friendly editor like nano. The gunicorn service file is to ensure that gunicorn is run automatically in background to serve django.</p>
+<pre><code class="language-C">sudo vim /etc/systemd/system/gunicorn.service
+</code></pre>
+<p>An example service file using sammy as user looks as follows:</p>
+<pre><code class="language-C">[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=sammy
+Group=www-data
+WorkingDirectory=/home/sammy/blog
+ExecStart=/home/sammy/blog/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/sammy/my_blog.sock my_blog.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Now, start gunicorn!</p>
+<pre><code class="language-C">sudo systemctl start gunicorn.socket
+sudo systemctl enable gunicorn.socket
+</code></pre>
+<h3 id="9-set-nginx">(9) Set Nginx</h3>
+<pre><code class="language-C">sudo vim /etc/nginx/sites-available/blog
+</code></pre>
+<p>An example setting looks as following</p>
+<pre><code class="language-C">server {
+    server_name 142.93.110.76;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/sammy/blog;
+    }
+
+    location /media/ {
+        root /home/sammy/media;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/sammy/my_blog.sock;
+    }
+}
+</code></pre>
+<p>Make a symbolic link to make your setting available to nginx</p>
+<pre><code class="language-C">sudo ln -s /etc/nginx/sites-available/blog /etc/nginx/sites-enabled
+</code></pre>
+<p>Test and start your Nginx server, you are good to go!</p>
+<pre><code class="language-C">sudo nginx -t
+sudo systemctl restart nginx
+# stop 8000 port in the firewall
+sudo ufw delete allow 8000
+sudo ufw allow 'Nginx Full'
+</code></pre>
+<h3 id="10-add-a-ssl-certificate-to-make-https-available">(10) Add a ssl certificate to make https available</h3>
+<p>Almost nobody uses http in our days now. Let&rsquo;s now see how to secure our site by adding a ssl certificate!</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04">ref</a></p>
+<pre><code class="language-C">sudo apt install certbot python3-certbot-nginx # install some useful packages
+sudo vim /etc/nginx/sites-available/blog
+</code></pre>
+<p>Change the <code>server_name</code> line, example:</p>
+<pre><code class="language-C">server_name 142.93.110.76 nlpinpython.com www.nlpinpython.com;
+</code></pre>
+<p>Retart Nginx and allow https in the firewall:</p>
+<pre><code class="language-C">sudo systemctl reload nginx
+sudo ufw allow 'Nginx Full'
+sudo ufw delete allow 'Nginx HTTP'
+</code></pre>
+<p>Get a ssl certificat</p>
+<pre><code class="language-C">sudo certbot --nginx -d nlpinpython.com -d www.nlpinpython.com
+</code></pre>
+<p>At the last step, select <code>redirect</code></p>
+<img src="https://i.imgur.com/ia658lG.png"  alt="drawing"/>
+<p>Congratulations to make it this far!</p>
+<h3 id="most-useful-commands">Most useful commands</h3>
+<pre><code class="language-C"># set up nginx
+sudo vim /etc/nginx/sites-available/blog
+# set up gunicorn
+sudo vim /etc/systemd/system/gunicorn.service
+# restart gunicorn after change
+sudo systemctl restart gunicorn
+# restart nginx
+sudo systemctl restart nginx
+# Export your database for backup
+sudo -i -u postgres -W
+pg_dump dbname &gt; dbexport.pgsql
+</code></pre>
+<h3 id="supplementary-references">Supplementary references</h3>
+<ul>
+<li>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04">about firewall</a></p>
+</li>
+<li>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-backup-postgresql-databases-on-an-ubuntu-vps">about postgresql backup</a></p>
+</li>
+<li>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-20-04">general instructions</a></p>
+</li>
+</ul>
+
   </main>
+  <div id="disqus-container">
+  
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <div id="disqus_thread">
+        </div>
+        <script type="application/javascript">
+          function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
+  
+</div>
+
 
           
             <footer role="contentinfo">

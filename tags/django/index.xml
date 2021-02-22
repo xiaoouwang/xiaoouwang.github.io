@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Django on xow</title>
+    <link>/tags/django/</link>
+    <description>Recent content in Django on xow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="/tags/django/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complete tutorial on deploying Django app on Ubuntu at digitalocean &#43; SSL certificate https</title>
+      <link>/2021-02-22-2021-complete-tutorial-on-deploying-django-app-on-ubuntu-at-digitalocean-ssl-certificate-https/</link>
+      <pubDate>Mon, 22 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/2021-02-22-2021-complete-tutorial-on-deploying-django-app-on-ubuntu-at-digitalocean-ssl-certificate-https/</guid>
+      <description>[TOC]
+It can be quite frustrating/challenging for Django newbies to deploy their app because a bunch of new concepts should be known in order to play the game with confidence. This tutorial gives you all the basics and further reference. The structure of the project can be seen in the following screenshot: the project my_blog is itself located in the blog folder.
+Deployment in a nutshell You need
+ a web server often Nginx or apache to handle http requests an application server called gunicorn to serve your django app a django app a database management system often mysql or postgresql to store information.</description>
+    </item>
+    
+  </channel>
+</rss>

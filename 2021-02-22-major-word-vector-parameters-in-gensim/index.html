@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="canonical" href="/tags/">
+  <link rel="canonical" href="/2021-02-22-major-word-vector-parameters-in-gensim/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>Tags | xow</title>
+  <title>Major word vector parameters in Gensim | xow</title>
 
 
 </head>
@@ -201,7 +201,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -218,88 +218,116 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Major word vector parameters in Gensim
+    </h1>
+
+    <div class="date">
       
-        <li>
-          <h2>
-            <a href="/tags/bash/">
+      
+      <strong>Publish date: </strong>Feb 22, 2021
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
               <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
                 <use xlink:href="#tag"></use>
               </svg>
-              (1) Bash
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/django/">
+              
+              <a href="/tags/python/">Python</a>
+            </li>
+          
+            <li>
               <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
                 <use xlink:href="#tag"></use>
               </svg>
-              (1) Django
-            </a>
-          </h2>
-        </li>
+              
+              <a href="/tags/gensim/">Gensim</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
+    
       
-        <li>
-          <h2>
-            <a href="/tags/general-programming-theory/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) General Programming Theory
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/gensim/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Gensim
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/javascript/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Javascript
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/python/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (6) Python
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/web-scraping/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Web Scraping
-            </a>
-          </h2>
-        </li>
-      
-    </ul>
+
+
+    
+
+    <p><img src="https://i.imgur.com/YUgnL3G.png" alt=""></p>
+<blockquote>
+<p>The skip-gram model. From <a href="https://lilianweng.github.io/lil-log/2017/10/15/learning-word-embedding.html">Lilian Weng</a></p>
+</blockquote>
+<pre><code class="language-python">import logging
+import multiprocessing
+from gensim.models import Word2Vec
+cores = multiprocessing.cpu_count()
+w2v_model = Word2Vec(min_count=5,
+                     # window=5,
+                     size=100,
+                     # sample=6e-5, 
+                     # alpha=0.03, 
+                     # min_alpha=0.0007, 
+                     # negative=20,
+                     sg=1,
+                     workers=cores-1)
+</code></pre>
+<p>See <a href="https://radimrehurek.com/gensim/auto_examples/tutorials/run_word2vec.html">here</a> and <a href="https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec">here</a> for more explanations</p>
+<ul>
+<li><code>vector_size</code>: number of dimensions of the embeddings, default 100. For comparaison you can set it to 200 and 300. <a href="https://fauconnier.github.io/">Some</a> set it even to 1000.</li>
+<li><code>window</code>: maximum distance between a target word and words around the target word. default 5.</li>
+<li><code>min_count</code>: default 5, the minimum count of words to consider when training the model. Words with occurrence less than this count will be ignored. pruning the internal dictionary. Words that appear only once or twice in a billion-word corpus are probably uninteresting typos and garbage.</li>
+<li><code>workers</code>: default 3, training parallelization to speed up training</li>
+<li><code>sg</code>: The training algorithm, either CBOW(0) or skip gram(1). The default training algorithm is CBOW. For test you can set it to 0.</li>
+</ul>
+
   </main>
+  <div id="disqus-container">
+  
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <div id="disqus_thread">
+        </div>
+        <script type="application/javascript">
+          function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
+  
+</div>
+
 
           
             <footer role="contentinfo">
