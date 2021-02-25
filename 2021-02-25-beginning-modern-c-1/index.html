@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.80.0" />
-  <link rel="canonical" href="/tags/">
+  <link rel="canonical" href="/2021-02-25-beginning-modern-c-1/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>Tags | xow</title>
+  <title>Beginning modern C&#43;&#43; (1) | xow</title>
 
 
 </head>
@@ -201,7 +201,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -218,110 +218,91 @@
         <div>
           
   <main id="main">
-    <h1>Tags</h1>
-    <ul class="patterns-list">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Beginning modern C&#43;&#43; (1)
+    </h1>
+
+    <div class="date">
       
-        <li>
-          <h2>
-            <a href="/tags/bash/">
+      
+      <strong>Publish date: </strong>Feb 25, 2021
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
               <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
                 <use xlink:href="#tag"></use>
               </svg>
-              (3) Bash
-            </a>
-          </h2>
-        </li>
+              
+              <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
       
-        <li>
-          <h2>
-            <a href="/tags/c&#43;&#43;/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) C&#43;&#43;
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/django/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (2) Django
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/general-programming-theory/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) General Programming Theory
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/gensim/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Gensim
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/javascript/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Javascript
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/python/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (10) Python
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/r/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) R
-            </a>
-          </h2>
-        </li>
-      
-        <li>
-          <h2>
-            <a href="/tags/web-scraping/">
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              (1) Web Scraping
-            </a>
-          </h2>
-        </li>
-      
-    </ul>
+
+
+    
+
+    <h2 id="why-i-decide-to-write-this-tutorial">Why I decide to write this tutorial</h2>
+<p>In machine learning python is the go-to language when it comes to learning, however C++ is everywhere (many python codes run C++ underneath and besides, people often switch to C++ when performance matters, that is to say, in production).</p>
+<p><code>C++</code> has a nasty reputation of being hard to be learned, so I want to write a modern introduction using modern IDEs like <code>Clion</code>.</p>
+<p>First, install <code>Clion</code> here: <a href="https://www.jetbrains.com/clion/download/">https://www.jetbrains.com/clion/download/</a><br>
+When starting <code>Clion</code> for the first time, choose C++ executable and C++14 (you really don’t need to understand why now).</p>
+<p><img src="img/index.en/2021-02-25-22-59-35.png" alt=""></p>
+<p>So here is the first lesson. Actually it’s quite simple. <code>C++</code> is a strong-typed language, so very variable declaration should be preceded by its type. The return type should also be specified for functions. The rest of the code is self-explaining. The include header is called a directive and since we use printf here which is not part of the <code>C++</code>&rsquo;s internal library we should include the <code>&lt;cstdio&gt;</code> library.</p>
+<p>The <code>%d</code> in <code>printf</code> is a placeholder to be replaced by a int variable.</p>
+<p>This is the first lesson. I&rsquo;ll continue this series and very soon you’ll understand the power and the complexity of C++ coming along with its performance. My ultimate goal is to give you foundations which enable you to understand and use libraries like <a href="https://github.com/simongog/sdsl-lite/">https://github.com/simongog/sdsl-lite/</a>. This kind of compressed data is under the hood of a lot of nlp applications because it scales well. Actually C++&rsquo;s real strength is in optimization of data structures and performance.</p>
+<p>So, stay tuned!</p>
+
   </main>
+  <div id="disqus-container">
+  
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <div id="disqus_thread">
+        </div>
+        <script type="application/javascript">
+          function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "xiaoouwang-github-io" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
+  
+</div>
+
 
           
             <footer role="contentinfo">
