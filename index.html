@@ -1,314 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="author" content="Xiaoou Wang, Elena Cabrio, Serena Villata">
   <meta name="description" content="Argument and Counter-Argument Generation: A Critical Survey">
   <meta name="keywords" content="Argument generation survey">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Xiaoou Wang - NLP</title>
-    <style>
-      body {
-        margin-left: 50px !important;
-      }
-      img {
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 5px;
-        width: 150px;
-      }
-      </style>
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/index.css" />
-  </head>
+  <title>Xiaoou Wang - NLP</title>
+  <style>
+    body {
+      margin-left: 50px !important;
+    }
 
-  <!-- About me section -->
-  <div class="card">
-    <div class="card-header">
-      About me
-    </div>
-    <div class="card-body">
-      <!-- <img src="./img/wang_photo_blanc.png" class = "figure_me" alt="..." style="max-width: 150px; "> -->
-      <img src="./img/wang_thumbnail.png" class = "figure_me" alt="..." style="max-width: 150px; ">
+    img {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      width: 150px;
+    }
+  </style>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<!-- About me section -->
+<div class="card">
+  <div class="card-header">
+    About me
+  </div>
+  <div class="card-body">
+    <!-- <img src="./img/wang_photo_blanc.png" class = "figure_me" alt="..." style="max-width: 150px; "> -->
+    <img src="./img/wang_thumbnail.png" class="figure_me" alt="..." style="max-width: 150px; ">
+    <br>
+    <span class="caption_me">
+      <a href="https://www.linkedin.com/in/xiaoou-wang/" target="_blank" style="font-size: 18px;">Xiaoou Wang</a>,
+      founder of the website <a href="https://aiprototypes.com" target="_blank"
+        style="font-size: 18px;">AIPrototypes</a>, follow me on <span class="caption_me"></span><a href="https://scholar.google.fr/citations?user=vKAMMpwAAAAJ&hl=en
+" target="_blank" style="font-size: 18px;">Google Scholar</a> and <span class="caption_me"></span><a
+        href="https://medium.com/@xiaoouwang" target="_blank" style="font-size: 18px;">Medium</a> :)<br>
+      <!-- Check my <a href="files/cv.pdf">CV here</a>. -->
       <br>
-      <span class="caption_me">
-<a href="https://www.linkedin.com/in/xiaoou-wang/" target="_blank" style="font-size: 18px;">Xiaoou Wang</a>, founder of the website <a href="https://aiprototypes.com" target="_blank" style="font-size: 18px;">AIPrototypes</a>, follow me on <span class="caption_me"></span><a href="https://scholar.google.fr/citations?user=vKAMMpwAAAAJ&hl=en
-" target="_blank" style="font-size: 18px;">Google Scholar</a> and <span class="caption_me"></span><a href="https://medium.com/@xiaoouwang" target="_blank" style="font-size: 18px;">Medium</a> :)<br>
-<!-- Check my <a href="files/cv.pdf">CV here</a>. -->
-<br>
-NLP researcher particularly interested in: <br>
-<br>
-1. Computational argumentation: namely Argument Mining and Argument Generation, including also Counter-argument Generation and their applications to the fight against online dis/misinformation
-<br>
-2. Advanced error type classification via Grammatical Error Correction (<b>GEC</b>, especially <b>transformer-based Neural machine translation (NMT)</b> approaches)
-<br>
-3. Advanced evaluation of students' written production
-<ul>
-  <li><b>[nlp/ml]</b> Automated Essay Scoring (AES based on error analysis)</li>
-  <li><b>[nlp/ml/dl]</b> Similarity-based evaluation with Gold Standard</li>
-  <li><b>[dl]</b> Identification of argumentative elements without Gold Standard</li>
-</ul>
-4. Creating benchmark datasets in tasks related to commonsense reasoning and developing robust evaluation protocols
-<br>
-5. In a broad sense, promoting/democratizing trustworthy, interpretable and socially beneficial Artificiel Intelligence
-<ul>
-  <li> <a href="https://www.demotal.fr/etudes-de-cas/exploiter-les-textes-biomedicaux-de-maniere-semi-automatisee/" target="_blank" rel="noopener noreferrer">Semi-automatic analysis of biomedical texts</a>, popular science article written in French for <a href="http://www.demotal.fr" target="_blank" rel="noopener noreferrer">DemoTal</a> (project supported by the French Ministry of Culture).
-    </li>
-  <li> <a href="https://www.demotal.fr/etudes-de-cas/comprendre-pour-mieux-choisir-le-cas-des-correcteurs-orthographiques/" target="_blank" rel="noopener noreferrer">Better understand spell checkers to make informed decisions</a>, idem.
+      NLP researcher particularly interested in: <br>
+      <br>
+      1. Computational argumentation: namely Argument Mining and Argument Generation, including also Counter-argument
+      Generation and their applications to the fight against online dis/misinformation
+      <br>
+      2. Advanced error type classification via Grammatical Error Correction (<b>GEC</b>, especially
+      <b>transformer-based Neural machine translation (NMT)</b> approaches)
+      <br>
+      3. Advanced evaluation of students' written production
+      <ul>
+        <li><b>[nlp/ml]</b> Automated Essay Scoring (AES based on error analysis)</li>
+        <li><b>[nlp/ml/dl]</b> Similarity-based evaluation with Gold Standard</li>
+        <li><b>[dl]</b> Identification of argumentative elements without Gold Standard</li>
+      </ul>
+      4. Creating benchmark datasets in tasks related to commonsense reasoning and developing robust evaluation
+      protocols
+      <br>
+      5. In a broad sense, promoting/democratizing trustworthy, interpretable and socially beneficial Artificiel
+      Intelligence
+      <ul>
+        <li> <a
+            href="https://www.demotal.fr/etudes-de-cas/exploiter-les-textes-biomedicaux-de-maniere-semi-automatisee/"
+            target="_blank" rel="noopener noreferrer">Semi-automatic analysis of biomedical texts</a>, popular science
+          article written in French for <a href="http://www.demotal.fr" target="_blank"
+            rel="noopener noreferrer">DemoTal</a> (project supported by the French Ministry of Culture).
+        </li>
+        <li> <a
+            href="https://www.demotal.fr/etudes-de-cas/comprendre-pour-mieux-choisir-le-cas-des-correcteurs-orthographiques/"
+            target="_blank" rel="noopener noreferrer">Better understand spell checkers to make informed decisions</a>,
+          idem.
 
-    </li>
-  <li> <a href="https://www.demotal.fr/etudes-de-cas/argumenter-au-lieu-de-bloquer-moderer-des-commentaires-en-ligne-tout-en-promouvant-le-debat/" target="_blank" rel="noopener noreferrer">Argue instead of blocking: moderating online comments while promoting debate</a>, idem.
+        </li>
+        <li> <a
+            href="https://www.demotal.fr/etudes-de-cas/argumenter-au-lieu-de-bloquer-moderer-des-commentaires-en-ligne-tout-en-promouvant-le-debat/"
+            target="_blank" rel="noopener noreferrer">Argue instead of blocking: moderating online comments while
+            promoting debate</a>, idem.
 
-    </li>
-  <li> <a href="https://www.demotal.fr/etudes-de-cas/au-dela-de-la-simple-dichotomie-positif-negatif-decouvrez-lanalyse-de-sentiments-a-base-daspects/" target="_blank" rel="noopener noreferrer">Beyond the simple positive-negative dichotomy, discover the aspect-based sentiment analysis (ABSA)</a>, idem.
+        </li>
+        <li> <a
+            href="https://www.demotal.fr/etudes-de-cas/au-dela-de-la-simple-dichotomie-positif-negatif-decouvrez-lanalyse-de-sentiments-a-base-daspects/"
+            target="_blank" rel="noopener noreferrer">Beyond the simple positive-negative dichotomy, discover the
+            aspect-based sentiment analysis (ABSA)</a>, idem.
 
-    </li>
-  <li> <a href="https://www.demotal.fr/etudes-de-cas/extraire-des-reponses-a-des-questions-de-prospects-a-partir-des-avis-clients/" target="_blank" rel="noopener noreferrer">Extractive question answering from customer reviews</a>, idem.
+        </li>
+        <li> <a
+            href="https://www.demotal.fr/etudes-de-cas/extraire-des-reponses-a-des-questions-de-prospects-a-partir-des-avis-clients/"
+            target="_blank" rel="noopener noreferrer">Extractive question answering from customer reviews</a>, idem.
 
-    </li>
-  <li> <a href="https://www.demotal.fr/etudes-de-cas/que-faire-en-cas-de-donnees-insuffisantes-approche-centree-sur-les-donnees-et-few-shot-learning/" target="_blank" rel="noopener noreferrer">Conducting POCs with limited data? From data quality to zero-shot learning</a>, idem.
-    </li>
-</ul>
-<br>
+        </li>
+        <li> <a
+            href="https://www.demotal.fr/etudes-de-cas/que-faire-en-cas-de-donnees-insuffisantes-approche-centree-sur-les-donnees-et-few-shot-learning/"
+            target="_blank" rel="noopener noreferrer">Conducting POCs with limited data? From data quality to zero-shot
+            learning</a>, idem.
+        </li>
+      </ul>
+      <br>
+  </div>
 </div>
+</div>
+
+
+
+
+<!-- Publication section -->
+
+<p>
+  <b>
+    <font face="Arial" size="4">Publications</font>
+  </b>
+</p>
+<p>
+  <span class="style8"><strong>
+      <font face="Arial"><a href="https://scholar.google.fr/citations?user=vKAMMpwAAAAJ&hl=en" target="_blank">
+          <font color="#808080">Google Scholar</font>
+        </a></font>
+    </strong> &nbsp;&nbsp;</span>
+  <span class="style8"><strong>
+      <font face="Arial"><a href="https://orcid.org/0000-0001-8849-7725" target="_blank">
+          <font color="#808080">ORCID</font>
+        </a></font>
+    </strong> &nbsp;&nbsp;</span>
+  <span class="style8"><strong>
+      <font face="Arial"><a href="https://hal.archives-ouvertes.fr/search/index/?q=%2A&authIdPerson_i=1102683"
+          target="_blank">
+          <font color="#808080">HAL</font>
+        </a></font>
+    </strong> &nbsp;&nbsp;</span>
+  <span class="style8"><strong>
+      <font face="Arial"><a href="https://github.com/xiaoouwang" target="_blank">
+          <font color="#808080">Github</font>
+        </a><br />
+    </strong></span>
+</p>
+
+
+<p>2025</p>
+<div class="article">
+  <div class="sidenav"></div>
+  <div class="content">
+    <h2 class="title">When automated fact-checking meets argumentation: unveiling fake news through argumentative
+      evidence
+
+      <br />
+    </h2>
+    <div class="author">
+      Argument & Computation, In press. &lt;hal-05005280v1&gt;
+      <br />
+      <span class="me">Xiaoou Wang</span>, Elena Cabrio, Serena Villata
+      <br />
     </div>
+    <a href="files/argumentation_journal_final_hal.pdf" target="_blank">Download the preprint here</a>
+    <br>
+
   </div>
 
+</div>
+<br>
 
-
-
-    <!-- Publication section -->
-
-    <p>
-      <b><font face="Arial" size="4">Publications</font></b>
-    </p>
-    <p>
-      <span class="style8"
-        ><strong
-          ><font face="Arial"
-            ><a
-              href="https://scholar.google.fr/citations?user=vKAMMpwAAAAJ&hl=en"
-              target="_blank"
-              ><font color="#808080">Google Scholar</font></a
-            ></font></strong
-      >  &nbsp;&nbsp;</span>
-      <span class="style8"
-      ><strong
-      ><font face="Arial"
-      ><a
-      href="https://orcid.org/0000-0001-8849-7725"
-      target="_blank"
-      ><font color="#808080">ORCID</font></a
-      ></font></strong
-      >  &nbsp;&nbsp;</span>
-      <span class="style8"
-      ><strong
-      ><font face="Arial"
-      ><a
-      href="https://hal.archives-ouvertes.fr/search/index/?q=%2A&authIdPerson_i=1102683"
-      target="_blank"
-      ><font color="#808080">HAL</font></a
-      ></font></strong
-      >  &nbsp;&nbsp;</span>
-      <span class="style8"
-        ><strong
-          ><font face="Arial"
-            ><a
-              href="https://github.com/xiaoouwang"
-              target="_blank"
-              ><font color="#808080">Github</font></a
-            ><br /></strong></span>
-    </p>
-
-
-    <p>2023</p>
-    <div class="article">
-      <div class="sidenav"></div>
-      <div class="content">
-        <h2 class="title">Argument and Counter-Argument Generation: A Critical Survey
+<p>2024</p>
+<div class="article">
+  <div class="sidenav"></div>
+  <div class="content">
+    <h2 class="title">Argument-structured Justification Generation for Explainable Fact-checking
 
       <br />
-        </h2>
-        <div class="author">
-          International Conference on Applications of Natural Language to Information Systems (pp. 500-510). Cham: Springer Nature Switzerland
-          <br />
-          <span class="me">Xiaoou Wang</span>, Elena Cabrio,  Serena Villata
-          <br />
-        </div>
-        <a
-          href="files/argumentandcounterargumentgenerationsurvey.pdf"
-          target="_blank"
-          >Download here</a
-          >
-          <br>
-        <a
-          href="argument_and_counterargument_generation.html"
-          target="_blank"
-          >Link for better SEO</a
-          >
-          <br>
-        <a
-          href="files/argumentandcounterargumentgenerationsurvey_slides.pdf"
-          target="_blank"
-          >Slides of my talk here</a
-          >
-          <br>
-        <br>
-        This version of the contribution has been accepted for publication, after peer review (when applicable) but is not the Version of Record and does not reflect post-acceptance improvements, or any corrections. The Version of Record is available online at: https://doi.org/10.1007/978-3-031-35320-8_37. Use of this Accepted Version is subject to the publisher’s Accepted Manuscript terms of use https://www.springernature.com/gp/open-research/policies/accepted-manuscript-terms
-      </div>
-    </div>
-    <br>
-    <p>2022</p>
-    <div class="article">
-      <div class="sidenav"></div>
-      <div class="content">
-        <div class="title">
-          Investigating associative, switchable and negatable Winograd items on renewed French data sets
+    </h2>
+    <div class="author">
+      WI-IAT 2024 - 23rd IEEE/WIC International Conference on Web Intelligence and Intelligent Agent Technology, Dec
+      2024, Bangkok, Thailand. &lt;hal-04862965&gt;
       <br />
-        </div>
-        <div class="author">
-          29e conférence sur le Traitement automatique des Langues Naturelles (TALN), 2022
-          <br />
-          <span class="me">Xiaoou Wang</span>, Olga Seminck,  Pascal Amsili
-          <br />
-        </div>
-        <a
-          href="https://aclanthology.org/2022.jeptalnrecital-taln.13/"
-          target="_blank"
-          >Download on ACL Anthology</a
-        >
-        <a
-          href="https://github.com/xiaoouwang/FWSC285"
-          target="_blank"
-          >Dataset</a
-        >
-      </div>
-    </div>
-    <br>
-    <div class="article">
-      <div class="sidenav"></div>
-      <div class="content">
-        <div class="title">
-          Is Attention Explanation? An Introduction to the Debate
+      <span class="me">Xiaoou Wang</span>, Elena Cabrio, Serena Villata
       <br />
-        </div>
-        <div class="author">
-          ACL main conference, 2022
-          <br />
-          Adrien Bibal, Rémi Cardon, David Alfter, Rodrigo Wilkens,  <span class="me">Xiaoou Wang</span>, Thomas François, Patrick Watrin
-          <br />
-        </div>
-        <a
-          href="https://aclanthology.org/2022.acl-long.269/"
-          target="_blank"
-          >Download on ACL Anthology</a
-        >
-      </div>
     </div>
+    <a href="https://inria.hal.science/hal-04862965/file/camera-ready.pdf" target="_blank">Download here</a>
     <br>
-    <div class="article">
-      <div class="sidenav"></div>
-      <div class="content">
-        <div class="title">
-          L’Attention est-elle de l’Explication ? Une Introduction au Débat
+
+  </div>
+</div>
+<br>
+
+<p>2023</p>
+<div class="article">
+  <div class="sidenav"></div>
+  <div class="content">
+    <h2 class="title">Argument and Counter-Argument Generation: A Critical Survey
+
       <br />
-        </div>
-        <div class="author">
-          29e conférence sur le Traitement automatique des Langues Naturelles (TALN), 2022
-          <br />
-          Adrien Bibal, Rémi Cardon, David Alfter, Rodrigo Wilkens,  <span class="me">Xiaoou Wang</span>, Thomas François, Patrick Watrin
-          <br />
-        </div>
-        <a
-          href="https://aclanthology.org/2022.jeptalnrecital-taln.45/"
-          target="_blank"
-          >Download on ACL Anthology</a
-        >
-      </div>
-    </div>
-    <br>
-    <div class="article">
-      <div class="sidenav"></div>
-      <div class="content">
-        <div class="title">
-          <a href="https://cental.uclouvain.be/fabra/" target="_blank" rel="noopener noreferrer">FABRA</a>: French Aggregator-Based Readability Assessment toolkit
+    </h2>
+    <div class="author">
+      International Conference on Applications of Natural Language to Information Systems (pp. 500-510). Cham: Springer
+      Nature Switzerland
       <br />
-        </div>
-        <div class="author">
-          Language Resources and Evaluation Conference (LREC), 2022
-          <br />
-          Rodrigo Wilkens, David Alfter, <span class="me">Xiaoou Wang</span>, Alice Pintard, Anaïs Tack, Kevin Yancey, Thomas François
-          <br />
-        </div>
-        <a
-          href="https://aclanthology.org/2022.lrec-1.130/"
-          target="_blank"
-          >Download on ACL Anthology</a>
-      </div>
+      <span class="me">Xiaoou Wang</span>, Elena Cabrio, Serena Villata
+      <br />
     </div>
+    <a href="files/argumentandcounterargumentgenerationsurvey.pdf" target="_blank">Download here</a>
     <br>
-    <div class="article">
-      <div class="sidenav"></div>
-      <div class="content">
-        <div class="title">
-          MWE for Essay Scoring English as a Foreign Language
-        </div>
-        <div class="author">
-          2nd Workshop on Tools and Resources for REAding DIfficulties (READI), LREC, 2022
-          <br />
-          Rodrigo Wilkens, Daiane Seibert, <span class="me">Xiaoou Wang</span> and Thomas François
-          <br />
-        </div>
-        <a
-          href="files/mwe_article.pdf"
-          target="_blank"
-          >Download the article</a
-        >         <a
-        href="files/mwe_poster.pdf"
-        target="_blank"
-        >Download the poster</a
-      >
-      </div>
+    <a href="argument_and_counterargument_generation.html" target="_blank">Link for better SEO</a>
+    <br>
+    <a href="files/argumentandcounterargumentgenerationsurvey_slides.pdf" target="_blank">Slides of my talk here</a>
+    <br>
+    <br>
+    This version of the contribution has been accepted for publication, after peer review (when applicable) but is not
+    the Version of Record and does not reflect post-acceptance improvements, or any corrections. The Version of Record
+    is available online at: https://doi.org/10.1007/978-3-031-35320-8_37. Use of this Accepted Version is subject to the
+    publisher’s Accepted Manuscript terms of use
+    https://www.springernature.com/gp/open-research/policies/accepted-manuscript-terms
+  </div>
+</div>
+<br>
+<p>2022</p>
+<div class="article">
+  <div class="sidenav"></div>
+  <div class="content">
+    <div class="title">
+      Investigating associative, switchable and negatable Winograd items on renewed French data sets
+      <br />
     </div>
-    <br>
+    <div class="author">
+      29e conférence sur le Traitement automatique des Langues Naturelles (TALN), 2022
+      <br />
+      <span class="me">Xiaoou Wang</span>, Olga Seminck, Pascal Amsili
+      <br />
+    </div>
+    <a href="https://aclanthology.org/2022.jeptalnrecital-taln.13/" target="_blank">Download on ACL Anthology</a>
+    <a href="https://github.com/xiaoouwang/FWSC285" target="_blank">Dataset</a>
+  </div>
+</div>
+<br>
+<div class="article">
+  <div class="sidenav"></div>
+  <div class="content">
+    <div class="title">
+      Is Attention Explanation? An Introduction to the Debate
+      <br />
+    </div>
+    <div class="author">
+      ACL main conference, 2022
+      <br />
+      Adrien Bibal, Rémi Cardon, David Alfter, Rodrigo Wilkens, <span class="me">Xiaoou Wang</span>, Thomas François,
+      Patrick Watrin
+      <br />
+    </div>
+    <a href="https://aclanthology.org/2022.acl-long.269/" target="_blank">Download on ACL Anthology</a>
+  </div>
+</div>
+<br>
+<div class="article">
+  <div class="sidenav"></div>
+  <div class="content">
+    <div class="title">
+      L’Attention est-elle de l’Explication ? Une Introduction au Débat
+      <br />
+    </div>
+    <div class="author">
+      29e conférence sur le Traitement automatique des Langues Naturelles (TALN), 2022
+      <br />
+      Adrien Bibal, Rémi Cardon, David Alfter, Rodrigo Wilkens, <span class="me">Xiaoou Wang</span>, Thomas François,
+      Patrick Watrin
+      <br />
+    </div>
+    <a href="https://aclanthology.org/2022.jeptalnrecital-taln.45/" target="_blank">Download on ACL Anthology</a>
+  </div>
+</div>
+<br>
+<div class="article">
+  <div class="sidenav"></div>
+  <div class="content">
+    <div class="title">
+      <a href="https://cental.uclouvain.be/fabra/" target="_blank" rel="noopener noreferrer">FABRA</a>: French
+      Aggregator-Based Readability Assessment toolkit
+      <br />
+    </div>
+    <div class="author">
+      Language Resources and Evaluation Conference (LREC), 2022
+      <br />
+      Rodrigo Wilkens, David Alfter, <span class="me">Xiaoou Wang</span>, Alice Pintard, Anaïs Tack, Kevin Yancey,
+      Thomas François
+      <br />
+    </div>
+    <a href="https://aclanthology.org/2022.lrec-1.130/" target="_blank">Download on ACL Anthology</a>
+  </div>
+</div>
+<br>
+<div class="article">
+  <div class="sidenav"></div>
+  <div class="content">
+    <div class="title">
+      MWE for Essay Scoring English as a Foreign Language
+    </div>
+    <div class="author">
+      2nd Workshop on Tools and Resources for REAding DIfficulties (READI), LREC, 2022
+      <br />
+      Rodrigo Wilkens, Daiane Seibert, <span class="me">Xiaoou Wang</span> and Thomas François
+      <br />
+    </div>
+    <a href="files/mwe_article.pdf" target="_blank">Download the article</a> <a href="files/mwe_poster.pdf"
+      target="_blank">Download the poster</a>
+  </div>
+</div>
+<br>
 
 
 
-  <!-- </div>
+<!-- </div>
   <br> -->
-    <p>2021</p>
-    <div class="article">
-      <div class="sidenav"></div>
-      <div class="content">
-        <div class="title">
-          Textual similarity measurement for automatic evaluation of students'
-          answers <br />
-        </div>
-        <div class="author">
-          Actes de la 28e Conférence sur le Traitement Automatique des Langues
-          Naturelles.
-          <br />
-          Atelier DÉfi Fouille de Textes (DEFT) (pp. 63-71)
-          <br />
-          <span class="me">Xiaoou Wang</span>, Xingyu Liu, Yimei Yue
-          <br />
-        </div>
-        <a
-          href="https://aclanthology.org/2021.jeptalnrecital-deft.7.pdf"
-          target="_blank"
-          >Download on ACL Anthology</a
-        >
-        <a
-          href="https://archivesic.ccsd.cnrs.fr/TALN-RECITAL/hal-03265923v1"
-          target="_blank"
-          >HAL</a
-        >
-      </div>
+<p>2021</p>
+<div class="article">
+  <div class="sidenav"></div>
+  <div class="content">
+    <div class="title">
+      Textual similarity measurement for automatic evaluation of students'
+      answers <br />
     </div>
-    <br>
-    <!-- <p>2014</p>
+    <div class="author">
+      Actes de la 28e Conférence sur le Traitement Automatique des Langues
+      Naturelles.
+      <br />
+      Atelier DÉfi Fouille de Textes (DEFT) (pp. 63-71)
+      <br />
+      <span class="me">Xiaoou Wang</span>, Xingyu Liu, Yimei Yue
+      <br />
+    </div>
+    <a href="https://aclanthology.org/2021.jeptalnrecital-deft.7.pdf" target="_blank">Download on ACL Anthology</a>
+    <a href="https://archivesic.ccsd.cnrs.fr/TALN-RECITAL/hal-03265923v1" target="_blank">HAL</a>
+  </div>
+</div>
+<br>
+<!-- <p>2014</p>
     <div class="article">
       <div class="sidenav"></div>
       <div class="content">
@@ -334,32 +358,31 @@ NLP researcher particularly interested in: <br>
       </div>
     </div> -->
 
-    <!-- playlist section -->
+<!-- playlist section -->
 
 
-    <!-- Copyright -->
-    <footer class="text-center text-white">
-      <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
-        The design/css of this website is rewritten and adapted from that of
-        <a href="http://kaiminghe.com/" target="_blank">Kaiming He 何恺明</a>
-      </div>
-    </footer>
-  </body>
+<!-- Copyright -->
+<footer class="text-center text-white">
+  <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+    The design/css of this website is rewritten and adapted from that of
+    <a href="http://kaiminghe.com/" target="_blank">Kaiming He 何恺明</a>
+  </div>
+</footer>
+</body>
 <!-- Default Statcounter code for Xiaoouwang.github.io
 http://xiaoouwang.github.io -->
 <script type="text/javascript">
-  var sc_project=11627620;
-  var sc_invisible=1;
-  var sc_security="96e3719f";
-  </script>
-  <script type="text/javascript"
-  src="https://www.statcounter.com/counter/counter.js"
-  async></script>
-  <noscript><div class="statcounter"><a title="Web Analytics
-  Made Easy - Statcounter" href="https://statcounter.com/"
-  target="_blank"><img class="statcounter"
-  src="https://c.statcounter.com/11627620/0/96e3719f/1/"
-  alt="Web Analytics Made Easy - Statcounter"
-  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-  <!-- End of Statcounter Code -->
+  var sc_project = 11627620;
+  var sc_invisible = 1;
+  var sc_security = "96e3719f";
+</script>
+<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript>
+  <div class="statcounter"><a title="Web Analytics
+  Made Easy - Statcounter" href="https://statcounter.com/" target="_blank"><img class="statcounter"
+        src="https://c.statcounter.com/11627620/0/96e3719f/1/" alt="Web Analytics Made Easy - Statcounter"
+        referrerPolicy="no-referrer-when-downgrade"></a></div>
+</noscript>
+<!-- End of Statcounter Code -->
+
 </html>
