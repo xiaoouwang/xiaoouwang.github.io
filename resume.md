@@ -1,0 +1,3 @@
+The widespread availability of the internet and social media platforms has fundamentally changed the way people consume and share information. In 2016, two-thirds of American adults read news via online channels and the primary platform for online social interaction and transmission of information is now social medium, giving rise to a new challenge:
+
+Online Disinformation which refers to the deliberate spread of false or misleading information online.
