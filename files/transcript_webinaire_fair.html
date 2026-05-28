@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Choisir un entrep&ocirc;t de confiance &colon; les principes FAIR en pratique avec Nakala</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <ul>
+<li><a href="#choisir-un-entrep%C3%B4t-de-confiance--les-principes-fair-en-pratique-avec-nakala">Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala</a></li>
+<li><a href="#quest-ce-quun-entrep%C3%B4t-de-confiance-">Qu’est-ce qu’un entrepôt de confiance ?</a></li>
+<li><a href="#o%C3%B9-trouver-des-entrep%C3%B4ts-de-confiance-">Où trouver des entrepôts de confiance ?</a></li>
+<li><a href="#pourquoi-d%C3%A9poser-ses-donn%C3%A9es-dans-un-entrep%C3%B4t-de-confiance-">Pourquoi déposer ses données dans un entrepôt de confiance ?</a></li>
+<li><a href="#exemple-concret--nakala">Exemple concret : Nakala</a></li>
+<li><a href="#findable--trouvable">Findable — Trouvable</a></li>
+<li><a href="#mauvaise-pratique--d%C3%A9p%C3%B4t-multiple">Mauvaise pratique : dépôt multiple</a></li>
+<li><a href="#accessible--accessible">Accessible — Accessible</a></li>
+<li><a href="#interoperable--interop%C3%A9rable">Interoperable — Interopérable</a>
+<ul>
+<li><a href="#formats-ouverts">Formats ouverts</a></li>
+<li><a href="#vocabulaires-contr%C3%B4l%C3%A9s">Vocabulaires contrôlés</a></li>
+<li><a href="#m%C3%A9tadonn%C3%A9es-normalis%C3%A9es">Métadonnées normalisées</a></li>
+</ul>
+</li>
+<li><a href="#moissonnage-automatique">Moissonnage automatique</a></li>
+<li><a href="#schemaorg-et-google-dataset-search">Schema.org et Google Dataset Search</a></li>
+<li><a href="#valorisation-avec-nakalapress">Valorisation avec NakalaPress</a></li>
+<li><a href="#reusable--r%C3%A9utilisable">Reusable — Réutilisable</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#prochain-webinaire--anonymisation-des-donn%C3%A9es">Prochain webinaire : anonymisation des données</a></li>
+</ul>
+<h1 id="choisir-un-entrepôt-de-confiance--les-principes-fair-en-pratique-avec-nakala">Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala</h1>
+<p>Bonjour à toutes et à tous, et merci d’être aussi nombreux aujourd’hui.</p>
+<p>Je me présente rapidement : je m’appelle Xiaoou Wang et je suis référent Humanités numériques à la MSHS Sud-Est.<br>
+Je me charge notamment de tout ce qui relève de l’application des outils numériques et de l’informatique aux problématiques en sciences humaines et sociales.</p>
+<p>Aujourd’hui, le thème du webinaire est :</p>
+<blockquote>
+<p><strong>« Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala »</strong></p>
+</blockquote>
+<p>Vous avez probablement déjà entendu parler des principes FAIR.<br>
+Aujourd’hui, l’idée n’est pas vraiment de refaire un grand discours sur le fait que les principes FAIR sont géniaux ou indispensables à la science ouverte.<br>
+Je voudrais plutôt qu’on regarde leurs implications très concrètes dans vos pratiques de recherche.</p>
+<hr>
+<h1 id="quest-ce-quun-entrepôt-de-confiance-">Qu’est-ce qu’un entrepôt de confiance ?</h1>
+<p>Dans un premier temps, on va essayer de comprendre ce qu’est un entrepôt de confiance.</p>
+<p>Le Collège des données de la recherche a établi un ensemble de critères d’exclusion.<br>
+Tous ces critères ont vraiment pour objectif de garantir la qualité des dépôts.</p>
+<p>Par exemple :</p>
+<ul>
+<li>la nécessité de modérer les dépôts ;</li>
+<li>la présence d’identifiants pérennes ;</li>
+<li>la garantie de pérennité de l’infrastructure ;</li>
+<li>ou encore certaines questions liées aux licences et à la liberté académique.</li>
+</ul>
+<p>Toute cette liste sert finalement à trier les entrepôts présents sur Internet, parce qu’aujourd’hui ils existent en très grand nombre et avec des niveaux de qualité très variables.</p>
+<p>Et évidemment, ces entrepôts doivent aussi répondre aux principes FAIR :</p>
+<ul>
+<li><strong>Findable</strong></li>
+<li><strong>Accessible</strong></li>
+<li><strong>Interoperable</strong></li>
+<li><strong>Reusable</strong></li>
+</ul>
+<p>On va d’ailleurs s’attarder un peu plus longtemps sur la notion d’interopérabilité, parce que c’est souvent le critère le plus abstrait, mais aussi l’un des plus importants.</p>
+<hr>
+<h1 id="où-trouver-des-entrepôts-de-confiance-">Où trouver des entrepôts de confiance ?</h1>
+<p>Il existe ce qu’on appelle des entrepôts thématiques.</p>
+<p>Sur le portail Recherche Data Gouv, vous pouvez trouver des entrepôts correspondant à différentes disciplines ou champs scientifiques.</p>
+<p>Cette liste a été triée et validée par le Collège des données de la recherche.</p>
+<p>Vous pouvez faire des recherches par discipline, par domaine, et consulter les différents critères d’évaluation.</p>
+<p>Et dans le cas où il n’existe pas d’entrepôt spécifique à votre discipline, il existe aussi des entrepôts généralistes, comme Recherche Data Gouv.</p>
+<p>Si vous cliquez sur les descriptions détaillées, vous trouverez toutes les informations concernant :</p>
+<ul>
+<li>les institutions porteuses ;</li>
+<li>les modérateurs ;</li>
+<li>les politiques de conservation ;</li>
+<li>et l’ensemble des critères utilisés pour évaluer les entrepôts.</li>
+</ul>
+<hr>
+<h1 id="pourquoi-déposer-ses-données-dans-un-entrepôt-de-confiance-">Pourquoi déposer ses données dans un entrepôt de confiance ?</h1>
+<p>Premièrement, pour garantir la pérennité des données.</p>
+<p>Et deuxièmement — et c’est souvent le point le plus concret — pour garantir leur visibilité maximale.</p>
+<p>Parce qu’effectivement, ces entrepôts servent ensuite à faire identifier et moissonner automatiquement les données par différents catalogues scientifiques.</p>
+<hr>
+<h1 id="exemple-concret--nakala">Exemple concret : Nakala</h1>
+<p>On va maintenant passer à un exemple concret avec Nakala, qui est un entrepôt de confiance en sciences humaines et sociales, et que vous pouvez retrouver sur la liste de Recherche Data Gouv.</p>
+<p>Pour accéder à Nakala, il faut d’abord obtenir ce qu’on appelle un HumanID.</p>
+<p>La procédure est assez simple.</p>
+<p>Il existe plusieurs moyens de l’obtenir, notamment via HAL.</p>
+<p>Une fois connecté, vous arrivez sur le portail des services Huma-Num, où vous pouvez demander l’accès à Nakala.</p>
+<p>L’identifiant HumanID est créé instantanément, mais l’accès effectif à Nakala peut prendre quelques jours, parfois jusqu’à deux semaines.</p>
+<hr>
+<h1 id="findable--trouvable">Findable — Trouvable</h1>
+<p>On va maintenant passer au premier principe FAIR :</p>
+<blockquote>
+<p><strong>Findable — trouvable</strong></p>
+</blockquote>
+<p>L’idée ici est que les données doivent être facilement retrouvables.</p>
+<p>Le point le plus important est l’attribution d’un DOI, donc d’un identifiant pérenne unique.</p>
+<p>Je vais prendre ici l’exemple d’un dataset issu de ma thèse.</p>
+<p>Quand on ouvre le dataset, on voit immédiatement qu’il possède un DOI.</p>
+<p>Pour déposer un dataset, les métadonnées obligatoires restent relativement limitées :</p>
+<ul>
+<li>le titre ;</li>
+<li>la date ;</li>
+<li>le créateur ;</li>
+<li>le type de données ;</li>
+<li>la licence ;</li>
+<li>la description.</li>
+</ul>
+<p>Mais dans la pratique, plus les métadonnées sont riches, plus les données seront visibles et faciles à retrouver.</p>
+<p>Par exemple ici :</p>
+<ul>
+<li>j’ai ajouté des mots-clés ;</li>
+<li>des descriptions en français et en anglais ;</li>
+<li>des informations sur les financements ;</li>
+<li>et surtout des relations vers d’autres publications.</li>
+</ul>
+<p>L’idée est vraiment de créer un réseau entre :</p>
+<ul>
+<li>articles ;</li>
+<li>données ;</li>
+<li>publications ;</li>
+<li>corpus ;</li>
+<li>projets.</li>
+</ul>
+<hr>
+<h1 id="mauvaise-pratique--dépôt-multiple">Mauvaise pratique : dépôt multiple</h1>
+<p>Je vais aussi montrer une mauvaise pratique que j’ai moi-même faite à la fin de ma thèse.</p>
+<p>À l’époque, j’ai essayé de déposer mes datasets un peu partout.</p>
+<p>Le problème, c’est qu’à chaque dépôt, un nouveau DOI est créé.<br>
+Et une fois créé, ce DOI continue d’exister.</p>
+<p>Résultat :</p>
+<ul>
+<li>les citations se fragmentent ;</li>
+<li>plusieurs versions du dataset circulent ;</li>
+<li>et les utilisateurs ne savent plus à quelle version se référer.</li>
+</ul>
+<p>Donc si vous avez déjà fait ce type d’erreur, il est important d’indiquer clairement quelle est la version canonique du dataset.</p>
+<hr>
+<h1 id="accessible--accessible">Accessible — Accessible</h1>
+<p>On va maintenant passer au principe :</p>
+<blockquote>
+<p><strong>Accessible — accessible</strong></p>
+</blockquote>
+<p>Ici, j’aimerais vraiment faire une nuance importante entre :</p>
+<ul>
+<li>accessible ;</li>
+<li>et ouvert à tous.</li>
+</ul>
+<p>Quand les gens entendent « dépôt de données », ils pensent souvent que les données seront automatiquement ouvertes publiquement.</p>
+<p>Mais ce n’est pas forcément le cas.</p>
+<p>On peut choisir :</p>
+<ul>
+<li>quelles parties rendre accessibles ;</li>
+<li>et quelles parties garder restreintes.</li>
+</ul>
+<p>Dans l’exemple que je vais montrer :</p>
+<ul>
+<li>les métadonnées sont publiques ;</li>
+<li>le DOI est visible ;</li>
+<li>mais les fichiers eux-mêmes ne sont pas accessibles aux utilisateurs externes.</li>
+</ul>
+<p>L’idée est donc aussi de partager l’existence et la description des données sans forcément exposer directement leur contenu.</p>
+<hr>
+<h1 id="interoperable--interopérable">Interoperable — Interopérable</h1>
+<p>On arrive maintenant au principe :</p>
+<blockquote>
+<p><strong>Interoperable — interopérable</strong></p>
+</blockquote>
+<p>C’est probablement le principe le plus technique.</p>
+<h2 id="formats-ouverts">Formats ouverts</h2>
+<p>L’idée est de privilégier des formats ouverts :</p>
+<ul>
+<li>CSV ;</li>
+<li>JSON ;</li>
+<li>XML ;</li>
+<li>etc.</li>
+</ul>
+<p>Cela permet de garantir une meilleure pérennité et facilite les échanges entre logiciels.</p>
+<h2 id="vocabulaires-contrôlés">Vocabulaires contrôlés</h2>
+<p>Ensuite, il y a la question des vocabulaires contrôlés et des thésaurus.</p>
+<p>L’objectif ici est d’utiliser des terminologies communes afin d’assurer une sémantique partagée.</p>
+<p>Par exemple, sur <a href="http://FAIRsharing.org">FAIRsharing.org</a>, on peut rechercher des thésaurus spécialisés selon les disciplines.</p>
+<p>On trouve parfois des terminologies extrêmement spécifiques.</p>
+<h2 id="métadonnées-normalisées">Métadonnées normalisées</h2>
+<p>Il est aussi important d’utiliser des schémas de métadonnées normalisés.</p>
+<p>Il existe plusieurs centaines de schémas de métadonnées, mais en SHS, des standards comme :</p>
+<ul>
+<li>Dublin Core ;</li>
+<li>Dublin Core Qualifié ;</li>
+<li>ou DataCite</li>
+</ul>
+<p>sont particulièrement utilisés.</p>
+<p>Et on va voir pourquoi ces standards sont importants :<br>
+ils facilitent énormément l’interopérabilité et le moissonnage automatique.</p>
+<hr>
+<h1 id="moissonnage-automatique">Moissonnage automatique</h1>
+<p>Dans Nakala, ce qui se passe en coulisses, c’est que les métadonnées internes sont automatiquement transformées vers différents standards internationaux.</p>
+<p>C’est ce qu’on appelle le mappage des métadonnées.</p>
+<p>Concrètement :</p>
+<p>vous déposez vos données une seule fois sur Nakala, puis elles peuvent être automatiquement moissonnées par différents catalogues scientifiques.</p>
+<p>Par exemple :</p>
+<ul>
+<li>DataCite ;</li>
+<li>Google Dataset Search ;</li>
+<li>BASE ;</li>
+<li>et bientôt Recherche Data Gouv.</li>
+</ul>
+<p>Donc il suffit finalement de déposer les données à un seul endroit pour qu’elles soient ensuite visibles dans plusieurs moteurs de recherche scientifiques.</p>
+<p>Et ici, j’insiste vraiment sur l’importance des métadonnées riches.</p>
+<p>Plus les métadonnées sont détaillées et standardisées, plus le moissonnage automatique fonctionnera correctement.</p>
+<p>Dans le cas où les métadonnées sont incomplètes, certaines plateformes risquent même de ne pas référencer les données.</p>
+<hr>
+<h1 id="schemaorg-et-google-dataset-search"><a href="http://Schema.org">Schema.org</a> et Google Dataset Search</h1>
+<p>Autre point intéressant :</p>
+<p>certains catalogues réexposent ensuite les métadonnées dans d’autres formats.</p>
+<p>Par exemple, DataCite réexpose les métadonnées en <a href="http://Schema.org">Schema.org</a>, qui est le schéma privilégié par Google.</p>
+<p>C’est ce qui explique pourquoi certains datasets deviennent visibles automatiquement dans Google Dataset Search.</p>
+<hr>
+<h1 id="valorisation-avec-nakalapress">Valorisation avec NakalaPress</h1>
+<p>Je voudrais aussi attirer votre attention sur un autre avantage de Nakala : NakalaPress.</p>
+<p>L’idée est de valoriser les données via un site web statique généré automatiquement à partir du dataset.</p>
+<p>Créer un site web prend normalement du temps, mais ici on peut générer quelque chose de relativement propre en quelques minutes seulement.</p>
+<p>Dans mon cas, le site que je vais montrer a été réalisé en une dizaine de minutes.</p>
+<hr>
+<h1 id="reusable--réutilisable">Reusable — Réutilisable</h1>
+<p>On arrive maintenant au dernier principe :</p>
+<blockquote>
+<p><strong>Reusable — réutilisable</strong></p>
+</blockquote>
+<p>Ici, la question principale concerne les licences.</p>
+<p>Je ne vais pas faire aujourd’hui une introduction complète aux différents types de licences, mais il faut savoir que chaque entrepôt propose des politiques différentes.</p>
+<p>Par exemple :</p>
+<ul>
+<li>Nakala propose plusieurs centaines de licences ;</li>
+<li>alors que d’autres plateformes, comme OpenNeuro, limitent beaucoup plus les choix et privilégient aujourd’hui CC0.</li>
+</ul>
+<p>Donc lorsqu’on choisit un entrepôt, il faut aussi regarder :</p>
+<ul>
+<li>quelles licences sont proposées ;</li>
+<li>et quel niveau d’accompagnement juridique existe autour des données.</li>
+</ul>
+<hr>
+<h1 id="conclusion">Conclusion</h1>
+<p>Nous approchons maintenant de la fin de cette présentation.</p>
+<p>J’espère que ce webinaire vous aura permis de mieux comprendre :</p>
+<ul>
+<li>les principes FAIR ;</li>
+<li>ce qu’est un entrepôt de confiance ;</li>
+<li>et surtout les implications très concrètes de ces notions dans vos pratiques de recherche.</li>
+</ul>
+<p>Si vous avez des questions, n’hésitez pas à me contacter.</p>
+<p>Pour toutes les questions liées au cycle de vie des données, vous pouvez également contacter le guichet Recherche Data de l’université.</p>
+<hr>
+<h1 id="prochain-webinaire--anonymisation-des-données">Prochain webinaire : anonymisation des données</h1>
+<p>Et j’en profite aussi pour faire une petite annonce concernant le prochain webinaire, qui portera sur l’anonymisation des données en sciences humaines et sociales.</p>
+<p>Je présenterai notamment un outil que j’ai développé pour faciliter l’identification automatique des entités nommées :</p>
+<ul>
+<li>noms de personnes ;</li>
+<li>lieux ;</li>
+<li>dates ;</li>
+<li>numéros de téléphone ;</li>
+<li>etc.</li>
+</ul>
+<p>L’outil permet ensuite :</p>
+<ul>
+<li>d’anonymiser automatiquement ces éléments ;</li>
+<li>mais aussi de générer un rapport documentant tout le processus d’anonymisation.</li>
+</ul>
+<p>Donc si le sujet vous intéresse, n’hésitez pas à venir au prochain webinaire.</p>
+<hr>
+<p>Merci beaucoup pour votre attention, et merci encore pour votre participation.</p>
+
+            
+            
+        </body>
+        </html>
