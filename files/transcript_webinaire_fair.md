@@ -1,3 +1,7 @@
+# Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala
+
+Table des matières
+
 - [Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala](#choisir-un-entrepôt-de-confiance--les-principes-fair-en-pratique-avec-nakala)
 - [Qu’est-ce qu’un entrepôt de confiance ?](#quest-ce-quun-entrepôt-de-confiance-)
 - [Où trouver des entrepôts de confiance ?](#où-trouver-des-entrepôts-de-confiance-)
@@ -17,9 +21,7 @@
 - [Conclusion](#conclusion)
 - [Prochain webinaire : anonymisation des données](#prochain-webinaire--anonymisation-des-données)
 
-# Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala
-
-Bonjour à toutes et à tous, et merci d’être aussi nombreux aujourd’hui.
+Bonjour à toutes et à tous, et merci de venir aussi nombreux aujourd’hui.
 
 Je me présente rapidement : je m’appelle Xiaoou Wang et je suis référent Humanités numériques à la MSHS Sud-Est.
 Je me charge notamment de tout ce qui relève de l’application des outils numériques et de l’informatique aux problématiques en sciences humaines et sociales.
