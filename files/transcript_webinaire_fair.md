@@ -1,6 +1,6 @@
 # Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala
 
-Intervenant : Xiaoou Wang, référent Huma-Num en Humanités numériques à la MSHS Sud-Est
+**Intervenant** : Xiaoou Wang, référent Huma-Num en Humanités numériques à la MSHS Sud-Est
 
 Table des matières
 
