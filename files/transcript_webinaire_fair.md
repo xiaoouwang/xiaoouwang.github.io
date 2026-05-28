@@ -1,5 +1,7 @@
 # Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala
 
+Intervenant : Xiaoou Wang, référent Huma-Num en Humanités numériques à la MSHS Sud-Est
+
 Table des matières
 
 - [Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala](#choisir-un-entrepôt-de-confiance--les-principes-fair-en-pratique-avec-nakala)
@@ -20,6 +22,8 @@ Table des matières
 - [Reusable — Réutilisable](#reusable--réutilisable)
 - [Conclusion](#conclusion)
 - [Prochain webinaire : anonymisation des données](#prochain-webinaire--anonymisation-des-données)
+
+
 
 Bonjour à toutes et à tous, et merci de venir aussi nombreux aujourd’hui.
 
