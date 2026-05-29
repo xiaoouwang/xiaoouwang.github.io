@@ -31,17 +31,27 @@ body {
   border-radius: 14px;
 }
 
+.pub-section-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #212529;
+  border-bottom: 2px solid #0d6efd;
+  padding-bottom: 0.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
 .year-heading {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #0d6efd;
   border-left: 4px solid #0d6efd;
   padding-left: 0.6rem;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   margin-bottom: 1rem;
 }
 
-.year-heading:first-of-type {
+.pub-section-heading + .year-heading {
   margin-top: 0.25rem;
 }
 
@@ -104,6 +114,46 @@ body {
 
 .profile-links a:hover {
   color: #0d6efd;
+}
+
+.activity-item {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.activity-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.activity-links a {
+  font-size: 0.95rem;
+  margin-right: 0.75rem;
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.activity-links a:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.activity-list {
+  font-size: 0.98rem;
+  color: #495057;
+  padding-left: 1.25rem;
+}
+
+.activity-list a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.activity-list a:hover {
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 600px) {
