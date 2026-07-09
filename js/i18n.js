@@ -28,7 +28,7 @@
       en: 'Engineer at <a href="https://mshs.univ-cotedazur.fr/" target="_blank">MSHS Sud-Est</a>, supporting <a href="https://mshs.univ-cotedazur.fr/recherche/laboratoires-membres" target="_blank">18+ labs</a> in developing digital humanities projects.'
     },
     'about.areas': {
-      fr: 'Principaux domaines de recherche à MSHS Sud-Est',
+      fr: 'Principaux domaines de recherche à la MSHS Sud-Est',
       en: 'Main research areas at MSHS Sud-Est'
     },
     'about.phd-interests': {
