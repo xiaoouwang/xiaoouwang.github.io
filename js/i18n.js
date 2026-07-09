@@ -146,8 +146,8 @@
     'dh.soon': { fr: 'À venir', en: 'Coming soon' },
     'dh.p1.date': { fr: '24 juillet', en: 'July 24' },
     'dh.p1.title': {
-      fr: 'Faire parler votre corpus ! Créer votre propre GPT à partir de votre corpus',
-      en: 'Faire parler votre corpus ! Create your own GPT based on your corpus'
+      fr: 'Et si votre corpus pouvait répondre à vos questions ? Créez votre assistant IA à partir de vos données de recherche',
+      en: 'What if your corpus could answer your questions? Build your AI assistant from your research data'
     },
     'dh.p2.date': { fr: '25 septembre', en: 'September 25' },
     'dh.p2.title': {
