@@ -32,20 +32,20 @@
       en: 'Main research areas at MSHS Sud-Est'
     },
     'about.phd-interests': {
-      fr: 'Centres d\'intérêt de recherche pendant mon doctorat',
-      en: 'Research Interests during my PhD'
+      fr: 'Thématiques de recherche durant mon doctorat',
+      en: 'Research themes during my PhD'
     },
     'about.interest1': { fr: 'Argumentation computationnelle', en: 'Computational Argumentation' },
     'about.interest2': {
-      fr: 'Évaluation assistée par IA de la production écrite des étudiants',
-      en: 'AI-assisted Evaluation of Students\' Written Production'
+      fr: 'Évaluation automatique de la production écrite des étudiants',
+      en: 'Automated evaluation of students\' written production'
     },
     'about.interest3': {
-      fr: 'Classification avancée des erreurs des apprenants du français (Transformers)',
-      en: 'Transformer-based Advanced French Learner Error Classification'
+      fr: 'Fact-checking automatisé fondé sur l\'argumentation',
+      en: 'Automated argumentation-based fact-checking'
     },
     'about.interest4': {
-      fr: 'Jeux de données de référence & protocoles d\'évaluation',
+      fr: 'Jeux de données de référence & Protocoles d\'évaluation',
       en: 'Benchmark Datasets & Evaluation Protocols'
     },
     'area.env': { fr: 'Sciences de l\'environnement', en: 'Environmental Sciences' },

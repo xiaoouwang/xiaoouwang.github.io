@@ -53,22 +53,21 @@ body {
   border-radius: 14px;
 }
 
-.phd-interests {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.04rem;
+.about-topic-list {
+  columns: 2;
+  column-gap: 26px;
+  font-size: 1rem;
+  padding-left: 1.25rem;
 }
 
-.phd-interest-badge {
-  white-space: normal;
-  text-align: left;
-  line-height: 1.35;
-  font-weight: 500;
-  padding: 0.55rem 0.65rem;
-  width: 100%;
-  max-width: 100%;
+.about-topic-list--paired {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  column-gap: 26px;
+  row-gap: 0.2rem;
+  columns: auto;
 }
 
 .pub-section-heading {
@@ -645,8 +644,14 @@ body {
 }
 
 @media only screen and (max-width: 700px) {
-  .phd-interests {
+  .about-topic-list {
+    columns: 1;
+  }
+
+  .about-topic-list--paired {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
   }
 
   .prototype-rows {
