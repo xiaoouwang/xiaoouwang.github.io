@@ -53,6 +53,67 @@ body {
   border-radius: 14px;
 }
 
+.profile-intro::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.profile-photo {
+  float: left;
+  width: 118px;
+  height: auto;
+  margin: 0.15rem 1.15rem 0.65rem 0;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(13, 110, 253, 0.14);
+  shape-outside: inset(0 round 14px);
+}
+
+.profile-intro-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.profile-phd {
+  font-size: 1.07rem;
+  margin-bottom: 0.45rem;
+  line-height: 1.45;
+}
+
+.profile-role {
+  margin-bottom: 0.55rem;
+  line-height: 1.45;
+}
+
+.profile-phd a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+.profile-phd a:hover {
+  text-decoration: none;
+}
+
+.profile-role a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.profile-role a:hover {
+  text-decoration: underline;
+}
+
 .about-topic-list {
   columns: 2;
   column-gap: 26px;
@@ -652,6 +713,24 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: none;
     grid-auto-flow: row;
+  }
+
+  .profile-photo {
+    float: none;
+    display: block;
+    width: 104px;
+    margin: 0 auto 0.85rem;
+  }
+
+  .profile-intro-head {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .profile-phd,
+  .profile-role,
+  .profile-social {
+    text-align: center;
   }
 
   .prototype-rows {

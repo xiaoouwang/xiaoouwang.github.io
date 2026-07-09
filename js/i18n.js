@@ -20,12 +20,12 @@
       en: 'Profile photo of Xiaoou Wang'
     },
     'about.phd': {
-      fr: 'Doctorat en Informatique, spécialisé en Traitement Automatique des Langues, réalisé au <a href="https://www.i3s.unice.fr/" target="_blank" class="text-decoration-none text-info">Laboratoire d\'Informatique, Signaux et Systèmes (i3S)</a> & <a href="https://www.inria.fr/fr" target="_blank" class="text-decoration-none text-info">Inria</a>',
-      en: 'PhD in Computer Science, specializing in Natural Language Processing, completed at the <a href="https://www.i3s.unice.fr/en/" target="_blank" class="text-decoration-none text-info">Computer Science, Signals and Systems Laboratory (i3S)</a> & <a href="https://www.inria.fr/en" target="_blank" class="text-decoration-none text-info">Inria</a>'
+      fr: 'Doctorat en <strong>Informatique</strong>, spécialisé en <strong>Traitement Automatique des Langues</strong>, réalisé au <a href="https://www.i3s.unice.fr/" target="_blank">Laboratoire d\'Informatique, Signaux et Systèmes (i3S)</a> & <a href="https://www.inria.fr/fr" target="_blank">Inria</a>',
+      en: 'PhD in <strong>Computer Science</strong>, specializing in <strong>Natural Language Processing</strong>, completed at the <a href="https://www.i3s.unice.fr/en/" target="_blank">Computer Science, Signals and Systems Laboratory (i3S)</a> & <a href="https://www.inria.fr/en" target="_blank">Inria</a>'
     },
     'about.role': {
-      fr: 'Ingénieur à la <a href="https://mshs.univ-cotedazur.fr/" target="_blank" class="text-decoration-none fw-bold text-info">MSHS Sud-Est</a>, accompagnant <a href="https://mshs.univ-cotedazur.fr/recherche/laboratoires-membres" target="_blank" class="text-decoration-none text-info">plus de 18 laboratoires</a> dans le développement de projets en humanités numériques.',
-      en: 'Engineer at <a href="https://mshs.univ-cotedazur.fr/" target="_blank" class="text-decoration-none fw-bold text-info">MSHS Sud-Est</a>, supporting <a href="https://mshs.univ-cotedazur.fr/recherche/laboratoires-membres" target="_blank" class="text-decoration-none text-info">18+ labs</a> in developing digital humanities projects.'
+      fr: 'Ingénieur à la <a href="https://mshs.univ-cotedazur.fr/" target="_blank">MSHS Sud-Est</a>, accompagnant <a href="https://mshs.univ-cotedazur.fr/recherche/laboratoires-membres" target="_blank">plus de 18 laboratoires</a> dans le développement de projets en humanités numériques.',
+      en: 'Engineer at <a href="https://mshs.univ-cotedazur.fr/" target="_blank">MSHS Sud-Est</a>, supporting <a href="https://mshs.univ-cotedazur.fr/recherche/laboratoires-membres" target="_blank">18+ labs</a> in developing digital humanities projects.'
     },
     'about.areas': {
       fr: 'Principaux domaines de recherche à MSHS Sud-Est',
