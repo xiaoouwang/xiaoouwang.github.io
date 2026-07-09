@@ -71,7 +71,7 @@
       fr: 'Prototypes interactifs conçus et développés à la <a href="https://mshs.univ-cotedazur.fr/" target="_blank" class="text-decoration-none">MSHS Sud-Est</a> dans le cadre de mes missions, pour soutenir la recherche, l\'enseignement et la médiation en humanités numériques.',
       en: 'Interactive prototypes designed and developed at <a href="https://mshs.univ-cotedazur.fr/" target="_blank" class="text-decoration-none">MSHS Sud-Est</a> as part of my role, to support research, teaching, and outreach in digital humanities.'
     },
-    'proto.safe.tag': { fr: 'Vérification des faits', en: 'Fact-checking' },
+    'proto.safe.tag': { fr: 'Vérification des faits · Éthique', en: 'Fact-checking · Ethics' },
     'proto.safe.subtitle': {
       fr: 'Argumentation structurée pour la vérification des faits avec explications',
       en: 'Structured Argumentation for Fact-checking with Explanations'
@@ -80,7 +80,7 @@
       fr: 'Résumés structurés en arguments, récupération de preuves et étiquettes de véracité explicables.',
       en: 'Argument-structured summaries, evidence retrieval, and explainable truthfulness labels.'
     },
-    'proto.singer.tag': { fr: 'Apprentissage des langues', en: 'Language learning' },
+    'proto.singer.tag': { fr: 'Apprentissage des langues · Chant', en: 'Language learning · Singing' },
     'proto.singer.subtitle': {
       fr: 'Plateforme interactive d\'apprentissage des langues par le chant',
       en: 'An Interactive Platform for Singing-Based Language Learning'
