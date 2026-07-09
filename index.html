@@ -1,54 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="author" content="Xiaoou Wang, Elena Cabrio, Serena Villata">
-  <meta name="description" content="Argument and Counter-Argument Generation: A Critical Survey">
-  <meta name="keywords" content="Argument generation survey">
+  <meta name="description" content="Site personnel de Xiaoou Wang — TAL, humanités numériques et prototypes pour la recherche.">
+  <meta name="keywords" content="TAL, humanités numériques, argumentation">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xiaoou Wang - NLP</title>
+  <title>Xiaoou Wang — TAL &amp; Humanités numériques</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/index.css" />
+  <script src="js/i18n.js" defer></script>
+  <script src="js/scroll-sections.js" defer></script>
 </head>
 
 <body>
 
-  <main class="page-container">
+  <main>
+
+    <div class="page-container">
 
     <!-- About me -->
-    <div class="card site-card shadow-lg border-0 my-4">
+    <div class="card site-card shadow-lg border-0 my-4 scroll-section">
       <div class="card-header bg-primary text-white text-center">
-        <i class="bi bi-person-circle me-2"></i> About Me
+        <i class="bi bi-person-circle me-2"></i> <span data-i18n="about.title">À propos</span>
       </div>
       <div class="card-body text-dark">
         <div class="d-flex align-items-center flex-wrap">
           <img src="./img/wang_thumbnail.png" class="figure_me shadow-sm border border-2 border-primary me-4 mb-3"
-            alt="Profile photo of Xiaoou Wang" />
+            data-i18n-alt="about.alt" alt="Photo de profil de Xiaoou Wang" />
           <div>
-            <h2 class="mb-1" style="font-size:1.3rem;">
-              <a href="https://www.linkedin.com/in/xiaoou-wang/" target="_blank"
-                class="text-decoration-none text-primary">Xiaoou Wang</a>
-            </h2>
+            <div class="d-flex align-items-center flex-wrap gap-2 mb-1">
+              <h2 class="mb-0" style="font-size:1.3rem;">
+                <a href="https://www.linkedin.com/in/xiaoou-wang/" target="_blank"
+                  class="text-decoration-none text-primary">Xiaoou Wang</a>
+              </h2>
+              <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Passer en anglais">
+                <i class="bi bi-translate me-1"></i><span data-i18n="lang.switch">English</span>
+              </button>
+            </div>
             <p style="font-size:1.07rem; margin-bottom:5px;">
-              <strong>PhD in Natural Language Processing, completed at the <a href="https://www.i3s.unice.fr/en/" target="_blank" class="text-decoration-none text-info">Computer Science, Signals and Systems Laboratory (i3S)</a> &amp; <a href="https://www.inria.fr/en" target="_blank" class="text-decoration-none text-info">Inria</a></strong>
-
-
-
-
+              <strong data-i18n-html="about.phd">Doctorat en Informatique, spécialisé en Traitement Automatique des Langues, réalisé au <a href="https://www.i3s.unice.fr/" target="_blank" class="text-decoration-none text-info">Laboratoire d'Informatique, Signaux et Systèmes (i3S)</a> &amp; <a href="https://www.inria.fr/fr" target="_blank" class="text-decoration-none text-info">Inria</a></strong>
             </p>
-            <p style="margin-bottom:6px;">
-              Research Engineer at
-              <a href="https://mshs.univ-cotedazur.fr/" target="_blank" class="text-decoration-none fw-bold text-info">MSHS Sud-Est</a>
-
-              collaborating with <a href="https://mshs.univ-cotedazur.fr/recherche/laboratoires-membres" target="_blank" class="text-decoration-none text-info">18+ labs</a> for Digital Humanities.
-
+            <p style="margin-bottom:6px;" data-i18n-html="about.role">
+              Ingénieur à la <a href="https://mshs.univ-cotedazur.fr/" target="_blank" class="text-decoration-none fw-bold text-info">MSHS Sud-Est</a>, accompagnant <a href="https://mshs.univ-cotedazur.fr/recherche/laboratoires-membres" target="_blank" class="text-decoration-none text-info">plus de 18 laboratoires</a> dans le développement de projets en humanités numériques.
             </p>
             <p class="m-0">
-              <span class="me-2">Follow me:</span>
               <a href="https://scholar.google.fr/citations?user=vKAMMpwAAAAJ&hl=en" target="_blank" title="Google Scholar"
                 class="me-2 text-secondary text-decoration-none"><i class="bi bi-google"></i> Scholar</a>
               <a href="https://medium.com/@xiaoouwang" target="_blank" title="Medium"
@@ -57,112 +57,253 @@
           </div>
         </div>
         <hr class="my-3">
-        <h5 class="mt-2 mb-1 text-primary" style="font-size:1.05rem;">Main research areas at MSHS Sud-Est</h5>
+        <h5 class="mt-2 mb-1 text-primary" style="font-size:1.05rem;" data-i18n="about.areas">Principaux domaines de recherche à MSHS Sud-Est</h5>
         <ul class="mb-2" style="columns:2; column-gap: 26px; font-size:1rem;">
-          <li>Environmental Sciences</li>
-          <li>Motricity and Perception</li>
-          <li>Cognitive Science</li>
-          <li>Political Science</li>
-          <li>Arts, Literature, Languages</li>
-          <li>Law, Economics, Management</li>
-          <li>Information and Communication</li>
-          <li>Education Sciences</li>
-          <li>Philosophy</li>
-          <li>Sociology, Anthropology</li>
-          <li>History</li>
+          <li data-i18n="area.env">Sciences de l'environnement</li>
+          <li data-i18n="area.motricity">Motricité et perception</li>
+          <li data-i18n="area.cognitive">Sciences cognitives</li>
+          <li data-i18n="area.political">Science politique</li>
+          <li data-i18n="area.arts">Arts, littérature et langues</li>
+          <li data-i18n="area.law">Droit, économie et gestion</li>
+          <li data-i18n="area.info">Information et communication</li>
+          <li data-i18n="area.education">Sciences de l'éducation</li>
+          <li data-i18n="area.philosophy">Philosophie</li>
+          <li data-i18n="area.sociology">Sociologie et anthropologie</li>
+          <li data-i18n="area.history">Histoire et archéologie</li>
         </ul>
         <hr class="my-3">
         <div>
-          <h6 class="text-info" style="font-size:1rem;margin-bottom:4px;">PhD Research Interests</h6>
-          <ol style="font-size:1rem; margin-left: -8px; margin-bottom: 8px;">
-            <li class="mb-2">
-              <strong>Computational Argumentation:</strong><br>
-              Argument Mining and Argument Generation, Counter-argument Generation, with applications to fighting online
-              dis/misinformation.
-            </li>
-            <li class="mb-2">
-              <strong>Advanced Error Type Classification:</strong><br>
-              Grammatical Error Correction (<b>GEC</b>), especially transformer-based <b>Neural Machine Translation
-                (NMT)</b> approaches.
-            </li>
-            <li class="mb-2">
-              <strong>Advanced Evaluation of Students' Written Production:</strong><br>
-Automated Essay Scoring (<b>AES</b>) based on error analysis and identification of argumentative elements
-              </ul>
-            </li>
-            <li>
-              <strong>Benchmark Datasets &amp; Evaluation Protocols:</strong><br>
-              Creating datasets for commonsense reasoning and establishing robust evaluation protocols.
-            </li>
-          </ol>
+          <h6 class="text-info mb-2" style="font-size:1.08rem; margin-bottom:6px !important;" data-i18n="about.phd-interests">
+            Centres d'intérêt de recherche pendant mon doctorat
+          </h6>
+          <div class="phd-interests">
+            <span class="badge bg-secondary phd-interest-badge" data-i18n="about.interest1">
+              Argumentation computationnelle
+            </span>
+            <span class="badge bg-secondary phd-interest-badge" data-i18n="about.interest2">
+              Évaluation assistée par IA de la production écrite des étudiants
+            </span>
+            <span class="badge bg-secondary phd-interest-badge" data-i18n="about.interest3">
+              Classification avancée des erreurs des apprenants du français (Transformers)
+            </span>
+            <span class="badge bg-secondary phd-interest-badge" data-i18n="about.interest4">
+              Jeux de données de référence & protocoles d'évaluation
+            </span>
+          </div>
         </div>
       </div>
     </div>
 
+    </div>
+
+    <!-- Prototypes -->
+    <section class="page-container prototypes-section my-4 scroll-section" data-i18n-aria="proto.aria" aria-label="Humanités numériques à la MSHS Sud-Est">
+      <div class="card site-card shadow-lg border-0 prototypes-card">
+        <div class="card-header bg-primary text-white text-center">
+          <i class="bi bi-lightbulb me-2"></i> <span data-i18n="proto.title">Humanités numériques à la MSHS Sud-Est</span>
+        </div>
+        <div class="card-body text-dark prototypes-body">
+          <p class="prototypes-intro" data-i18n-html="proto.intro">
+            Prototypes interactifs conçus et développés à la <a href="https://mshs.univ-cotedazur.fr/" target="_blank" class="text-decoration-none">MSHS Sud-Est</a> dans le cadre de mes missions, pour soutenir la recherche, l'enseignement et la médiation en humanités numériques.
+          </p>
+
+          <div class="prototype-rows">
+            <div class="prototype-row">
+              <div class="prototype-item prototype-item--bleed-left">
+                <a class="prototype-bleed prototype-bleed--safe" href="https://3ia-demos.inria.fr/safe/" target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="./img/prototypes/safe.png" data-i18n-alt="proto.alt.safe" alt="Capture d'écran de la démo SAFE"
+                    loading="lazy" />
+                </a>
+                <article class="prototype-text">
+                  <span class="prototype-tag" data-i18n="proto.safe.tag">Vérification des faits</span>
+                  <h3 class="prototype-title">
+                    <a href="https://3ia-demos.inria.fr/safe/" target="_blank" rel="noopener noreferrer">SAFE</a>
+                  </h3>
+                  <p class="prototype-subtitle" data-i18n="proto.safe.subtitle">Argumentation structurée pour la vérification des faits avec explications</p>
+                  <p class="prototype-desc" data-i18n="proto.safe.desc">Résumés structurés en arguments, récupération de preuves et étiquettes de véracité explicables.</p>
+                  <a class="prototype-link" href="https://3ia-demos.inria.fr/safe/" target="_blank"
+                    rel="noopener noreferrer"><span data-i18n="proto.open">Ouvrir la démo</span> <i class="bi bi-box-arrow-up-right"></i></a>
+                </article>
+              </div>
+              <div class="prototype-item prototype-item--bleed-right">
+                <a class="prototype-bleed prototype-bleed--singer" href="https://singer-8yu.pages.dev/" target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="./img/prototypes/singer.png" data-i18n-alt="proto.alt.singer" alt="Capture d'écran de la plateforme Singer"
+                    loading="lazy" />
+                </a>
+                <article class="prototype-text">
+                  <span class="prototype-tag" data-i18n="proto.singer.tag">Apprentissage des langues</span>
+                  <h3 class="prototype-title">
+                    <a href="https://singer-8yu.pages.dev/" target="_blank" rel="noopener noreferrer">Singer</a>
+                  </h3>
+                  <p class="prototype-subtitle" data-i18n="proto.singer.subtitle">Plateforme interactive d'apprentissage des langues par le chant</p>
+                  <p class="prototype-desc" data-i18n="proto.singer.desc">Paroles synchronisées, boucles et modes d'étude qui transforment les clips musicaux en salle de classe interactive.</p>
+                  <a class="prototype-link" href="https://singer-8yu.pages.dev/" target="_blank"
+                    rel="noopener noreferrer"><span data-i18n="proto.open">Ouvrir la démo</span> <i class="bi bi-box-arrow-up-right"></i></a>
+                </article>
+              </div>
+            </div>
+
+            <div class="prototype-row">
+              <div class="prototype-item prototype-item--bleed-left">
+                <a class="prototype-bleed" href="https://anf2026t.huma-num.fr/theatre_rabanel/index.html" target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="./img/prototypes/theatre.png" data-i18n-alt="proto.alt.theatre"
+                    alt="Capture d'écran du livre sonore Dialogues sur le théâtre" loading="lazy" />
+                </a>
+                <article class="prototype-text">
+                  <span class="prototype-tag" data-i18n="proto.theatre.tag">Théâtre · RAG</span>
+                  <h3 class="prototype-title">
+                    <a href="https://anf2026t.huma-num.fr/theatre_rabanel/index.html" target="_blank"
+                      rel="noopener noreferrer">Dialogues sur le théâtre</a>
+                  </h3>
+                  <p class="prototype-subtitle" data-i18n="proto.theatre.subtitle">Livre sonore interactif avec question-réponse augmentée par récupération</p>
+                  <p class="prototype-desc" data-i18n="proto.theatre.desc">Un livre sonore actif pour explorer les archives théâtrales de la BnF par une écoute guidée.</p>
+                  <a class="prototype-link" href="https://anf2026t.huma-num.fr/theatre_rabanel/index.html" target="_blank"
+                    rel="noopener noreferrer"><span data-i18n="proto.open">Ouvrir la démo</span> <i class="bi bi-box-arrow-up-right"></i></a>
+                </article>
+              </div>
+              <div class="prototype-item prototype-item--bleed-right">
+                <a class="prototype-bleed" href="https://xiaoouwang.github.io/Incognito/" target="_blank"
+                  rel="noopener noreferrer">
+                  <img src="./img/prototypes/incognito.png" data-i18n-alt="proto.alt.incognito" alt="Capture d'écran de l'outil Incognito"
+                    loading="lazy" />
+                </a>
+                <article class="prototype-text">
+                  <span class="prototype-tag" data-i18n="proto.incognito.tag">Confidentialité · Anonymisation</span>
+                  <h3 class="prototype-title">
+                    <a href="https://xiaoouwang.github.io/Incognito/" target="_blank"
+                      rel="noopener noreferrer">Incognito</a>
+                  </h3>
+                  <p class="prototype-subtitle" data-i18n="proto.incognito.subtitle">Anonymisation de textes respectueuse de la vie privée, dans votre navigateur</p>
+                  <p class="prototype-desc" data-i18n="proto.incognito.desc">Détection d'entités, relecture des occurrences et export de rapports d'audit anonymisés en local.</p>
+                  <a class="prototype-link" href="https://xiaoouwang.github.io/Incognito/" target="_blank"
+                    rel="noopener noreferrer"><span data-i18n="proto.open">Ouvrir la démo</span> <i class="bi bi-box-arrow-up-right"></i></a>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="page-container">
+
     <!-- MSHS webinars & workshops -->
-    <div class="card site-card shadow-lg border-0 my-4">
+    <div class="card site-card shadow-lg border-0 my-4 scroll-section">
       <div class="card-header bg-primary text-white text-center">
-        <i class="bi bi-calendar-event me-2"></i> MSHS Sud-Est — Webinars &amp; Workshops
+        <i class="bi bi-calendar-event me-2"></i> <span data-i18n="dh.title">Formations à la MSHS Sud-Est</span>
       </div>
       <div class="card-body text-dark">
-        <p class="text-muted small mb-3">
-          Providing training and support for Digital Humanities researchers at
-          <a href="https://mshs.univ-cotedazur.fr/" target="_blank" class="text-decoration-none">MSHS Sud-Est</a>
+        <p class="text-muted small mb-3" data-i18n="dh.subtitle">
+          Webinaires et ateliers dans le cadre de mes missions de diffusion des bonnes pratiques en humanités numériques.
         </p>
 
         <article class="activity-item">
-          <h4 class="activity-title">
-            April 30 — <a
-              href="https://mshs.univ-cotedazur.fr/webinaire"
-              target="_blank"
-              class="text-decoration-none"
-            >Current challenges in data management for research in digital humanities</a>
+          <h4 class="activity-title" data-i18n-html="dh.w1.title">
+            30 avril — <a href="https://mshs.univ-cotedazur.fr/webinaire" target="_blank" class="text-decoration-none">Les enjeux actuels de la gestion des données de recherche</a>
           </h4>
-
           <div class="activity-links">
-            <a href="files/OffresService.Webinaire.2026.04.30.pdf" target="_blank">Slides</a>
+            <a href="files/OffresService.Webinaire.2026.04.30.pdf" target="_blank" data-i18n="link.slides">Slides</a>
           </div>
         </article>
 
         <article class="activity-item">
-          <h4 class="activity-title">
-            May 28 — <a
-              href="https://mshs.univ-cotedazur.fr/webinaire-choisir-un-entrepot-de-confiance-les-principes-fair-en-pratique-avec-nakala"
-              target="_blank"
-              class="text-decoration-none"
-            >Choosing a trustworthy data repository: the FAIR principles in practice with Nakala</a>
-
+          <h4 class="activity-title" data-i18n-html="dh.w2.title">
+            28 mai — <a href="https://mshs.univ-cotedazur.fr/webinaire-choisir-un-entrepot-de-confiance-les-principes-fair-en-pratique-avec-nakala" target="_blank" class="text-decoration-none">Choisir un entrepôt de confiance : les principes FAIR en pratique avec Nakala</a>
           </h4>
           <div class="activity-links">
-            <a href="https://www.youtube.com/watch?v=9gvmdZqQqIY" target="_blank" rel="noopener noreferrer">Video (FAQ session not included)</a>
-            <a href="files/webinaire_fair_20260528.pdf" target="_blank">Slides</a>
-            <a href="files/transcript_webinaire_fair.html" target="_blank">Transcript of the talk</a>
-            <a href="files/transcript_webinaire_fair.pdf" target="_blank">Transcript (PDF)</a>
+            <a href="https://www.youtube.com/watch?v=9gvmdZqQqIY" target="_blank" rel="noopener noreferrer" data-i18n="link.video-faq">Vidéo (session FAQ non incluse)</a>
+            <a href="files/webinaire_fair_20260528.pdf" target="_blank" data-i18n="link.slides">Slides</a>
+            <a href="files/transcript_webinaire_fair.html" target="_blank" data-i18n="link.transcript">Transcription du webinaire</a>
+            <a href="files/transcript_webinaire_fair.pdf" target="_blank" data-i18n="link.transcript-pdf">Transcription (PDF)</a>
           </div>
-
         </article>
 
-        <article class="activity-item mb-0">
-          <h4 class="activity-title">Temporary program for the rest of the year (Python skills required)</h4>
-          <ul class="activity-list mb-0">
-            <li>June 24: Workshop on Data Anonymization, part of <a
-                href="https://printempsdeladonnee.fr/events/atelier-pratique-danonymisation-des-donnees-en-shs/"
-                target="_blank">the national Printemps de la Donnée (National Spring of Data) series</a></li>
-            <li>July 24: Faire parler votre corpus ! Create your own GPT based on your corpus</li>
-            <li>September 25: Workshop on Applications of NLP in Literature</li>
-            <li>October 23: Workshop on training your own language models tailored to your discipline</li>
-            <li>November 20: Workshop on Machine learning-assisted annotation with Label Studio</li>
-            <li>December 22: Workshop on AI and Environmental science</li>
-            <li>Workshop on AI-assisted dialogue transcription</li>
-          </ul>
+        <article class="activity-item">
+          <h4 class="activity-title" data-i18n-html="dh.w3.title">
+            24 juin — <a href="https://printempsdeladonnee.fr/events/atelier-pratique-danonymisation-des-donnees-en-shs/" target="_blank" class="text-decoration-none">Atelier sur l'anonymisation des données (dans le cadre du Printemps de la Donnée)</a>
+          </h4>
+          <div class="activity-links">
+            <a href="https://www.youtube.com/watch?v=-Wd3IFX4arM" target="_blank" rel="noopener noreferrer" data-i18n="link.video">Vidéo</a>
+            <a href="https://mshs.univ-cotedazur.fr/medias/fichier/anomymisation-webinaire-juin-mshs-pptx_1782804084963-pdf" target="_blank" data-i18n="link.slides">Slides</a>
+          </div>
+        </article>
+
+        <article class="activity-item activity-item--upcoming mb-0">
+          <h4 class="activity-title upcoming-program-heading" data-i18n="dh.program">Programme provisoire pour le reste de l'année</h4>
+          <div class="upcoming-events" role="list">
+
+            <div class="upcoming-event" data-event-date="2026-07-24" role="listitem">
+              <span class="upcoming-event-badge" hidden>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <span data-i18n="dh.next">Prochain atelier</span>
+              </span>
+              <time class="upcoming-event-date" data-i18n="dh.p1.date">24 juillet</time>
+              <p class="upcoming-event-title" data-i18n="dh.p1.title">Faire parler votre corpus ! Créer votre propre GPT à partir de votre corpus</p>
+              <span class="upcoming-event-soon" data-i18n="dh.soon">À venir</span>
+            </div>
+
+            <div class="upcoming-event" data-event-date="2026-09-25" role="listitem">
+              <span class="upcoming-event-badge" hidden>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <span data-i18n="dh.next">Prochain atelier</span>
+              </span>
+              <time class="upcoming-event-date" data-i18n="dh.p2.date">25 septembre</time>
+              <p class="upcoming-event-title" data-i18n="dh.p2.title">Atelier sur les applications du Deep Learning en littérature</p>
+              <span class="upcoming-event-soon" data-i18n="dh.soon">À venir</span>
+            </div>
+
+            <div class="upcoming-event" data-event-date="2026-10-23" role="listitem">
+              <span class="upcoming-event-badge" hidden>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <span data-i18n="dh.next">Prochain atelier</span>
+              </span>
+              <time class="upcoming-event-date" data-i18n="dh.p3.date">23 octobre</time>
+              <p class="upcoming-event-title" data-i18n="dh.p3.title">Atelier sur l'IA, l'histoire et l'archéologie</p>
+              <span class="upcoming-event-soon" data-i18n="dh.soon">À venir</span>
+            </div>
+
+            <div class="upcoming-event" data-event-date="2026-11-20" role="listitem">
+              <span class="upcoming-event-badge" hidden>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <span data-i18n="dh.next">Prochain atelier</span>
+              </span>
+              <time class="upcoming-event-date" data-i18n="dh.p4.date">20 novembre</time>
+              <p class="upcoming-event-title" data-i18n="dh.p4.title">Atelier sur l'annotation assistée par apprentissage automatique avec Label Studio</p>
+              <span class="upcoming-event-soon" data-i18n="dh.soon">À venir</span>
+            </div>
+
+            <div class="upcoming-event" data-event-date="2026-12-22" role="listitem">
+              <span class="upcoming-event-badge" hidden>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <span data-i18n="dh.next">Prochain atelier</span>
+              </span>
+              <time class="upcoming-event-date" data-i18n="dh.p5.date">22 décembre</time>
+              <p class="upcoming-event-title" data-i18n="dh.p5.title">Atelier sur la construction de votre propre base de données avec Heurist et Omeka</p>
+              <span class="upcoming-event-soon" data-i18n="dh.soon">À venir</span>
+            </div>
+
+            <div class="upcoming-event" data-event-date="2027-01-28" role="listitem">
+              <span class="upcoming-event-badge" hidden>
+                <i class="bi bi-star-fill" aria-hidden="true"></i>
+                <span data-i18n="dh.next">Prochain atelier</span>
+              </span>
+              <time class="upcoming-event-date" data-i18n="dh.p6.date">28 janvier 2027</time>
+              <p class="upcoming-event-title" data-i18n="dh.p6.title">Atelier sur l'analyse et la visualisation de données géospatiales (QGIS, GeoPandas et Leaflet)</p>
+              <span class="upcoming-event-soon" data-i18n="dh.soon">À venir</span>
+            </div>
+
+          </div>
         </article>
       </div>
     </div>
 
     <!-- Publications -->
-    <div class="card site-card shadow-lg border-0 my-4">
+    <div class="card site-card shadow-lg border-0 my-4 scroll-section scroll-section--early">
       <div class="card-header bg-primary text-white text-center">
-        <i class="bi bi-journal-text me-2"></i> Publications
+        <i class="bi bi-journal-text me-2"></i> <span data-i18n="pub.title">Publications</span>
       </div>
       <div class="card-body text-dark">
         <div class="profile-links mb-4">
@@ -172,71 +313,76 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
           <a href="https://github.com/xiaoouwang" target="_blank"><i class="bi bi-github me-1"></i>GitHub</a>
         </div>
 
-        <h3 class="pub-section-heading"><i class="bi bi-briefcase me-2"></i>Industry</h3>
+        <h3 class="pub-section-heading"><i class="bi bi-briefcase me-2"></i><span data-i18n="pub.industry">Industrie</span></h3>
 
         <h4 class="year-heading">2026</h4>
 
         <article class="publication-item">
-          <h4 class="pub-title">RAG is not about giving the model knowledge — it’s about controlling what it sees, and
-            when</h4>
-          <div class="pub-links">
-            <a href="https://xiaoouwang.medium.com/rag-is-not-about-giving-the-model-knowledge-its-about-controlling-what-it-sees-and-when-c3181c9fd67c"
-              target="_blank">Read on Medium</a>
-          </div>
+          <h4 class="pub-title">
+            <a href="https://xiaoouwang.medium.com/rag-is-not-about-giving-the-model-knowledge-its-about-controlling-what-it-sees-and-when-c3181c9fd67c" target="_blank">
+              RAG is not about giving the model knowledge — it’s about controlling what it sees, and when
+            </a>
+          </h4>
+        </article>
+        <article class="publication-item">
+          <h4 class="pub-title">
+            <a href="https://medium.com/@xiaoouwang/literature-is-not-the-last-frontier-for-ai-it-may-be-one-of-the-most-interesting-421b44672c44" target="_blank">
+              Literature Is Not the Last Frontier for AI — It May Be One of the Most Interesting
+            </a>
+          </h4>
         </article>
 
-        <h4 class="year-heading">Popular science — DemoTal</h4>
+        <h4 class="year-heading" data-i18n="pub.demotal">Vulgarisation scientifique — DemoTal</h4>
 
-        <p class="pub-meta mb-3">
-          Promoting/democratizing trustworthy, interpretable and socially beneficial Artificial
-          Intelligence for
+        <p class="pub-meta mb-3" data-i18n-html="pub.demotal-intro">
+          Promotion et démocratisation d'une intelligence artificielle digne de confiance, interprétable et socialement bénéfique pour
           <a href="http://www.demotal.fr" target="_blank" rel="noopener noreferrer">DemoTal</a>
-          (project supported by the French Ministry of Culture).
+          (projet soutenu par le ministère de la Culture).
         </p>
 
         <article class="publication-item">
           <h4 class="pub-title">
             <a href="https://www.demotal.fr/etudes-de-cas/exploiter-les-textes-biomedicaux-de-maniere-semi-automatisee/"
-              target="_blank" rel="noopener noreferrer" class="text-decoration-none">Semi-automatic analysis of biomedical texts</a>
+              target="_blank" rel="noopener noreferrer" class="text-decoration-none" data-i18n="pub.demotal1">Exploitation semi-automatique des textes biomédicaux</a>
           </h4>
         </article>
 
         <article class="publication-item">
           <h4 class="pub-title">
             <a href="https://www.demotal.fr/etudes-de-cas/comprendre-pour-mieux-choisir-le-cas-des-correcteurs-orthographiques/"
-              target="_blank" rel="noopener noreferrer" class="text-decoration-none">Better understand spell checkers to make informed decisions</a>
+              target="_blank" rel="noopener noreferrer" class="text-decoration-none" data-i18n="pub.demotal2">Mieux comprendre les correcteurs orthographiques pour faire des choix éclairés</a>
           </h4>
         </article>
 
         <article class="publication-item">
           <h4 class="pub-title">
             <a href="https://www.demotal.fr/etudes-de-cas/argumenter-au-lieu-de-bloquer-moderer-des-commentaires-en-ligne-tout-en-promouvant-le-debat/"
-              target="_blank" rel="noopener noreferrer" class="text-decoration-none">Argue instead of blocking: moderating online comments while promoting debate</a>
+              target="_blank" rel="noopener noreferrer" class="text-decoration-none" data-i18n="pub.demotal3">Argumenter au lieu de bloquer : modérer des commentaires en ligne tout en promouvant le débat</a>
           </h4>
         </article>
 
         <article class="publication-item">
           <h4 class="pub-title">
             <a href="https://www.demotal.fr/etudes-de-cas/au-dela-de-la-simple-dichotomie-positif-negatif-decouvrez-lanalyse-de-sentiments-a-base-daspects/"
-              target="_blank" rel="noopener noreferrer" class="text-decoration-none">Beyond the simple positive-negative dichotomy, discover the aspect-based sentiment analysis (ABSA)</a>
+              target="_blank" rel="noopener noreferrer" class="text-decoration-none" data-i18n="pub.demotal4">Au-delà de la dichotomie positif-négatif : l'analyse de sentiments à base d'aspects (ABSA)</a>
           </h4>
         </article>
 
         <article class="publication-item">
           <h4 class="pub-title">
             <a href="https://www.demotal.fr/etudes-de-cas/extraire-des-reponses-a-des-questions-de-prospects-a-partir-des-avis-clients/"
-              target="_blank" rel="noopener noreferrer" class="text-decoration-none">Extractive question answering from customer reviews</a>
+              target="_blank" rel="noopener noreferrer" class="text-decoration-none" data-i18n="pub.demotal5">Extraire des réponses à des questions de prospects à partir des avis clients</a>
           </h4>
         </article>
 
         <article class="publication-item">
           <h4 class="pub-title">
             <a href="https://www.demotal.fr/etudes-de-cas/que-faire-en-cas-de-donnees-insuffisantes-approche-centree-sur-les-donnees-et-few-shot-learning/"
-              target="_blank" rel="noopener noreferrer" class="text-decoration-none">Conducting POCs with limited data? From data quality to zero-shot learning</a>
+              target="_blank" rel="noopener noreferrer" class="text-decoration-none" data-i18n="pub.demotal6">Que faire en cas de données insuffisantes ? De la qualité des données au zero-shot learning</a>
           </h4>
         </article>
 
-        <h3 class="pub-section-heading mt-4"><i class="bi bi-mortarboard me-2"></i>Research Papers</h3>
+        <h3 class="pub-section-heading mt-4"><i class="bi bi-mortarboard me-2"></i><span data-i18n="pub.research">Articles de recherche</span></h3>
 
         <h4 class="year-heading">2025</h4>
 
@@ -249,7 +395,7 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             <span class="me">Xiaoou Wang</span>, Elena Cabrio, Serena Villata
           </p>
           <div class="pub-links">
-            <a href="https://hal.science/hal-05370762v1/document" target="_blank">Download on HAL</a>
+            <a href="https://hal.science/hal-05370762v1/document" target="_blank" data-i18n="link.download-hal">Télécharger sur HAL</a>
           </div>
         </article>
 
@@ -261,7 +407,7 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             <span class="me">Xiaoou Wang</span>, Elena Cabrio, Serena Villata
           </p>
           <div class="pub-links">
-            <a href="https://www.ijcai.org/proceedings/2025/1274.pdf" target="_blank">Download on IJCAI</a>
+            <a href="https://www.ijcai.org/proceedings/2025/1274.pdf" target="_blank" data-i18n="link.download-ijcai">Télécharger sur IJCAI</a>
           </div>
         </article>
 
@@ -273,8 +419,7 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             <span class="me">Xiaoou Wang</span>, Elena Cabrio, Serena Villata
           </p>
           <div class="pub-links">
-            <a href="https://journals.sagepub.com/doi/pdf/10.1177/19462174251330980" target="_blank">Download on Sage
-              Publishing</a>
+            <a href="https://journals.sagepub.com/doi/pdf/10.1177/19462174251330980" target="_blank" data-i18n="link.download-sage">Télécharger sur Sage Publishing</a>
           </div>
         </article>
 
@@ -288,8 +433,8 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             <span class="me">Xiaoou Wang</span>, Elena Cabrio, Serena Villata
           </p>
           <div class="pub-links">
-            <a href="https://inria.hal.science/hal-04862965/file/camera-ready.pdf" target="_blank">Download on HAL</a>
-            <a href="files/thailand_wiiat.pdf" target="_blank">Slides of my talk</a>
+            <a href="https://inria.hal.science/hal-04862965/file/camera-ready.pdf" target="_blank" data-i18n="link.download-hal">Télécharger sur HAL</a>
+            <a href="files/thailand_wiiat.pdf" target="_blank" data-i18n="link.slides-talk">Slides de ma présentation</a>
           </div>
         </article>
 
@@ -303,16 +448,12 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             <span class="me">Xiaoou Wang</span>, Elena Cabrio, Serena Villata
           </p>
           <div class="pub-links">
-            <a href="files/argumentandcounterargumentgenerationsurvey.pdf" target="_blank">Download</a>
-            <a href="argument_and_counterargument_generation.html" target="_blank">Link for better SEO</a>
-            <a href="files/argumentandcounterargumentgenerationsurvey_slides.pdf" target="_blank">Slides of my talk</a>
+            <a href="files/argumentandcounterargumentgenerationsurvey.pdf" target="_blank" data-i18n="link.download">Télécharger</a>
+            <a href="argument_and_counterargument_generation.html" target="_blank" data-i18n="link.seo">Lien pour un meilleur référencement</a>
+            <a href="files/argumentandcounterargumentgenerationsurvey_slides.pdf" target="_blank" data-i18n="link.slides-talk">Slides de ma présentation</a>
           </div>
-          <p class="pub-disclaimer">
-            This version of the contribution has been accepted for publication, after peer review (when applicable) but is
-            not the Version of Record and does not reflect post-acceptance improvements, or any corrections. The Version
-            of Record is available online at: https://doi.org/10.1007/978-3-031-35320-8_37. Use of this Accepted Version
-            is subject to the publisher’s Accepted Manuscript terms of use
-            https://www.springernature.com/gp/open-research/policies/accepted-manuscript-terms
+          <p class="pub-disclaimer" data-i18n="pub.disclaimer">
+            Cette version de la contribution a été acceptée pour publication, après évaluation par les pairs (le cas échéant), mais n'est pas la Version of Record et ne reflète pas les améliorations post-acceptation ni d'éventuelles corrections. La Version of Record est disponible en ligne : https://doi.org/10.1007/978-3-031-35320-8_37. L'utilisation de cette Accepted Version est soumise aux conditions d'utilisation des manuscrits acceptés de l'éditeur : https://www.springernature.com/gp/open-research/policies/accepted-manuscript-terms
           </p>
         </article>
 
@@ -326,9 +467,9 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             <span class="me">Xiaoou Wang</span>, Olga Seminck, Pascal Amsili
           </p>
           <div class="pub-links">
-            <a href="https://aclanthology.org/2022.jeptalnrecital-taln.13/" target="_blank">Download on ACL Anthology</a>
-            <a href="files/Presentation_TALN2022.pdf" target="_blank">Slides of the talk</a>
-            <a href="https://github.com/xiaoouwang/FWSC285" target="_blank">Dataset</a>
+            <a href="https://aclanthology.org/2022.jeptalnrecital-taln.13/" target="_blank" data-i18n="link.download-acl">Télécharger sur ACL Anthology</a>
+            <a href="files/Presentation_TALN2022.pdf" target="_blank" data-i18n="link.slides-talk2">Slides de la présentation</a>
+            <a href="https://github.com/xiaoouwang/FWSC285" target="_blank" data-i18n="link.dataset">Jeu de données</a>
           </div>
         </article>
 
@@ -340,7 +481,7 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             François, Patrick Watrin
           </p>
           <div class="pub-links">
-            <a href="https://aclanthology.org/2022.acl-long.269/" target="_blank">Download on ACL Anthology</a>
+            <a href="https://aclanthology.org/2022.acl-long.269/" target="_blank" data-i18n="link.download-acl">Télécharger sur ACL Anthology</a>
           </div>
         </article>
 
@@ -352,7 +493,7 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             François, Patrick Watrin
           </p>
           <div class="pub-links">
-            <a href="https://aclanthology.org/2022.jeptalnrecital-taln.45/" target="_blank">Download on ACL Anthology</a>
+            <a href="https://aclanthology.org/2022.jeptalnrecital-taln.45/" target="_blank" data-i18n="link.download-acl">Télécharger sur ACL Anthology</a>
           </div>
         </article>
 
@@ -365,7 +506,7 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             Thomas François
           </p>
           <div class="pub-links">
-            <a href="https://aclanthology.org/2022.lrec-1.130/" target="_blank">Download on ACL Anthology</a>
+            <a href="https://aclanthology.org/2022.lrec-1.130/" target="_blank" data-i18n="link.download-acl">Télécharger sur ACL Anthology</a>
           </div>
         </article>
 
@@ -376,8 +517,8 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             Rodrigo Wilkens, Daiane Seibert, <span class="me">Xiaoou Wang</span> and Thomas François
           </p>
           <div class="pub-links">
-            <a href="files/mwe_article.pdf" target="_blank">Download the article</a>
-            <a href="files/mwe_poster.pdf" target="_blank">Download the poster</a>
+            <a href="files/mwe_article.pdf" target="_blank" data-i18n="link.download-article">Télécharger l'article</a>
+            <a href="files/mwe_poster.pdf" target="_blank" data-i18n="link.download-poster">Télécharger l'affiche</a>
           </div>
         </article>
 
@@ -391,8 +532,7 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
             <span class="me">Xiaoou Wang</span>, Xingyu Liu, Yimei Yue
           </p>
           <div class="pub-links">
-            <a href="https://aclanthology.org/2021.jeptalnrecital-deft.7.pdf" target="_blank">Download on ACL
-              Anthology</a>
+            <a href="https://aclanthology.org/2021.jeptalnrecital-deft.7.pdf" target="_blank" data-i18n="link.download-acl">Télécharger sur ACL Anthology</a>
             <a href="https://archivesic.ccsd.cnrs.fr/TALN-RECITAL/hal-03265923v1" target="_blank">HAL</a>
           </div>
         </article>
@@ -409,7 +549,7 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
           <div class="pub-links">
 
             <a href="http://www.gipsa-lab.grenoble-inp.fr/~thomas.hueber/mes_documents/Wang_Hueber_Badin_VTHChineseTeaching_ISSP10_2014.pdf"
-              target="_blank">Download on GIPSA-lab</a>
+              target="_blank" data-i18n="link.download-gipsa">Télécharger sur GIPSA-lab</a>
             <a href="https://hal.archives-ouvertes.fr/hal-00974342" target="_blank">HAL</a>
           </div>
         </article>
@@ -417,8 +557,10 @@ Automated Essay Scoring (<b>AES</b>) based on error analysis and identification 
       </div>
     </div>
 
+    </div>
+
     <footer class="text-center text-muted small py-3">
-      Design/CSS of this website: Xiaoou Wang
+      <span data-i18n="footer">Conception / CSS du site : Xiaoou Wang</span>
     </footer>
 
   </main>
