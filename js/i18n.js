@@ -107,6 +107,15 @@
       fr: 'Détection d\'entités, relecture des occurrences et export de rapports d\'audit anonymisés en local.',
       en: 'Detect entities, review occurrences, and export anonymized audit reports locally.'
     },
+    'proto.lsl.tag': { fr: 'Psychologie · Multimodal', en: 'Psychology · Multimodal' },
+    'proto.lsl.subtitle': {
+      fr: 'Plateforme de visualisation synchronisée de données psycho-comportementales multimodales',
+      en: 'Synchronized visualization platform for multimodal psycho-behavioral data'
+    },
+    'proto.lsl.desc': {
+      fr: 'Interface de visualisation synchronisée de signaux multimodaux (Souris, Clavier, Audio, Vidéo, Oculométrie, Mouvement (QUALISYS), EEG, etc.) enregistrés via <a href="https://labstreaminglayer.org/#/" target="_blank" rel="noopener noreferrer">Lab Streaming Layer</a>.',
+      en: 'Synchronized multimodal signal visualization interface (mouse, keyboard, audio, video, eye tracking, motion (QUALISYS), EEG, etc.) recorded via <a href="https://labstreaminglayer.org/#/" target="_blank" rel="noopener noreferrer">Lab Streaming Layer</a>.'
+    },
     'proto.open': { fr: 'Ouvrir la démo', en: 'Open demo' },
     'proto.alt.safe': {
       fr: 'Capture d\'écran de la démo SAFE',
@@ -123,6 +132,10 @@
     'proto.alt.incognito': {
       fr: 'Capture d\'écran de l\'outil Incognito',
       en: 'Screenshot of the Incognito anonymization tool'
+    },
+    'proto.alt.lsl': {
+      fr: 'Capture d\'écran de Multimodal LSL Explorer',
+      en: 'Screenshot of the Multimodal LSL Explorer interface'
     },
     'dh.title': { fr: 'Formations à la MSHS Sud-Est', en: 'Training at MSHS Sud-Est' },
     'dh.subtitle': {
