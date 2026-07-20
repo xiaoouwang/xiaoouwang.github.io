@@ -116,6 +116,15 @@
       fr: 'Interface de visualisation synchronisée de signaux multimodaux (Souris, Clavier, Audio, Vidéo, Oculométrie, Mouvement (QUALISYS), EEG, etc.) enregistrés via <a href="https://labstreaminglayer.org/#/" target="_blank" rel="noopener noreferrer">Lab Streaming Layer</a>.',
       en: 'Synchronized multimodal signal visualization interface (mouse, keyboard, audio, video, eye tracking, motion (QUALISYS), EEG, etc.) recorded via <a href="https://labstreaminglayer.org/#/" target="_blank" rel="noopener noreferrer">Lab Streaming Layer</a>.'
     },
+    'proto.pdfsplitter.tag': { fr: 'PDF · OCR', en: 'PDF · OCR' },
+    'proto.pdfsplitter.subtitle': {
+      fr: 'Découpez vos fichiers PDF volumineux en plusieurs parties de taille maximale définie.',
+      en: 'Split large PDF files into parts of a defined maximum size.'
+    },
+    'proto.pdfsplitter.desc': {
+      fr: 'Les services d\'OCR en ligne, tels que <a href="https://mistral.ai/news/ocr-4/" target="_blank" rel="noopener noreferrer">Mistral OCR</a>, imposent une limite de taille pour les fichiers à traiter. Traitement 100 % local dans le navigateur.',
+      en: 'Online OCR services, such as <a href="https://mistral.ai/news/ocr-4/" target="_blank" rel="noopener noreferrer">Mistral OCR</a>, impose a size limit on files to process. 100% local processing in the browser.'
+    },
     'proto.open': { fr: 'Ouvrir la démo', en: 'Open demo' },
     'proto.alt.safe': {
       fr: 'Capture d\'écran de la démo SAFE',
@@ -136,6 +145,10 @@
     'proto.alt.lsl': {
       fr: 'Capture d\'écran de Multimodal LSL Explorer',
       en: 'Screenshot of the Multimodal LSL Explorer interface'
+    },
+    'proto.alt.pdfsplitter': {
+      fr: 'Capture d\'écran de PDF Splitter',
+      en: 'Screenshot of the PDF Splitter interface'
     },
     'dh.title': { fr: 'Formations à la MSHS Sud-Est', en: 'Training at MSHS Sud-Est' },
     'dh.subtitle': {
