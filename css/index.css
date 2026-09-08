@@ -515,7 +515,7 @@ body {
 .prototype-rows {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 3.25rem;
 }
 
 .prototype-row {

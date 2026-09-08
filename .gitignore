@@ -4,3 +4,6 @@ xowang/
 backup/
 counter.js
 index_backup.html
+
+# Local Netlify folder
+.netlify
