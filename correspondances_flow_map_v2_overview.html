@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Géographie des correspondances — Ubaye, 1883–1921</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    :root {
+      --ink: #1f1c18;
+      --ink-soft: #4a453c;
+      --muted: #6f675b;
+      --paper: #f3eee4;
+      --paper-strong: #faf7f0;
+      --line: #d5ccbc;
+      --accent: #5c2e22;
+      --fr-mx: #5c2e22;
+      --mx-fr: #1f4d6d;
+      --local: #5a6b3a;
+      --shadow: 0 10px 28px rgba(31, 28, 24, 0.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "IBM Plex Sans", sans-serif;
+    }
+
+    #app {
+      height: 100%;
+      min-height: 680px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    header {
+      padding: 1.1rem 1.4rem 1rem;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, #f7f3ea 0%, var(--paper) 100%);
+    }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 0.85rem 1.5rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .sub {
+      margin: 0.35rem 0 0;
+      max-width: 42rem;
+      color: var(--ink-soft);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.98rem;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .stat-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .stat-chip {
+      min-width: 5.5rem;
+      padding: 0.45rem 0.7rem 0.5rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper-strong);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+    }
+
+    .stat-chip .n {
+      display: block;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .stat-chip .l {
+      display: block;
+      margin-top: 0.22rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .layout {
+      position: relative;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 300px);
+    }
+
+    #map {
+      height: 100%;
+      min-height: 520px;
+      background: #e8e2d5;
+    }
+
+    .leaflet-tile {
+      filter: saturate(0.45) sepia(0.14) brightness(1.03) contrast(0.96);
+    }
+
+    .leaflet-control-attribution {
+      font-size: 10px !important;
+      background: rgba(250, 247, 240, 0.88) !important;
+    }
+
+    .side {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 1px solid var(--line);
+      background: var(--paper-strong);
+      overflow: auto;
+    }
+
+    .side-block {
+      padding: 1rem 1.05rem 1.05rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .side-block h2 {
+      margin: 0 0 0.65rem;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .note {
+      margin: 0;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .rank-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .rank-list li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+      align-items: baseline;
+      padding: 0.42rem 0.35rem;
+      margin: 0 -0.35rem;
+      border-top: 1px solid #ebe4d7;
+      border-radius: 6px;
+      font-size: 0.82rem;
+    }
+
+    .rank-list li:first-child { border-top: 0; }
+
+    .rank-list li.is-clickable {
+      cursor: pointer;
+    }
+
+    .rank-list li.is-clickable:hover {
+      background: rgba(92, 46, 34, 0.06);
+    }
+
+    .rank-list li.is-active {
+      background: rgba(92, 46, 34, 0.1);
+      box-shadow: inset 2px 0 0 var(--accent);
+    }
+
+    .rank-list .place {
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .rank-list .count {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .filter-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid #c9b8a8;
+      border-radius: 8px;
+      background: #f7efe6;
+      font-size: 0.82rem;
+      color: var(--ink-soft);
+    }
+
+    .filter-bar.is-visible {
+      display: flex;
+    }
+
+    .filter-bar strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .filter-clear {
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper-strong);
+      color: var(--ink);
+      font: 500 0.72rem/1 "IBM Plex Sans", sans-serif;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.65rem;
+      cursor: pointer;
+    }
+
+    .filter-clear:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .node {
+      cursor: pointer;
+    }
+
+    .leaflet-interactive.is-dimmed {
+      opacity: 0.12 !important;
+    }
+
+    .flow-keys li.is-clickable {
+      cursor: pointer;
+      padding: 0.28rem 0.35rem;
+      margin: 0 -0.35rem;
+      border-radius: 6px;
+    }
+
+    .flow-keys li.is-clickable:hover {
+      background: rgba(92, 46, 34, 0.06);
+    }
+
+    .flow-keys li.is-active {
+      background: rgba(92, 46, 34, 0.1);
+      box-shadow: inset 2px 0 0 var(--accent);
+    }
+
+    .bar {
+      grid-column: 1 / -1;
+      height: 3px;
+      margin-top: -0.1rem;
+      border-radius: 99px;
+      background: #e7dfd1;
+      overflow: hidden;
+    }
+
+    .bar > span {
+      display: block;
+      height: 100%;
+      background: var(--accent);
+      border-radius: 99px;
+    }
+
+    .flow-keys {
+      display: grid;
+      gap: 0.45rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .flow-keys li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+    }
+
+    .swatch {
+      display: inline-block;
+      width: 1.1rem;
+      height: 0.28rem;
+      margin-right: 0.45rem;
+      border-radius: 99px;
+      vertical-align: middle;
+    }
+
+    .swatch.fr-mx { background: var(--fr-mx); }
+    .swatch.mx-fr { background: var(--mx-fr); }
+    .swatch.local { background: var(--local); }
+
+    .caption {
+      margin: 0;
+      font-size: 0.72rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .node {
+      border-radius: 50%;
+      background: var(--ink);
+      border: 2px solid var(--paper-strong);
+      box-shadow: 0 0 0 1px rgba(31, 28, 24, 0.35);
+    }
+
+    .node--hub {
+      background: var(--accent);
+      box-shadow: 0 0 0 1px rgba(92, 46, 34, 0.45);
+    }
+
+    .place-label {
+      background: rgba(250, 247, 240, 0.92);
+      border: 0;
+      box-shadow: none;
+      color: var(--ink);
+      font: 500 11px/1.2 "IBM Plex Sans", sans-serif;
+      padding: 2px 5px;
+      white-space: nowrap;
+    }
+
+    .panel {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      z-index: 800;
+      width: min(320px, calc(100% - 48px));
+      max-height: calc(100% - 48px);
+      overflow: auto;
+      display: none;
+      padding: 1rem 1.05rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(250, 247, 240, 0.97);
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      margin: 0 1.6rem 0.35rem 0;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .meta, .letter div {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .letter {
+      padding: 0.55rem 0;
+      border-top: 1px solid #e5ddd0;
+    }
+
+    .letter b {
+      display: block;
+      margin-bottom: 0.15rem;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .close {
+      position: absolute;
+      right: 8px;
+      top: 6px;
+      border: 0;
+      background: none;
+      font-size: 1.35rem;
+      line-height: 1;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .legend {
+      background: rgba(250, 247, 240, 0.94);
+      border: 1px solid var(--line);
+      padding: 0.55rem 0.7rem;
+      font: 11px/1.45 "IBM Plex Sans", sans-serif;
+      color: var(--ink-soft);
+      box-shadow: var(--shadow);
+    }
+
+    .legend b {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 12px;
+      color: var(--ink);
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(420px, 58vh) auto;
+      }
+
+      .side {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        max-height: none;
+      }
+
+      .panel {
+        top: auto;
+        bottom: 16px;
+        max-height: 42%;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .place-label { display: none; }
+
+      .stat-strip {
+        width: 100%;
+      }
+
+      .stat-chip {
+        flex: 1 1 calc(50% - 0.55rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="header-top">
+        <div>
+          <p class="eyebrow">Cartographie historique · Correspondance</p>
+          <h1>Géographie des correspondances</h1>
+          <p class="sub">Circulation des lettres entre l’Ubaye et le monde (corpus à trajets complets, 1883–1921)</p>
+        </div>
+        <div class="stat-strip" id="stat-strip" aria-label="Indicateurs du corpus"></div>
+      </div>
+      <div class="filter-bar" id="filter-bar" role="status" aria-live="polite">
+        <span id="filter-label"></span>
+        <button type="button" class="filter-clear" id="filter-clear">Tout afficher</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <div id="map" role="img" aria-label="Carte des itinéraires épistolaires"></div>
+      <aside class="side" aria-label="Statistiques du corpus">
+        <div class="side-block">
+          <h2>Orientation des flux</h2>
+          <ul class="flow-keys" id="flow-keys"></ul>
+        </div>
+        <div class="side-block">
+          <h2>Destinations principales</h2>
+          <ol class="rank-list" id="top-destinations"></ol>
+        </div>
+        <div class="side-block">
+          <h2>Fonds représentés</h2>
+          <ol class="rank-list" id="top-fonds"></ol>
+        </div>
+        <div class="side-block">
+          <p class="caption">
+            Sélection multiple : cliquez plusieurs destinations, fonds ou types de flux pour les combiner
+            (OU au sein d’une catégorie, ET entre catégories). Un second clic retire un critère ;
+            « Tout afficher » réinitialise la vue.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="panel" id="panel">
+    <button class="close" type="button" aria-label="Fermer" onclick="document.getElementById('panel').style.display='none'">×</button>
+    <div id="body"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const letters = [
+      {"id": 27, "title": "Lettre n°1 - Fonds Famille Amable Mathieu", "date": "25 Aug 1897", "from": {"name": "Durango, Mexico", "lon": -104.833333, "lat": 24.833333}, "to": {"name": "Guadalajara, Mexico", "lon": -103.338396, "lat": 20.6720375}},
+      {"id": 33, "title": "Lettre n°1 - Fonds Famille Auguste Reynier", "date": "11 Oct 1888", "from": {"name": "Mexico City, Mexico", "lon": -99.1276646, "lat": 19.4284724}, "to": {"name": "Saint-Étienne-les-Orgues, France", "lon": 5.7785724, "lat": 44.0454402}},
+      {"id": 31, "title": "Lettre n°1 - Fonds Famille Caire", "date": "13 Jun 1911", "from": {"name": "Barcelonnette, France", "lon": 6.6513554, "lat": 44.3862043}, "to": {"name": "Guadalajara, Mexico", "lon": -103.338396, "lat": 20.6720375}},
+      {"id": 6, "title": "Lettre n°1 - Fonds Famille Lions", "date": "8 Jan 1887", "from": {"name": "Paris, France", "lon": 2.320041, "lat": 48.8588897}, "to": {"name": "Barcelonnette, France", "lon": 6.6513554, "lat": 44.3862043}},
+      {"id": 28, "title": "Lettre n°1 - Fonds Minouche Suberville", "date": "28 Feb 1921", "from": {"name": "Mexico City, Mexico", "lon": -99.1276646, "lat": 19.4284724}, "to": {"name": "Mexico City, Mexico", "lon": -99.1276646, "lat": 19.4284724}},
+      {"id": 25, "title": "Lettre n°2 - Fonds Famille Amable Mathieu", "date": "1 Jul 1910", "from": {"name": "Namiquipa, Mexico", "lon": -107.4150652, "lat": 29.2506876}, "to": {"name": "Durango, Mexico", "lon": -104.833333, "lat": 24.833333}},
+      {"id": 34, "title": "Lettre n°2 - Fonds Famille Auguste Reynier", "date": "28 Oct 1888", "from": {"name": "Tulancingo, Mexico", "lon": -97.4421045, "lat": 17.7523142}, "to": {"name": "Saint-Étienne-les-Orgues, France", "lon": 5.7785724, "lat": 44.0454402}},
+      {"id": 8, "title": "Lettre n°2 - Fonds Famille Lions", "date": "17 Jul 1888", "from": {"name": "Puebla, Mexico", "lon": -98, "lat": 18.833333}, "to": {"name": "Barcelonnette, France", "lon": 6.6513554, "lat": 44.3862043}},
+      {"id": 26, "title": "Lettre n°3 - Fonds Famille Amable Mathieu", "date": "12 Aug 1910", "from": {"name": "Namiquipa, Mexico", "lon": -107.4150652, "lat": 29.2506876}, "to": {"name": "Durango, Mexico", "lon": -104.833333, "lat": 24.833333}},
+      {"id": 35, "title": "Lettre n°3 - Fonds Famille Auguste Reynier", "date": "8 Nov 1889", "from": {"name": "Tulancingo, Mexico", "lon": -97.4421045, "lat": 17.7523142}, "to": {"name": "Saint-Étienne-les-Orgues, France", "lon": 5.7785724, "lat": 44.0454402}},
+      {"id": 18, "title": "Lettre n°3 - Fonds Famille Lions", "date": "1 Aug 1888", "from": {"name": "Mexico City, Mexico", "lon": -99.1276646, "lat": 19.4284724}, "to": {"name": "Barcelonnette, France", "lon": 6.6513554, "lat": 44.3862043}},
+      {"id": 36, "title": "Lettre n°4 - Fonds Famille Auguste Reynier", "date": "11 Feb 1893", "from": {"name": "Mexico City, Mexico", "lon": -99.1276646, "lat": 19.4284724}, "to": {"name": "Saint-Étienne-les-Orgues, France", "lon": 5.7785724, "lat": 44.0454402}},
+      {"id": 9, "title": "Lettre n°4 - Fonds Famille Lions", "date": "11 Dec 1895", "from": {"name": "Manchester, UK", "lon": -2.2324547, "lat": 53.4424618}, "to": {"name": "Barcelonnette, France", "lon": 6.6513554, "lat": 44.3862043}},
+      {"id": 10, "title": "Lettre n°5 - Fonds Famille Lions", "date": "28 Dec 1883", "from": {"name": "Barcelonnette, France", "lon": 6.6513554, "lat": 44.3862043}, "to": {"name": "Mexico City, Mexico", "lon": -99.1276646, "lat": 19.4284724}}
+    ];
+
+    const COLORS = {
+      'fr-mx': '#5c2e22',
+      'mx-fr': '#1f4d6d',
+      local: '#5a6b3a',
+      other: '#6b5a45'
+    };
+
+    const FLOW_LABELS = {
+      'fr-mx': 'France → Mexique',
+      'mx-fr': 'Mexique → France',
+      local: 'Circulation locale',
+      other: 'Autres trajectoires'
+    };
+
+    function countryOf(name) {
+      if (/, France$/i.test(name)) return 'France';
+      if (/, Mexico$/i.test(name)) return 'Mexico';
+      if (/, UK$/i.test(name)) return 'UK';
+      return 'Other';
+    }
+
+    function flowType(fromName, toName) {
+      const a = countryOf(fromName);
+      const b = countryOf(toName);
+      if (a === 'France' && b === 'Mexico') return 'fr-mx';
+      if (a === 'Mexico' && b === 'France') return 'mx-fr';
+      if (a === b) return 'local';
+      return 'other';
+    }
+
+    function parseDate(str) {
+      return new Date(str);
+    }
+
+    function formatDateFr(str) {
+      return parseDate(str).toLocaleDateString('fr-FR', {
+        day: 'numeric', month: 'long', year: 'numeric'
+      });
+    }
+
+    function fondsOf(title) {
+      const m = title.match(/Fonds\s+(.+)$/i);
+      return m ? m[1].trim() : 'Non renseigné';
+    }
+
+    function shortPlace(name) {
+      return name.replace(/, (France|Mexico|UK)$/, '');
+    }
+
+    const routes = new Map();
+    const places = new Map();
+    const destCount = new Map();
+    const originCount = new Map();
+    const fondsCount = new Map();
+    const flowCount = { 'fr-mx': 0, 'mx-fr': 0, local: 0, other: 0 };
+
+    for (const letter of letters) {
+      const key = letter.from.name + '|' + letter.to.name;
+      if (!routes.has(key)) {
+        routes.set(key, {
+          from: letter.from,
+          to: letter.to,
+          letters: [],
+          type: flowType(letter.from.name, letter.to.name)
+        });
+      }
+      routes.get(key).letters.push(letter);
+      places.set(letter.from.name, letter.from);
+      places.set(letter.to.name, letter.to);
+      destCount.set(letter.to.name, (destCount.get(letter.to.name) || 0) + 1);
+      originCount.set(letter.from.name, (originCount.get(letter.from.name) || 0) + 1);
+      const fonds = fondsOf(letter.title);
+      fondsCount.set(fonds, (fondsCount.get(fonds) || 0) + 1);
+      flowCount[flowType(letter.from.name, letter.to.name)] += 1;
+    }
+
+    const years = letters.map((l) => parseDate(l.date).getFullYear());
+    const yearMin = Math.min(...years);
+    const yearMax = Math.max(...years);
+    const topDestinations = [...destCount.entries()].sort((a, b) => b[1] - a[1]);
+    const topFonds = [...fondsCount.entries()].sort((a, b) => b[1] - a[1]);
+    const maxDest = topDestinations[0][1];
+    const maxFonds = topFonds[0][1];
+
+    let filters = {
+      destinations: new Set(),
+      origins: new Set(),
+      flows: new Set(),
+      fonds: new Set()
+    };
+
+    function hasActiveFilters() {
+      return filters.destinations.size || filters.origins.size || filters.flows.size || filters.fonds.size;
+    }
+
+    const map = L.map('map', { worldCopyJump: true, zoomControl: true });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    function curve(a, b) {
+      const dx = b.lon - a.lon;
+      const dy = b.lat - a.lat;
+      const cx = (a.lon + b.lon) / 2 - dy * 0.18;
+      const cy = (a.lat + b.lat) / 2 + dx * 0.18;
+      const pts = [];
+      for (let i = 0; i <= 50; i++) {
+        const t = i / 50;
+        const u = 1 - t;
+        pts.push([
+          u * u * a.lat + 2 * u * t * cy + t * t * b.lat,
+          u * u * a.lon + 2 * u * t * cx + t * t * b.lon
+        ]);
+      }
+      return pts;
+    }
+
+    function loop(p) {
+      return [[p.lat, p.lon], [p.lat + 2.2, p.lon - 2.2], [p.lat + 2.8, p.lon + 2.2], [p.lat, p.lon]];
+    }
+
+    function letterMatches(letter) {
+      if (filters.destinations.size && !filters.destinations.has(letter.to.name)) return false;
+      if (filters.origins.size && !filters.origins.has(letter.from.name)) return false;
+      if (filters.flows.size && !filters.flows.has(flowType(letter.from.name, letter.to.name))) return false;
+      if (filters.fonds.size && !filters.fonds.has(fondsOf(letter.title))) return false;
+      return true;
+    }
+
+    function routeMatches(route) {
+      return route.letters.some((l) => letterMatches(l));
+    }
+
+    function filteredLetters() {
+      return letters.filter((l) => letterMatches(l));
+    }
+
+    function showLetters(title, meta, list) {
+      const body = document.getElementById('body');
+      if (!list.length) {
+        document.getElementById('panel').style.display = 'none';
+        return;
+      }
+      body.innerHTML =
+        `<h2>${title}</h2>` +
+        `<div class="meta">${meta}</div>` +
+        list
+          .slice()
+          .sort((a, b) => parseDate(a.date) - parseDate(b.date))
+          .map((l) => `<div class="letter"><b>${l.title}</b><div>${formatDateFr(l.date)} · ${shortPlace(l.from.name)} → ${shortPlace(l.to.name)}</div></div>`)
+          .join('');
+      document.getElementById('panel').style.display = 'block';
+    }
+
+    function showRoute(route) {
+      const visible = route.letters.filter((l) => letterMatches(l));
+      if (!visible.length) return;
+      showLetters(
+        `${shortPlace(route.from.name)} → ${shortPlace(route.to.name)}`,
+        `${visible.length} lettre${visible.length > 1 ? 's' : ''} · ${FLOW_LABELS[route.type]}`,
+        visible
+      );
+    }
+
+    function toggleInSet(set, value) {
+      if (set.has(value)) set.delete(value);
+      else set.add(value);
+    }
+
+    function filterSummaryTitle() {
+      const parts = [];
+      if (filters.destinations.size) {
+        parts.push([...filters.destinations].map(shortPlace).join(', '));
+      }
+      if (filters.origins.size) {
+        parts.push('depuis ' + [...filters.origins].map(shortPlace).join(', '));
+      }
+      if (filters.flows.size) {
+        parts.push([...filters.flows].map((f) => FLOW_LABELS[f]).join(', '));
+      }
+      if (filters.fonds.size) {
+        parts.push([...filters.fonds].join(', '));
+      }
+      return parts.length ? parts.join(' · ') : 'Sélection';
+    }
+
+    const routeLayers = [];
+    const placeLayers = new Map();
+
+    for (const route of routes.values()) {
+      const pts = route.from.name === route.to.name ? loop(route.from) : curve(route.from, route.to);
+      const weight = 1.8 + Math.min(4.2, route.letters.length * 1.2);
+      const color = COLORS[route.type] || COLORS.other;
+      const line = L.polyline(pts, {
+        color,
+        weight,
+        opacity: 0.82,
+        lineCap: 'round',
+        lineJoin: 'round'
+      }).addTo(map);
+
+      line.bindTooltip(
+        `<b>${shortPlace(route.from.name)} → ${shortPlace(route.to.name)}</b><br>${route.letters.length} lettre${route.letters.length > 1 ? 's' : ''}`,
+        { sticky: true }
+      );
+      line.on('click', () => showRoute(route));
+
+      const i = Math.max(1, Math.floor(pts.length * 0.72));
+      const arrow = L.marker(pts[i], {
+        interactive: false,
+        icon: L.divIcon({
+          className: '',
+          html: `<div class="route-arrow" style="font-size:${11 + weight}px;color:${color};opacity:.9">➤</div>`,
+          iconSize: [20, 20],
+          iconAnchor: [10, 10]
+        })
+      }).addTo(map);
+
+      const updateArrowAngle = () => {
+        const a = map.latLngToLayerPoint(pts[i - 1]);
+        const b = map.latLngToLayerPoint(pts[i]);
+        const ang = Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+        const el = arrow.getElement();
+        if (el) {
+          const inner = el.querySelector('.route-arrow');
+          if (inner) inner.style.transform = `rotate(${ang}deg)`;
+        }
+      };
+      map.on('zoomend moveend', updateArrowAngle);
+      setTimeout(updateArrowAngle, 0);
+
+      routeLayers.push({ route, line, arrow, weight, color, pts });
+    }
+
+    for (const place of places.values()) {
+      const incoming = destCount.get(place.name) || 0;
+      const outgoing = originCount.get(place.name) || 0;
+      const size = 9 + Math.min(10, Math.max(incoming, outgoing) * 2.4);
+      const isHub = incoming >= 2 || outgoing >= 2;
+      const marker = L.marker([place.lat, place.lon], {
+        riseOnHover: true,
+        icon: L.divIcon({
+          className: `node${isHub ? ' node--hub' : ''}`,
+          iconSize: [size, size],
+          iconAnchor: [size / 2, size / 2]
+        })
+      }).addTo(map);
+
+      marker.bindTooltip(
+        `<b>${place.name}</b><br>${incoming} arrivée${incoming > 1 ? 's' : ''} · ${outgoing} départ${outgoing > 1 ? 's' : ''}<br><i>Cliquer : ajouter/retirer cette destination</i>`,
+        {
+          permanent: true,
+          direction: 'top',
+          offset: [0, -Math.ceil(size / 2) - 2],
+          className: 'place-label'
+        }
+      );
+
+      marker.on('click', () => {
+        if (incoming === 0) {
+          toggleFilter('origins', place.name);
+          return;
+        }
+        toggleFilter('destinations', place.name);
+      });
+
+      placeLayers.set(place.name, { marker, place, size, incoming, outgoing });
+    }
+
+    function placeBounds(names) {
+      const pts = [];
+      for (const name of names) {
+        const p = places.get(name);
+        if (p) pts.push([p.lat, p.lon]);
+      }
+      return pts.length ? L.latLngBounds(pts) : null;
+    }
+
+    function fitToRelevant() {
+      let bounds;
+      if (!hasActiveFilters()) {
+        bounds = placeBounds([...places.keys()]);
+      } else {
+        const related = new Set([
+          ...filters.destinations,
+          ...filters.origins
+        ]);
+        for (const letter of filteredLetters()) {
+          related.add(letter.from.name);
+          related.add(letter.to.name);
+        }
+        bounds = placeBounds([...related]);
+      }
+
+      if (!bounds || !bounds.isValid()) return;
+      map.fitBounds(bounds, {
+        paddingTopLeft: [36, 36],
+        paddingBottomRight: [36, 36],
+        maxZoom: hasActiveFilters() ? 6 : 5
+      });
+    }
+
+    function updateStats() {
+      const visible = filteredLetters();
+      const visibleRoutes = [...routes.values()].filter((r) => routeMatches(r)).length;
+      const visiblePlaces = new Set();
+      for (const l of visible) {
+        visiblePlaces.add(l.from.name);
+        visiblePlaces.add(l.to.name);
+      }
+      const visibleFonds = new Set(visible.map((l) => fondsOf(l.title)));
+      const ys = visible.map((l) => parseDate(l.date).getFullYear());
+      const period = ys.length ? `${Math.min(...ys)}–${Math.max(...ys)}` : '—';
+
+      document.getElementById('stat-strip').innerHTML = [
+        [visible.length, 'lettres'],
+        [visibleRoutes, 'itinéraires'],
+        [visiblePlaces.size, 'lieux'],
+        [visibleFonds.size, 'fonds'],
+        [period, 'période']
+      ].map(([n, l]) => `<div class="stat-chip"><span class="n">${n}</span><span class="l">${l}</span></div>`).join('');
+    }
+
+    function updateFilterChrome() {
+      const bar = document.getElementById('filter-bar');
+      const label = document.getElementById('filter-label');
+      document.querySelectorAll('.rank-list li, .flow-keys li').forEach((el) => el.classList.remove('is-active'));
+
+      if (!hasActiveFilters()) {
+        bar.classList.remove('is-visible');
+        label.textContent = '';
+        return;
+      }
+
+      const chips = [];
+      for (const name of filters.destinations) {
+        chips.push(`<strong>→ ${shortPlace(name)}</strong>`);
+        document.querySelectorAll('#top-destinations li').forEach((el) => {
+          if (el.dataset.place === name) el.classList.add('is-active');
+        });
+      }
+      for (const name of filters.origins) {
+        chips.push(`<strong>← ${shortPlace(name)}</strong>`);
+      }
+      for (const flow of filters.flows) {
+        chips.push(`<strong>${FLOW_LABELS[flow]}</strong>`);
+        document.querySelectorAll('#flow-keys li').forEach((el) => {
+          if (el.dataset.flow === flow) el.classList.add('is-active');
+        });
+      }
+      for (const fonds of filters.fonds) {
+        chips.push(`<strong>${fonds}</strong>`);
+        document.querySelectorAll('#top-fonds li').forEach((el) => {
+          if (el.dataset.fonds === fonds) el.classList.add('is-active');
+        });
+      }
+
+      label.innerHTML = chips.join('<span style="color:#a89a88"> · </span>');
+      bar.classList.add('is-visible');
+    }
+
+    function applyFilters() {
+      const active = hasActiveFilters();
+      const matchingPlaces = new Set();
+      for (const letter of filteredLetters()) {
+        matchingPlaces.add(letter.from.name);
+        matchingPlaces.add(letter.to.name);
+      }
+
+      for (const layer of routeLayers) {
+        const match = routeMatches(layer.route);
+        const visibleLetters = layer.route.letters.filter((l) => letterMatches(l));
+        const weight = 1.8 + Math.min(4.2, Math.max(1, visibleLetters.length) * 1.2);
+
+        if (match) {
+          layer.line.setStyle({ opacity: 0.88, weight, color: layer.color });
+          if (!map.hasLayer(layer.line)) layer.line.addTo(map);
+          if (!map.hasLayer(layer.arrow)) layer.arrow.addTo(map);
+          layer.line.bringToFront();
+        } else {
+          layer.line.setStyle({ opacity: 0.08, weight: Math.max(1, layer.weight * 0.7), color: '#8a8172' });
+          if (map.hasLayer(layer.arrow)) map.removeLayer(layer.arrow);
+        }
+      }
+
+      for (const [name, layer] of placeLayers) {
+        const match = !active || matchingPlaces.has(name);
+        const selected = filters.destinations.has(name) || filters.origins.has(name);
+        const el = layer.marker.getElement();
+        if (el) {
+          el.style.opacity = match ? '1' : '0.18';
+          el.style.pointerEvents = 'auto';
+          if (selected) {
+            el.style.outline = '2px solid #5c2e22';
+            el.style.outlineOffset = '2px';
+          } else {
+            el.style.outline = '';
+          }
+        }
+      }
+
+      updateStats();
+      updateFilterChrome();
+
+      if (active) {
+        const list = filteredLetters();
+        showLetters(
+          filterSummaryTitle(),
+          `${list.length} lettre${list.length > 1 ? 's' : ''} correspondant${list.length > 1 ? 'es' : 'e'} aux filtres`,
+          list
+        );
+      } else {
+        document.getElementById('panel').style.display = 'none';
+      }
+
+      fitToRelevant();
+    }
+
+    function toggleFilter(kind, value) {
+      toggleInSet(filters[kind], value);
+      applyFilters();
+    }
+
+    function clearFilters() {
+      filters = {
+        destinations: new Set(),
+        origins: new Set(),
+        flows: new Set(),
+        fonds: new Set()
+      };
+      applyFilters();
+    }
+
+    document.getElementById('flow-keys').innerHTML = [
+      ['fr-mx', FLOW_LABELS['fr-mx'], flowCount['fr-mx']],
+      ['mx-fr', FLOW_LABELS['mx-fr'], flowCount['mx-fr']],
+      ['local', FLOW_LABELS.local, flowCount.local],
+      ['other', FLOW_LABELS.other, flowCount.other]
+    ].filter(([, , n]) => n > 0).map(([cls, label, n]) =>
+      `<li class="is-clickable" data-flow="${cls}"><span><span class="swatch ${cls}"></span>${label}</span><strong>${n}</strong></li>`
+    ).join('');
+
+    document.getElementById('top-destinations').innerHTML = topDestinations.map(([name, n]) =>
+      `<li class="is-clickable" data-place="${name}">
+        <span class="place">${shortPlace(name)}</span>
+        <span class="count">${n}</span>
+        <div class="bar"><span style="width:${(n / maxDest) * 100}%"></span></div>
+      </li>`
+    ).join('');
+
+    document.getElementById('top-fonds').innerHTML = topFonds.map(([name, n]) =>
+      `<li class="is-clickable" data-fonds="${name}">
+        <span class="place">${name}</span>
+        <span class="count">${n}</span>
+        <div class="bar"><span style="width:${(n / maxFonds) * 100}%"></span></div>
+      </li>`
+    ).join('');
+
+    document.getElementById('flow-keys').addEventListener('click', (e) => {
+      const li = e.target.closest('li[data-flow]');
+      if (!li) return;
+      toggleFilter('flows', li.dataset.flow);
+    });
+
+    document.getElementById('top-destinations').addEventListener('click', (e) => {
+      const li = e.target.closest('li[data-place]');
+      if (!li) return;
+      toggleFilter('destinations', li.dataset.place);
+    });
+
+    document.getElementById('top-fonds').addEventListener('click', (e) => {
+      const li = e.target.closest('li[data-fonds]');
+      if (!li) return;
+      toggleFilter('fonds', li.dataset.fonds);
+    });
+
+    document.getElementById('filter-clear').addEventListener('click', clearFilters);
+
+    const legend = L.control({ position: 'bottomleft' });
+    legend.onAdd = () => {
+      const div = L.DomUtil.create('div', 'legend');
+      div.innerHTML =
+        '<b>Légende</b>' +
+        '<span class="swatch fr-mx"></span>France → Mexique<br>' +
+        '<span class="swatch mx-fr"></span>Mexique → France<br>' +
+        '<span class="swatch local"></span>Circulation locale<br>' +
+        '● lieu cliquable &nbsp; ➤ direction<br>' +
+        'Épaisseur = volume épistolaire';
+      return div;
+    };
+    legend.addTo(map);
+
+    updateStats();
+    fitToRelevant();
+  </script>
+</body>
+</html>
